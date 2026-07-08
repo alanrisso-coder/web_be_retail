@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Retail — Soluções de varejo para pequenas e médias empresas</title>
+<meta name="description" content="A Be Retail simplifica a operação do seu varejo: PDV, estoque, loja online e dados em uma só plataforma, feita para pequenas e médias empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --laranja:#FF6B0B;          /* Laranja Natura (NatDS brand B main) */
+    --laranja-escuro:#D65A09;   /* NatDS brand B dark — texto acessível */
+    --laranja-claro:#FF9A59;    /* NatDS brand B lightest */
+    --ambar:#F4AB34;            /* Âmbar Natura (NatDS brand A main) */
+    --terracota:#953C09;        /* NatDS primaryDarkest */
+    --pessego:#FAC3A3;          /* NatDS primaryLightest */
+    --grad:linear-gradient(101deg,var(--ambar),var(--laranja)); /* gradiente oficial Natura, 101° */
+    --navy:#0B0E1E;             /* navy exato da logo */
+    --navy-suave:#191E36;
+    --creme:#FBF4EC;            /* off-white quente, referência Natura */
+    --creme-2:#F9E4D2;          /* derivado do pêssego Natura */
+    --texto:#2E2A26;
+    --texto-suave:#6E655C;
+    --branco:#FFFFFF;
+    --raio:20px;
+    --sombra:0 18px 45px rgba(12,16,35,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--texto);
+    background:var(--creme);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand-text{font-family:'Poppins',sans-serif}
+  img,svg{display:block;max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .container{width:min(1140px,92%);margin-inline:auto}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,244,236,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(12,16,35,.07);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .nav ul{display:flex;gap:32px;list-style:none}
+  .nav ul a{font-weight:500;font-size:.95rem;color:var(--texto-suave);transition:color .2s}
+  .nav ul a:hover{color:var(--laranja)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;
+    padding:13px 28px;border-radius:999px;transition:all .25s;cursor:pointer;border:0;
+  }
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgba(255,107,11,.35)}
+  .btn-primary:hover{filter:brightness(.94);transform:translateY(-2px)}
+  .btn-ghost{border:2px solid rgba(12,16,35,.15);color:var(--navy)}
+  .btn-ghost:hover{border-color:var(--laranja);color:var(--laranja-escuro)}
+
+  /* ===== Logo ===== */
+  .logo{display:flex;align-items:center}
+  .logo img{height:48px;width:auto}
+  footer .logo img{height:44px}
+
+  /* ===== Hero ===== */
+  .hero{padding:72px 0 88px;overflow:hidden}
+  .hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--creme-2);
+    color:var(--laranja-escuro);font-weight:600;font-size:.85rem;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;box-shadow:var(--sombra);
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--laranja)}
+  .hero h1{
+    font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:700;line-height:1.12;
+    letter-spacing:-.03em;color:var(--navy);margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{font-size:1.13rem;color:var(--texto-suave);max-width:32rem;margin-bottom:34px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+  .hero-stats strong{font-family:'Poppins',sans-serif;font-size:1.5rem;color:var(--navy);display:block;letter-spacing:-.02em}
+  .hero-stats span{font-size:.85rem;color:var(--texto-suave)}
+  .hero-art{position:relative}
+  .hero-art .frame{
+    background:linear-gradient(160deg,var(--creme-2),#fff 70%);
+    border-radius:32px;box-shadow:var(--sombra);padding:8px;
+  }
+
+  /* ===== Seções ===== */
+  section{padding:88px 0}
+  .kicker{
+    font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--laranja-escuro);margin-bottom:12px;font-family:'Poppins',sans-serif;
+  }
+  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:var(--navy);line-height:1.2}
+  .section-sub{color:var(--texto-suave);max-width:38rem;margin-top:14px}
+
+  /* Soluções */
+  .solucoes{background:#fff}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
+  .card{
+    background:var(--creme);border-radius:var(--raio);padding:32px 26px;
+    border:1px solid transparent;transition:all .25s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--laranja-claro);box-shadow:var(--sombra)}
+  .card .icon{
+    width:52px;height:52px;border-radius:14px;background:var(--grad);
+    display:grid;place-items:center;margin-bottom:20px;
+  }
+  .card h3{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .card p{font-size:.92rem;color:var(--texto-suave)}
+
+  /* Como funciona */
+  .como .container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .passos{display:flex;flex-direction:column;gap:28px;margin-top:8px}
+  .passo{display:flex;gap:20px;align-items:flex-start}
+  .passo .num{
+    flex:0 0 46px;width:46px;height:46px;border-radius:50%;
+    background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);
+    font-family:'Poppins',sans-serif;font-weight:700;display:grid;place-items:center;
+  }
+  .passo h3{font-size:1.05rem;color:var(--navy);margin-bottom:4px}
+  .passo p{font-size:.94rem;color:var(--texto-suave)}
+
+  /* Depoimento */
+  .depo{background:#fff}
+  .depo blockquote{
+    max-width:46rem;margin:40px auto 0;text-align:center;
+    font-family:'Poppins',sans-serif;font-size:clamp(1.15rem,2.4vw,1.55rem);
+    font-weight:500;line-height:1.5;color:var(--navy);letter-spacing:-.01em;
+  }
+  .depo blockquote em{color:var(--laranja);font-style:normal}
+  .depo .autor{text-align:center;margin-top:24px;color:var(--texto-suave);font-size:.95rem}
+  .depo .autor strong{color:var(--navy)}
+  .depo .center{text-align:center}
+
+  /* CTA band */
+  .cta-band{background:var(--navy);color:#fff;border-radius:32px;padding:72px 8%;position:relative;overflow:hidden}
+  .cta-wrap{padding:0 0 88px}
+  .cta-band h2{font-size:clamp(1.8rem,3.4vw,2.5rem);letter-spacing:-.025em;line-height:1.2;max-width:24ch}
+  .cta-band p{color:rgba(255,255,255,.72);margin:16px 0 32px;max-width:36rem}
+  .cta-band .dots-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.22;pointer-events:none}
+  @media(max-width:700px){.cta-band .dots-deco{display:none}}
+
+  /* Footer */
+  footer{background:var(--navy);color:rgba(255,255,255,.7);padding:60px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+  footer h4{color:#fff;font-family:'Poppins',sans-serif;font-size:.95rem;margin-bottom:16px}
+  footer li{list-style:none;margin-bottom:10px;font-size:.9rem}
+  footer li a:hover{color:var(--laranja-claro)}
+  footer .desc{font-size:.9rem;margin-top:16px;max-width:26rem}
+  .foot-base{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem}
+
+  /* ===== Responsivo ===== */
+  @media(max-width:960px){
+    .hero .container,.como .container{grid-template-columns:1fr}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav ul{display:none}
+    .hero{padding-top:48px}
+  }
+  @media(max-width:560px){
+    .cards{grid-template-columns:1fr}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================================= -->
+<!-- SÍMBOLO DA LOGO (carrinho + círculo de pontos), reutilizável -->
+<!-- ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="be-mark">
+      <!-- anel de pontos -->
+      <g fill="#F0761B">
+        <circle cx="60" cy="8"  r="4.6"/>
+        <circle cx="76" cy="11" r="5.4"/>
+        <circle cx="90" cy="20" r="6.2"/>
+        <circle cx="100" cy="33" r="6.8"/>
+        <circle cx="105" cy="49" r="7.2"/>
+        <circle cx="104" cy="66" r="6.8"/>
+        <circle cx="97" cy="81"  r="6"/>
+        <circle cx="86" cy="93"  r="5.2"/>
+        <circle cx="71" cy="100" r="4.4"/>
+        <circle cx="55" cy="102" r="3.7"/>
+        <circle cx="40" cy="98"  r="3.2"/>
+        <circle cx="27" cy="89"  r="2.8"/>
+        <circle cx="17" cy="77"  r="2.6"/>
+        <circle cx="11" cy="62"  r="2.5"/>
+        <circle cx="10" cy="47"  r="2.5"/>
+        <circle cx="14" cy="32"  r="2.7"/>
+        <circle cx="22" cy="20"  r="3"/>
+        <circle cx="33" cy="11"  r="3.4"/>
+        <circle cx="46" cy="7"   r="3.9"/>
+      </g>
+      <!-- carrinho -->
+      <g stroke="#F0761B" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M28 33 h10 l4 10 m0 0 4.5 26 h32 l6.5 -26 z"/>
+      </g>
+      <!-- rodas -->
+      <circle cx="52" cy="82" r="6" fill="none" stroke="#F0761B" stroke-width="4.5"/>
+      <circle cx="74" cy="82" r="6" fill="none" stroke="#F0761B" stroke-width="4.5"/>
+      <!-- pontos dentro do carrinho -->
+      <g fill="#F0761B">
+        <circle cx="53" cy="50" r="2.6"/><circle cx="62" cy="50" r="2.6"/><circle cx="71" cy="50" r="2.6"/><circle cx="80" cy="50" r="2.6"/>
+        <circle cx="54" cy="58" r="2.6"/><circle cx="63" cy="58" r="2.6"/><circle cx="72" cy="58" r="2.6"/><circle cx="80" cy="58" r="2.6"/>
+        <circle cx="55" cy="66" r="2.6"/><circle cx="64" cy="66" r="2.6"/><circle cx="72" cy="66" r="2.6"/>
+      </g>
+    </g>
+  </defs>
+</svg>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo" aria-label="Be Retail — início">
+      <img src="assets/logo-claro.png" alt="Be Retail">
+    </a>
+    <nav aria-label="principal">
+      <ul>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#como">Como funciona</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#contato">Fale com a gente</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="badge"><span class="dot"></span> Soluções de varejo para PMEs</span>
+      <h1>Seu varejo pronto para <em>ser grande</em>.</h1>
+      <p class="lead">A Be Retail reúne PDV, estoque, loja online e inteligência de dados em uma plataforma simples — feita sob medida para pequenas e médias empresas que querem vender mais.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contato">Começar agora</a>
+        <a class="btn btn-ghost" href="#solucoes">Conhecer as soluções</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>+2.400</strong><span>lojas atendidas</span></div>
+        <div><strong>32%</strong><span>de aumento médio em vendas</span></div>
+        <div><strong>4.9★</strong><span>satisfação dos clientes</span></div>
+      </div>
+    </div>
+
+    <!-- Ilustração hero: mulher fazendo compras -->
+    <div class="hero-art">
+      <div class="frame">
+        <svg viewBox="0 0 520 480" role="img" aria-label="Ilustração de uma mulher sorridente fazendo compras com sacolas">
+          <defs>
+            <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#F9E4D2"/><stop offset="1" stop-color="#FAC3A3"/>
+            </linearGradient>
+            <linearGradient id="bagGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F4AB34"/><stop offset="1" stop-color="#FF6B0B"/>
+            </linearGradient>
+          </defs>
+
+          <!-- fundo -->
+          <rect x="0" y="0" width="520" height="480" rx="26" fill="url(#bgGrad)"/>
+          <circle cx="270" cy="235" r="175" fill="#FBF4EC"/>
+
+          <!-- vitrine ao fundo -->
+          <g opacity=".55">
+            <rect x="60" y="70" width="120" height="150" rx="10" fill="#fff"/>
+            <rect x="76" y="90" width="88" height="8" rx="4" fill="#F6C9A0"/>
+            <rect x="76" y="108" width="60" height="8" rx="4" fill="#EAD9C6"/>
+            <rect x="76" y="140" width="40" height="52" rx="6" fill="#FF6B0B" opacity=".8"/>
+            <rect x="124" y="140" width="40" height="52" rx="6" fill="#1A2038" opacity=".75"/>
+            <rect x="360" y="90" width="110" height="130" rx="10" fill="#fff"/>
+            <rect x="374" y="108" width="80" height="8" rx="4" fill="#F6C9A0"/>
+            <rect x="374" y="126" width="52" height="8" rx="4" fill="#EAD9C6"/>
+            <circle cx="395" cy="175" r="18" fill="#F4AB34" opacity=".85"/>
+            <circle cx="437" cy="175" r="18" fill="#1A2038" opacity=".75"/>
+          </g>
+
+          <!-- pontos decorativos (eco da logo) -->
+          <g fill="#FF6B0B">
+            <circle cx="92" cy="300" r="7"/><circle cx="70" cy="330" r="5"/><circle cx="100" cy="352" r="4"/>
+            <circle cx="448" cy="280" r="7"/><circle cx="470" cy="310" r="5"/><circle cx="442" cy="336" r="4"/>
+            <circle cx="430" cy="60" r="5"/><circle cx="90" cy="52" r="5"/>
+          </g>
+
+          <!-- ===== mulher ===== -->
+          <!-- pernas -->
+          <path d="M242 330 q-6 55 -10 92 l16 0 q8 -48 14 -88 z" fill="#8A4B2D"/>
+          <path d="M282 330 q8 54 12 92 l16 0 q0 -50 -6 -92 z" fill="#7A3F24"/>
+          <!-- sapatos -->
+          <path d="M245 420 q-2 12 6 12 h20 q4 -6 -4 -10 l-8 -4 z" fill="#0C1023"/>
+          <path d="M291 420 q-2 12 6 12 h20 q4 -6 -4 -10 l-8 -4 z" fill="#0C1023"/>
+          <!-- saia -->
+          <path d="M234 262 q-8 46 -2 72 q30 12 60 0 q6 -28 -2 -72 z" fill="#1A2038"/>
+          <!-- tronco / blusa -->
+          <path d="M240 190 q-10 40 -6 76 q28 10 56 0 q4 -38 -6 -76 q-22 -10 -44 0z" fill="#FF6B0B"/>
+          <!-- braço esquerdo (segura sacolas) -->
+          <path d="M242 200 q-24 26 -26 62 l-2 26 10 2 6 -26 q6 -28 24 -50 z" fill="#FF6B0B"/>
+          <path d="M216 286 q-3 12 2 16 q6 3 9 -3 l3 -13z" fill="#C68863"/>
+          <!-- braço direito (segura celular) -->
+          <path d="M282 200 q26 20 30 48 l-32 16 -6 -12 22 -12 q-8 -16 -24 -28z" fill="#D65A09"/>
+          <circle cx="279" cy="258" r="8" fill="#C68863"/>
+          <!-- celular na mão -->
+          <rect x="262" y="244" width="20" height="32" rx="4" fill="#0C1023" transform="rotate(18 272 260)"/>
+          <rect x="266" y="249" width="12" height="20" rx="2" fill="#FF9A59" transform="rotate(18 272 260)"/>
+          <!-- pescoço + cabeça -->
+          <rect x="252" y="162" width="20" height="24" rx="9" fill="#C68863"/>
+          <circle cx="262" cy="142" r="30" fill="#C68863"/>
+          <!-- cabelo -->
+          <path d="M232 138 q-4 -34 30 -36 q34 2 30 36 q0 10 -4 16 q2 -26 -26 -28 q-28 2 -26 28 q-4 -6 -4 -16z" fill="#3B2417"/>
+          <path d="M231 140 q-6 26 4 44 q6 4 8 -2 q-8 -20 -4 -40z" fill="#3B2417"/>
+          <path d="M293 140 q6 26 -4 44 q-6 4 -8 -2 q8 -20 4 -40z" fill="#3B2417"/>
+          <!-- rosto -->
+          <circle cx="252" cy="142" r="2.6" fill="#0C1023"/>
+          <circle cx="272" cy="142" r="2.6" fill="#0C1023"/>
+          <path d="M254 154 q8 7 16 0" stroke="#0C1023" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="246" cy="150" r="4" fill="#E8A87C" opacity=".7"/>
+          <circle cx="278" cy="150" r="4" fill="#E8A87C" opacity=".7"/>
+          <!-- brinco -->
+          <circle cx="232" cy="148" r="3" fill="#FF6B0B"/>
+
+          <!-- sacolas na mão esquerda -->
+          <g>
+            <path d="M196 302 h44 l-5 58 h-34 z" fill="url(#bagGrad)"/>
+            <path d="M206 302 q0 -14 12 -14 q12 0 12 14" stroke="#AD4907" stroke-width="4" fill="none"/>
+            <circle cx="218" cy="330" r="9" fill="#FBF4EC" opacity=".9"/>
+          </g>
+          <g>
+            <path d="M158 300 h38 l-4 48 h-30 z" fill="#1A2038"/>
+            <path d="M167 300 q0 -12 10 -12 q10 0 10 12" stroke="#0C1023" stroke-width="4" fill="none"/>
+            <rect x="168" y="318" width="18" height="5" rx="2.5" fill="#FF6B0B"/>
+          </g>
+
+          <!-- cartão flutuante: compra aprovada -->
+          <g>
+            <rect x="330" y="300" width="150" height="58" rx="14" fill="#fff"/>
+            <circle cx="356" cy="329" r="14" fill="#2FA968"/>
+            <path d="M349 329 l5 5 9 -10" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="380" y="316" width="80" height="9" rx="4.5" fill="#2E2A26" opacity=".85"/>
+            <rect x="380" y="332" width="54" height="8" rx="4" fill="#B9AB9B"/>
+          </g>
+          <!-- cartão flutuante: vendas -->
+          <g>
+            <rect x="52" y="150" width="120" height="66" rx="14" fill="#fff" opacity="0"/>
+            <rect x="352" y="180" width="128" height="72" rx="14" fill="#fff"/>
+            <rect x="366" y="194" width="58" height="8" rx="4" fill="#B9AB9B"/>
+            <path d="M366 236 l16 -12 12 6 20 -18 12 8" stroke="#FF6B0B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="426" cy="220" r="4" fill="#F4AB34"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Soluções ===== -->
+<section class="solucoes" id="solucoes">
+  <div class="container">
+    <p class="kicker">Nossas soluções</p>
+    <h2 class="section-title">Tudo o que o seu varejo precisa, em um só lugar</h2>
+    <p class="section-sub">Da frente de caixa à loja online, a Be Retail conecta cada parte da sua operação para você focar no que importa: o cliente.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M6 20h12M9 16v4M15 16v4"/></svg>
+        </div>
+        <h3>PDV &amp; Vendas</h3>
+        <p>Frente de caixa rápida e intuitiva, com meios de pagamento integrados e emissão fiscal automática.</p>
+      </div>
+      <div class="card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+        </div>
+        <h3>Estoque inteligente</h3>
+        <p>Controle em tempo real, alertas de reposição e curva ABC para nunca perder uma venda por falta de produto.</p>
+      </div>
+      <div class="card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3.5 3 16.5 0 20-3-3.5-3-16.5 0-20z"/></svg>
+        </div>
+        <h3>Loja online</h3>
+        <p>Sua vitrine digital integrada ao estoque físico, com checkout simples e presença nos marketplaces.</p>
+      </div>
+      <div class="card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+        </div>
+        <h3>Dados &amp; CRM</h3>
+        <p>Relatórios claros e cadastro de clientes para vender de novo — campanhas, fidelidade e recompra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Como funciona ===== -->
+<section class="como" id="como">
+  <div class="container">
+    <div>
+      <p class="kicker">Como funciona</p>
+      <h2 class="section-title">Simples de começar, fácil de crescer</h2>
+      <p class="section-sub">Sem burocracia e sem contrato de fidelidade. Em poucos dias sua operação está rodando.</p>
+    </div>
+    <div class="passos">
+      <div class="passo">
+        <div class="num">1</div>
+        <div><h3>Diagnóstico gratuito</h3><p>Entendemos o momento do seu negócio e desenhamos a solução certa para o seu tamanho.</p></div>
+      </div>
+      <div class="passo">
+        <div class="num">2</div>
+        <div><h3>Implantação guiada</h3><p>Migramos seus produtos e clientes, e treinamos a sua equipe — tudo acompanhado de perto.</p></div>
+      </div>
+      <div class="passo">
+        <div class="num">3</div>
+        <div><h3>Loja rodando</h3><p>Você vende no balcão e na internet com estoque unificado e visão completa do caixa.</p></div>
+      </div>
+      <div class="passo">
+        <div class="num">4</div>
+        <div><h3>Crescimento contínuo</h3><p>Nosso time de sucesso acompanha seus números e sugere ações para vender mais todo mês.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Depoimento ===== -->
+<section class="depo" id="clientes">
+  <div class="container">
+    <div class="center">
+      <p class="kicker">Quem usa, recomenda</p>
+    </div>
+    <blockquote>“Com a Be Retail unifiquei a loja física e a online em duas semanas. Hoje sei exatamente <em>o que vender, para quem e quando</em> — e meu faturamento cresceu 40% em seis meses.”</blockquote>
+    <p class="autor"><strong>Mariana Costa</strong> · Fundadora da Flor de Sal Moda Feminina, Campinas/SP</p>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<div class="cta-wrap container" id="contato">
+  <div class="cta-band">
+    <svg class="dots-deco" width="360" height="360" viewBox="0 0 115 112"><use href="#be-mark"/></svg>
+    <h2>Pronto para levar seu varejo mais longe?</h2>
+    <p>Fale com um especialista e receba um diagnóstico gratuito da sua operação. Sem compromisso.</p>
+    <a class="btn btn-primary" href="mailto:contato@beretail.com.br">Agendar diagnóstico gratuito</a>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" aria-label="Be Retail">
+          <img src="assets/logo-transparente.png" alt="Be Retail">
+        </a>
+        <p class="desc">Soluções de varejo para pequenas e médias empresas venderem mais, com menos esforço.</p>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#solucoes">PDV &amp; Vendas</a></li>
+          <li><a href="#solucoes">Estoque inteligente</a></li>
+          <li><a href="#solucoes">Loja online</a></li>
+          <li><a href="#solucoes">Dados &amp; CRM</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#">Carreiras</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@beretail.com.br">contato@beretail.com.br</a></li>
+          <li><a href="tel:+551140000000">(11) 4000-0000</a></li>
+          <li>São Paulo · SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Be Retail. Todos os direitos reservados.</span>
+      <span>Feito com carinho para o pequeno e médio varejo brasileiro.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
