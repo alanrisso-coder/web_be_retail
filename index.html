@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Be Retail — Soluções de varejo para pequenas e médias empresas</title>
-<meta name="description" content="A Be Retail reúne soluções web, estoque, loja online e inteligência de dados com IA em uma só plataforma, feita para pequenas e médias empresas.">
+<meta name="description" content="A Be Retail reúne soluções web com IA, estoque, loja online e inteligência de dados em uma só plataforma, feita para pequenas e médias empresas.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Be Retail — Soluções de varejo para PMEs">
+<meta property="og:description" content="Web com IA, estoque, loja online e inteligência de dados em uma só plataforma, feita para o pequeno e médio varejo.">
+<meta property="og:url" content="https://alanrisso-coder.github.io/web_be_retail/">
+<meta property="og:image" content="https://alanrisso-coder.github.io/web_be_retail/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --laranja:#FF6B0B;
@@ -20,6 +27,7 @@
     --creme:#FBF4EC;
     --texto:#2E2A26;
     --texto-suave:#6E655C;
+    --whatsapp:#25D366;
     --raio:20px;
     --sombra:0 18px 45px rgba(12,16,35,.10);
   }
@@ -32,21 +40,26 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{font-family:'Poppins',sans-serif}
+  h1,h2,h3{font-family:'Bricolage Grotesque','Poppins',sans-serif}
   img,svg{display:block;max-width:100%}
   a{text-decoration:none;color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--laranja-claro);outline-offset:3px;border-radius:6px}
   .container{width:min(1140px,92%);margin-inline:auto}
 
-  /* ===== Header (escuro) ===== */
+  /* ===== Header ===== */
   header{
     position:sticky;top:0;z-index:50;
     background:var(--navy);
     border-bottom:1px solid rgba(255,255,255,.1);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}
   .nav ul{display:flex;gap:32px;list-style:none}
   .nav ul a{font-weight:500;font-size:.95rem;color:rgba(255,255,255,.78);transition:color .2s}
   .nav ul a:hover{color:var(--laranja-claro)}
+  .menu-btn{
+    display:none;background:none;border:0;cursor:pointer;padding:8px;
+    color:#fff;margin-left:auto;
+  }
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;
@@ -62,10 +75,15 @@
   .logo img{height:48px;width:auto}
   footer .logo img{height:44px}
 
-  /* ===== Hero (foto de fundo) ===== */
+  /* ===== Hero ===== */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
   .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-  .hero .overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,14,30,.82) 0%,rgba(11,14,30,.55) 45%,rgba(11,14,30,.15) 100%)}
+  .hero .overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(11,14,30,0) 55%,rgba(11,14,30,.65) 100%),
+      linear-gradient(100deg,rgba(11,14,30,.92) 0%,rgba(11,14,30,.72) 42%,rgba(11,14,30,.18) 100%);
+  }
   .hero .container{position:relative;padding:120px 0}
   .badge{
     display:inline-flex;align-items:center;gap:8px;
@@ -75,18 +93,28 @@
   }
   .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--laranja)}
   .hero h1{
-    font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:700;line-height:1.12;
-    letter-spacing:-.03em;color:#fff;margin-bottom:20px;max-width:16ch;
+    font-size:clamp(2.3rem,4.6vw,3.7rem);font-weight:750;line-height:1.08;
+    letter-spacing:-.02em;color:#fff;margin-bottom:20px;max-width:16ch;
   }
   .hero h1 em{
     font-style:normal;background:var(--grad);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.85);max-width:32rem;margin-bottom:34px}
+  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.88);max-width:32rem;margin-bottom:34px}
   .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
   .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
-  .hero-stats strong{font-family:'Poppins',sans-serif;font-size:1.5rem;color:#fff;display:block;letter-spacing:-.02em}
-  .hero-stats span{font-size:.85rem;color:rgba(255,255,255,.75)}
+  .hero-stats strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;display:block;letter-spacing:-.01em}
+  .hero-stats span{font-size:.85rem;color:rgba(255,255,255,.78)}
+
+  /* entrada orquestrada do hero */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .hero .badge,.hero h1,.hero .lead,.hero-actions,.hero-stats{
+    animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .hero h1{animation-delay:.1s}
+  .hero .lead{animation-delay:.2s}
+  .hero-actions{animation-delay:.3s}
+  .hero-stats{animation-delay:.4s}
 
   /* ===== Seções ===== */
   section{padding:88px 0}
@@ -94,7 +122,7 @@
     font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--laranja-escuro);margin-bottom:12px;font-family:'Poppins',sans-serif;
   }
-  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.025em;color:var(--navy);line-height:1.2}
+  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;color:var(--navy);line-height:1.15}
   .section-sub{color:var(--texto-suave);max-width:38rem;margin-top:14px}
 
   /* Soluções */
@@ -109,40 +137,57 @@
     width:52px;height:52px;border-radius:14px;background:var(--grad);
     display:grid;place-items:center;margin-bottom:20px;
   }
-  .card h3{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:10px}
   .card p{font-size:.92rem;color:var(--texto-suave)}
 
-  /* Como funciona */
+  /* Como funciona — trilha de pontos (assinatura da marca) */
   .como{background:linear-gradient(180deg,#F0650718,#FFFFFF)}
   .como .container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .passos{display:flex;flex-direction:column;gap:28px;margin-top:8px}
-  .passo{display:flex;gap:20px;align-items:flex-start}
+  .passo{display:flex;gap:20px;align-items:flex-start;position:relative}
+  .passo:not(:last-child)::before{
+    content:'';position:absolute;left:21px;top:54px;bottom:-24px;width:4px;
+    background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
+    background-size:4px 12px;background-repeat:repeat-y;
+  }
   .passo .num{
     flex:0 0 46px;width:46px;height:46px;border-radius:50%;
     background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);
     font-family:'Poppins',sans-serif;font-weight:700;display:grid;place-items:center;
+    position:relative;z-index:1;
   }
-  .passo h3{font-size:1.05rem;color:var(--navy);margin-bottom:4px}
+  .passo h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:4px}
   .passo p{font-size:.94rem;color:var(--texto-suave)}
 
   /* Depoimento */
   .depo{background:#fff}
   .depo blockquote{
     max-width:46rem;margin:40px auto 0;text-align:center;
-    font-family:'Poppins',sans-serif;font-size:clamp(1.15rem,2.4vw,1.55rem);
-    font-weight:500;line-height:1.5;color:var(--navy);letter-spacing:-.01em;
+    font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.15rem,2.4vw,1.55rem);
+    font-weight:600;line-height:1.5;color:var(--navy);letter-spacing:-.01em;
   }
   .depo blockquote em{color:var(--laranja);font-style:normal}
   .depo .autor{text-align:center;margin-top:24px;color:var(--texto-suave);font-size:.95rem}
+  .depo .autor strong{color:var(--navy)}
   .depo .center{text-align:center}
 
   /* CTA band */
   .cta-band{background:var(--navy);color:#fff;border-radius:32px;padding:72px 8%;position:relative;overflow:hidden}
   .cta-wrap{padding:0 0 88px}
-  .cta-band h2{font-size:clamp(1.8rem,3.4vw,2.5rem);letter-spacing:-.025em;line-height:1.2;max-width:24ch}
+  .cta-band h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;line-height:1.15;max-width:24ch}
   .cta-band p{color:rgba(255,255,255,.72);margin:16px 0 32px;max-width:36rem}
   .cta-band .dots-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.22;pointer-events:none}
   @media(max-width:700px){.cta-band .dots-deco{display:none}}
+
+  /* WhatsApp flutuante */
+  .whats-float{
+    position:fixed;right:22px;bottom:22px;z-index:60;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--whatsapp);display:grid;place-items:center;
+    box-shadow:0 10px 28px rgba(37,211,102,.45);
+    transition:transform .2s;
+  }
+  .whats-float:hover{transform:scale(1.08)}
 
   /* Footer */
   footer{background:var(--navy);color:rgba(255,255,255,.7);padding:60px 0 32px}
@@ -158,31 +203,45 @@
     .como .container{grid-template-columns:1fr}
     .cards{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr}
-    .nav ul{display:none}
+    .menu-btn{display:block}
+    .nav .cta-header{display:none}
+    .nav nav{position:absolute;top:100%;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1);display:none}
+    header.nav-open .nav nav{display:block}
+    .nav ul{flex-direction:column;gap:0;padding:8px 4%}
+    .nav ul a{display:block;padding:14px 0;font-size:1.05rem}
   }
   @media(max-width:560px){
     .cards{grid-template-columns:1fr}
     section{padding:64px 0}
+  }
+
+  /* movimento reduzido */
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
 
 <!-- ===== Header ===== -->
-<header>
+<header id="topo">
   <div class="container nav">
     <a href="#" class="logo" aria-label="Be Retail — início">
       <img src="assets/logo-transparente.png" alt="Be Retail">
     </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav aria-label="principal">
-      <ul>
+      <ul id="menu-principal">
         <li><a href="#solucoes">Soluções</a></li>
         <li><a href="#como">Como funciona</a></li>
         <li><a href="#clientes">Clientes</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary" href="#contato">Fale com a gente</a>
+    <a class="btn btn-primary cta-header" href="#contato">Fale com a gente</a>
   </div>
 </header>
 
@@ -193,15 +252,15 @@
   <div class="container">
     <span class="badge"><span class="dot"></span> Soluções de varejo para PMEs</span>
     <h1>Seu varejo pronto para <em>ser grande</em>.</h1>
-    <p class="lead">A Be Retail reúne soluções WEB, estoque, loja online e inteligência de dados com IA em uma plataforma simples — feita sob medida para pequenas e médias empresas que querem vender mais.</p>
+    <p class="lead">A Be Retail reúne soluções web, estoque, loja online e inteligência de dados com IA em uma plataforma simples — feita sob medida para pequenas e médias empresas que querem vender mais.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#contato">Começar agora</a>
+      <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener">Começar agora</a>
       <a class="btn btn-ghost" href="#solucoes">Conhecer as soluções</a>
     </div>
     <div class="hero-stats">
-      <div><strong>+2.400</strong><span>lojas atendidas</span></div>
-      <div><strong>32%</strong><span>de aumento médio em vendas</span></div>
-      <div><strong>4.9★</strong><span>satisfação dos clientes</span></div>
+      <div><strong>Em dias</strong><span>implantação completa, não meses</span></div>
+      <div><strong>Zero</strong><span>contrato de fidelidade</span></div>
+      <div><strong>100% humano</strong><span>suporte direto de Curitiba</span></div>
     </div>
   </div>
 </section>
@@ -211,14 +270,14 @@
   <div class="container">
     <p class="kicker">Nossas soluções</p>
     <h2 class="section-title">Tudo o que o seu varejo precisa, em um só lugar</h2>
-    <p class="section-sub">Da frente de caixa à loja online, a Be Retail conecta cada parte da sua operação para você focar no que importa: o cliente.</p>
+    <p class="section-sub">Da vitrine digital à inteligência de dados, a Be Retail conecta cada parte da sua operação para você focar no que importa: o cliente.</p>
 
     <div class="cards">
       <div class="card">
         <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M6 20h12M9 16v4M15 16v4"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
         </div>
-        <h3>Soluções IA</h3>
+        <h3>Web &amp; IA</h3>
         <p>Criamos aplicações web inteligentes para acelerar o crescimento do seu negócio.</p>
       </div>
       <div class="card">
@@ -282,7 +341,7 @@
       <p class="kicker">Quem usa, recomenda</p>
     </div>
     <blockquote>“Com a Be Retail unifiquei a loja física e a online em duas semanas. Hoje sei exatamente <em>o que vender, para quem e quando</em> — e meu faturamento cresceu 40% em seis meses.”</blockquote>
-    <p class="autor">Fundadora da Flor de Sal Moda Feminina, Campinas/SP</p>
+    <p class="autor"><strong>Mariana Costa</strong> · Fundadora da Flor de Sal Moda Feminina, Campinas/SP</p>
   </div>
 </section>
 
@@ -305,8 +364,8 @@
       </g>
     </svg>
     <h2>Pronto para levar seu varejo mais longe?</h2>
-    <p>Fale com um especialista e receba um diagnóstico gratuito da sua operação. Sem compromisso.</p>
-    <a class="btn btn-primary" href="mailto:contato@beretail.com.br">Agendar diagnóstico gratuito</a>
+    <p>Chame a gente no WhatsApp e receba um diagnóstico gratuito da sua operação. Sem compromisso.</p>
+    <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar diagnóstico gratuito</a>
   </div>
 </div>
 
@@ -315,7 +374,7 @@
   <div class="container">
     <div class="foot-grid">
       <div>
-        <a href="#" class="logo" aria-label="Be Retail">
+        <a href="#topo" class="logo" aria-label="Be Retail">
           <img src="assets/logo-transparente.png" alt="Be Retail">
         </a>
         <p class="desc">Soluções de varejo para pequenas e médias empresas venderem mais, com menos esforço.</p>
@@ -341,7 +400,7 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="mailto:contato@beretail.com.br">contato@beretail.com.br</a></li>
-          <li><a href="tel:+5541991013904">(41) 99101-3904</a></li>
+          <li><a href="https://wa.me/5541991013904" target="_blank" rel="noopener">(41) 99101-3904 · WhatsApp</a></li>
           <li>Curitiba - PR</li>
         </ul>
       </div>
@@ -352,6 +411,27 @@
     </div>
   </div>
 </footer>
+
+<!-- WhatsApp flutuante -->
+<a class="whats-float" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Be%20Retail." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const header = document.querySelector('header');
+  const menuBtn = document.querySelector('.menu-btn');
+  menuBtn.addEventListener('click', () => {
+    const open = header.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  });
+  document.querySelectorAll('#menu-principal a').forEach(a =>
+    a.addEventListener('click', () => {
+      header.classList.remove('nav-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>
 
 </body>
 </html>
