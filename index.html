@@ -3,18 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be Retail — Soluções de varejo para pequenas e médias empresas</title>
-<meta name="description" content="A Be Retail reúne soluções web com IA, estoque, loja online e inteligência de dados em uma só plataforma, feita para pequenas e médias empresas.">
+<title>Be Retail | PrevieWeb — Planejamento de demanda, financeiro e supply</title>
+<meta name="description" content="PrevieWeb, da Be Retail: software de previsão de demanda e planejamento integrado — demand, financial e supply planning — para indústria, varejo, têxtil e bens de consumo.">
+<link rel="canonical" href="https://www.beretail.com.br/">
+<meta name="theme-color" content="#0B0E1E">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Be Retail — Soluções de varejo para PMEs">
-<meta property="og:description" content="Web com IA, estoque, loja online e inteligência de dados em uma só plataforma, feita para o pequeno e médio varejo.">
-<meta property="og:url" content="https://alanrisso-coder.github.io/web_be_retail/">
-<meta property="og:image" content="https://alanrisso-coder.github.io/web_be_retail/assets/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Be Retail">
+<meta property="og:title" content="PrevieWeb — Planejamento integrado de demanda, finanças e supply">
+<meta property="og:description" content="Conecte previsão de demanda, planejamento financeiro e supply em uma única plataforma. Para indústria, varejo, têxtil e bens de consumo.">
+<meta property="og:url" content="https://www.beretail.com.br/">
+<meta property="og:image" content="https://www.beretail.com.br/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/previeweb/painel-executivo-1600.webp" imagesrcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w" imagesizes="(max-width:960px) 92vw, 640px">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://www.beretail.com.br/#org",
+      "name":"Be Retail",
+      "url":"https://www.beretail.com.br/",
+      "logo":"https://www.beretail.com.br/assets/logo-be-retail.png",
+      "email":"contato@beretail.com.br",
+      "description":"Empresa de tecnologia especializada em planejamento integrado de demanda, finanças e supply para empresas em crescimento.",
+      "address":{"@type":"PostalAddress","addressLocality":"Curitiba","addressRegion":"PR","addressCountry":"BR"},
+      "founder":{"@type":"Person","name":"Alan Risso","jobTitle":"Fundador"},
+      "contactPoint":{"@type":"ContactPoint","telephone":"+55-41-99101-3904","contactType":"sales","availableLanguage":"Portuguese"}
+    },
+    {
+      "@type":"SoftwareApplication",
+      "name":"PrevieWeb",
+      "applicationCategory":"BusinessApplication",
+      "operatingSystem":"Web",
+      "description":"Plataforma SaaS de planejamento integrado: previsão de demanda (demand planning), planejamento financeiro (financial planning) e planejamento de supply (supply planning).",
+      "featureList":["Forecast estatístico por SKU, local e canal","Forecast x Realizado com MAPE, VMAPE, BIAS e acuracidade","Receita, custos, DRE, fluxo de caixa e cenários","Necessidade líquida, estoque de segurança e ordens planejadas","Visão temporal estilo MRP"],
+      "publisher":{"@id":"https://www.beretail.com.br/#org"}
+    },
+    {
+      "@type":"WebSite",
+      "name":"Be Retail",
+      "url":"https://www.beretail.com.br/",
+      "inLanguage":"pt-BR",
+      "publisher":{"@id":"https://www.beretail.com.br/#org"}
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --laranja:#FF6B0B;
@@ -24,27 +68,40 @@
     --grad:linear-gradient(101deg,#F4AB34,#FF6B0B);
     --navy:#0B0E1E;             /* navy exato da logo */
     --navy-suave:#191E36;
+    --indigo:#4F46E5;           /* azul/roxo do PrevieWeb */
+    --indigo-claro:#8B8CF8;
+    --indigo-suave:#EEF0FF;
     --creme:#FBF4EC;
+    --linha:#E4E7EE;
     --texto:#2E2A26;
     --texto-suave:#6E655C;
     --whatsapp:#25D366;
     --raio:20px;
     --sombra:0 18px 45px rgba(12,16,35,.10);
+    --fundo-escuro:
+      radial-gradient(55% 65% at 88% 0%,rgba(79,70,229,.38),transparent 62%),
+      radial-gradient(40% 55% at 0% 100%,rgba(255,107,11,.16),transparent 60%),
+      var(--navy);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
   body{
     font-family:'Inter',system-ui,sans-serif;
     color:var(--texto);
     background:#FFFFFF;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   h1,h2,h3{font-family:'Bricolage Grotesque','Poppins',sans-serif}
   img,svg{display:block;max-width:100%}
+  img{height:auto}
   a{text-decoration:none;color:inherit}
+  ul,ol{list-style:none}
   a:focus-visible,button:focus-visible{outline:3px solid var(--laranja-claro);outline-offset:3px;border-radius:6px}
   .container{width:min(1140px,92%);margin-inline:auto}
+  .ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
   /* ===== Header ===== */
   header{
@@ -53,9 +110,23 @@
     border-bottom:1px solid rgba(255,255,255,.1);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}
-  .nav ul{display:flex;gap:32px;list-style:none}
-  .nav ul a{font-weight:500;font-size:.95rem;color:rgba(255,255,255,.78);transition:color .2s}
+  .nav > nav > ul{display:flex;gap:28px}
+  .nav ul a{font-weight:500;font-size:.95rem;color:rgba(255,255,255,.78);transition:color .2s;display:inline-flex;align-items:center;gap:4px}
   .nav ul a:hover{color:var(--laranja-claro)}
+  .nav .has-sub{position:relative}
+  .nav .has-sub > a .ic{width:15px;height:15px;transition:transform .2s}
+  .nav .sub{
+    position:absolute;top:calc(100% + 14px);left:-18px;min-width:230px;
+    background:var(--navy-suave);border:1px solid rgba(255,255,255,.12);border-radius:14px;
+    padding:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);
+    opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .2s;
+  }
+  .nav .sub::before{content:'';position:absolute;left:0;right:0;top:-16px;height:16px}
+  .nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{opacity:1;visibility:visible;transform:none}
+  .nav .has-sub:hover > a .ic{transform:rotate(180deg)}
+  .nav .sub a{display:flex;padding:10px 12px;border-radius:9px;font-size:.92rem}
+  .nav .sub a:hover{background:rgba(255,255,255,.06)}
+  .nav .sub .dot{width:8px;height:8px;border-radius:50%;margin-right:8px}
   .menu-btn{
     display:none;background:none;border:0;cursor:pointer;padding:8px;
     color:#fff;margin-left:auto;
@@ -65,10 +136,17 @@
     font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;
     padding:13px 28px;border-radius:999px;transition:all .25s;cursor:pointer;border:0;
   }
+  .btn .ic{width:18px;height:18px;transition:transform .25s}
+  .btn:hover .ic{transform:translateX(3px)}
   .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgba(255,107,11,.35)}
   .btn-primary:hover{filter:brightness(.94);transform:translateY(-2px)}
   .btn-ghost{border:2px solid rgba(255,255,255,.45);color:#fff}
   .btn-ghost:hover{border-color:var(--laranja);color:var(--laranja-claro)}
+  .btn-outline{border:2px solid var(--navy);color:var(--navy)}
+  .btn-outline:hover{border-color:var(--laranja);color:var(--laranja-escuro)}
+  .link-seta{display:inline-flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.92rem;color:var(--laranja-escuro)}
+  .link-seta .ic{width:17px;height:17px;transition:transform .2s}
+  .link-seta:hover .ic{transform:translateX(4px)}
 
   /* ===== Logo ===== */
   .logo{display:flex;align-items:center}
@@ -76,57 +154,271 @@
   footer .logo img{height:44px}
 
   /* ===== Hero ===== */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-  .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-  .hero .overlay{
-    position:absolute;inset:0;
-    background:
-      linear-gradient(180deg,rgba(11,14,30,0) 55%,rgba(11,14,30,.65) 100%),
-      linear-gradient(100deg,rgba(11,14,30,.92) 0%,rgba(11,14,30,.72) 42%,rgba(11,14,30,.18) 100%);
-  }
-  .hero .container{position:relative;padding:120px 0}
+  .hero{position:relative;background:var(--fundo-escuro);color:#fff;overflow:hidden;padding:84px 0 96px}
+  .hero-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:40px;align-items:center}
   .badge{
     display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
     color:#FFD9B8;font-weight:600;font-size:.85rem;
-    padding:8px 16px;border-radius:999px;margin-bottom:22px;backdrop-filter:blur(6px);
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;
   }
   .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--laranja)}
   .hero h1{
-    font-size:clamp(2.3rem,4.6vw,3.7rem);font-weight:750;line-height:1.08;
-    letter-spacing:-.02em;color:#fff;margin-bottom:20px;max-width:16ch;
+    font-size:clamp(2.3rem,4.4vw,3.55rem);font-weight:750;line-height:1.06;
+    letter-spacing:-.02em;margin-bottom:20px;max-width:17ch;
   }
-  .hero h1 em{
+  .hero h1 em,.grad-text{
     font-style:normal;background:var(--grad);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.88);max-width:32rem;margin-bottom:34px}
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
-  .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
-  .hero-stats strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;display:block;letter-spacing:-.01em}
-  .hero-stats span{font-size:.85rem;color:rgba(255,255,255,.78)}
+  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.86);max-width:33rem;margin-bottom:26px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
+  .segs-label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:10px}
+  .seg-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .seg-chips a{
+    display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+    font-size:.88rem;font-weight:500;color:rgba(255,255,255,.9);transition:all .2s;
+  }
+  .seg-chips a:hover{border-color:var(--laranja-claro);background:rgba(255,107,11,.12)}
+  .seg-chips .ic{width:16px;height:16px;color:var(--laranja-claro)}
+
+  /* fluxo Demand → Financial → Supply (componente reutilizável) */
+  .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .flow .step{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:12px;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:.84rem;white-space:nowrap;
+  }
+  .hero .flow{gap:8px}
+  .flow .arrow{width:18px;height:18px;opacity:.55}
+  .flow-dark .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff}
+  .dot-mod{width:9px;height:9px;border-radius:50%;flex:none}
+  .m-demand{--mod:var(--indigo-claro)}
+  .m-fin{--mod:var(--dourado)}
+  .m-supply{--mod:var(--laranja)}
+  .dot-mod{background:var(--mod)}
+
+  .hero-shot{position:relative;margin-right:-9%}
+  .hero-shot::before{
+    content:'';position:absolute;inset:12% 6% 6% 10%;border-radius:40px;
+    background:radial-gradient(closest-side,rgba(139,140,248,.45),transparent);filter:blur(30px);z-index:0;
+  }
+  .hero-shot img{position:relative;z-index:1;width:100%;height:auto}
+  .hero-shot figcaption{position:relative;z-index:1;font-size:.78rem;color:rgba(255,255,255,.5);text-align:center;margin-top:4px}
+  .hero-kpi{
+    position:absolute;z-index:2;left:-4%;bottom:14%;
+    background:#fff;color:var(--navy);border-radius:16px;padding:14px 18px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);display:flex;gap:12px;align-items:center;
+  }
+  .hero-kpi .ic{width:36px;height:36px;padding:8px;border-radius:10px;background:var(--indigo-suave);color:var(--indigo)}
+  .hero-kpi strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.35rem;display:block;line-height:1.1}
+  .hero-kpi span{font-size:.78rem;color:var(--texto-suave)}
 
   /* entrada orquestrada do hero */
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .hero .badge,.hero h1,.hero .lead,.hero-actions,.hero-stats{
+  .hero .badge,.hero h1,.hero .lead,.hero .flow,.hero-actions,.hero-segs,.hero-shot{
     animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both;
   }
-  .hero h1{animation-delay:.1s}
-  .hero .lead{animation-delay:.2s}
-  .hero-actions{animation-delay:.3s}
-  .hero-stats{animation-delay:.4s}
+  .hero h1{animation-delay:.08s}
+  .hero .lead{animation-delay:.16s}
+  .hero .flow{animation-delay:.24s}
+  .hero-actions{animation-delay:.32s}
+  .hero-segs{animation-delay:.4s}
+  .hero-shot{animation-delay:.2s;animation-duration:.9s}
 
   /* ===== Seções ===== */
-  section{padding:88px 0}
+  section{padding:96px 0}
   .kicker{
     font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--laranja-escuro);margin-bottom:12px;font-family:'Poppins',sans-serif;
   }
-  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;color:var(--navy);line-height:1.15}
-  .section-sub{color:var(--texto-suave);max-width:38rem;margin-top:14px}
+  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;color:var(--navy);line-height:1.15;max-width:24ch}
+  .section-sub{color:var(--texto-suave);max-width:40rem;margin-top:14px;font-size:1.03rem}
+  .center{text-align:center}
+  .center .section-title,.center .section-sub{margin-inline:auto}
+  .dark{background:var(--fundo-escuro);color:#fff}
+  .dark .section-title{color:#fff}
+  .dark .section-sub{color:rgba(255,255,255,.72)}
+  .dark .kicker{color:var(--laranja-claro)}
+  .bg-creme{background:var(--creme)}
+  .bg-suave{background:linear-gradient(180deg,#F0650714,#FFFFFF)}
 
-  /* Soluções */
-  .solucoes{background:#fff}
+  /* revelação ao rolar (só com JS) */
+  .js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .js [data-reveal].is-in{opacity:1;transform:none}
+
+  /* ===== Problema ===== */
+  .prob-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;margin-top:52px;align-items:stretch}
+  .frag{
+    background:var(--navy);border-radius:28px;padding:36px 32px;color:#fff;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .frag .tag{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:22px;align-self:flex-start}
+  .fontes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+  .fonte{
+    border:1.5px dashed rgba(255,255,255,.25);border-radius:14px;padding:14px 10px;text-align:center;
+    font-size:.86rem;font-weight:500;color:rgba(255,255,255,.88);display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .fonte .ic{color:var(--indigo-claro)}
+  .fonte:nth-child(2){transform:translateY(8px) rotate(1.5deg)}
+  .fonte:nth-child(4){transform:rotate(-2deg)}
+  .fonte:nth-child(6){transform:translateY(-6px) rotate(2deg)}
+  .frag .down{width:30px;height:30px;color:var(--laranja-claro);margin:22px 0 14px}
+  .manual{
+    background:rgba(255,107,11,.14);border:1.5px solid rgba(255,107,11,.55);border-radius:16px;
+    padding:14px 22px;display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;
+  }
+  .manual .ic{color:var(--laranja-claro)}
+  .dores{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
+  .dor{
+    background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;
+    display:flex;gap:12px;align-items:flex-start;font-size:.94rem;font-weight:500;color:var(--navy);line-height:1.4;
+  }
+  .dor .ic{width:30px;height:30px;padding:7px;border-radius:9px;background:#FFF0E5;color:var(--laranja-escuro);stroke-width:2.6}
+  .virada{margin-top:64px;text-align:center}
+  .virada p{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:750;color:var(--navy);letter-spacing:-.015em;margin-bottom:14px}
+
+  /* ===== Plataforma ===== */
+  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .mod{
+    border:1px solid var(--linha);border-radius:24px;background:#fff;overflow:hidden;
+    display:flex;flex-direction:column;transition:all .25s;
+  }
+  .mod:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:color-mix(in srgb,var(--mod) 60%,#fff)}
+  .mod-head{padding:28px 26px 0}
+  .mod-tag{
+    display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;font-weight:700;
+    font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
+  }
+  .mod-tag .novo{background:var(--grad);color:#fff;letter-spacing:.04em;text-transform:none;font-size:.7rem;padding:2px 8px;border-radius:999px}
+  .mod h3{font-size:1.45rem;font-weight:750;color:var(--navy);margin:10px 0 6px;letter-spacing:-.01em}
+  .mod-head p{font-size:.93rem;color:var(--texto-suave)}
+  .mod-shot{
+    margin:22px 18px 0;border-radius:14px;overflow:hidden;background:#F5F6F8;border:1px solid var(--linha);
+    aspect-ratio:16/10;
+  }
+  .mod-shot img{width:100%;height:100%;object-fit:cover;object-position:left top}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;padding:20px 26px 28px}
+  .chips li{
+    font-size:.8rem;font-weight:500;padding:5px 11px;border-radius:999px;
+    background:color-mix(in srgb,var(--mod) 12%,#fff);color:var(--navy);
+    border:1px solid color-mix(in srgb,var(--mod) 28%,#fff);
+  }
+  .mod-bar{height:5px;background:var(--mod)}
+  .logica{
+    margin-top:44px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .logica .step{background:var(--navy);color:#fff;padding:12px 20px;border-radius:14px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.92rem}
+  .logica .step:last-of-type{background:var(--grad)}
+  .logica .ic{color:var(--laranja)}
+  .cta-inline{margin-top:36px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+  /* ===== Ciclo (Planejamento integrado) ===== */
+  .ciclo-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .ciclo{position:relative;width:min(100%,500px);aspect-ratio:1;margin-inline:auto}
+  .ciclo .anel{position:absolute;inset:10%;width:80%;height:80%;overflow:visible}
+  .ciclo .anel circle{fill:none}
+  .anel .trilha{stroke:rgba(255,255,255,.12);stroke-width:2}
+  .anel .fluxo{stroke:url(#gradAnel);stroke-width:3;stroke-dasharray:6 14;stroke-linecap:round;animation:girar 30s linear infinite}
+  @keyframes girar{to{stroke-dashoffset:-400}}
+  .ciclo-centro{
+    position:absolute;inset:32%;border-radius:50%;display:grid;place-items:center;text-align:center;
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:10px;
+  }
+  .ciclo-centro .ic{width:30px;height:30px;color:var(--laranja-claro);margin:0 auto 6px}
+  .ciclo-centro strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;display:block;line-height:1.2}
+  .ciclo-centro span{font-size:.78rem;color:rgba(255,255,255,.6)}
+  .ciclo ol{position:absolute;inset:0}
+  .ciclo li{
+    position:absolute;width:118px;margin:-46px 0 0 -59px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .ciclo li .no{
+    width:58px;height:58px;border-radius:50%;display:grid;place-items:center;
+    background:var(--navy-suave);border:2px solid var(--mod);color:var(--mod);
+    box-shadow:0 0 0 6px var(--navy);animation:pulso 9s ease-in-out infinite;
+  }
+  .ciclo li .no .ic{width:24px;height:24px}
+  .ciclo li .txt{display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--navy);padding:2px 8px;border-radius:8px}
+  .ciclo li b{font-family:'Poppins',sans-serif;font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.6);font-weight:700}
+  .ciclo li span{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;line-height:1}
+  @keyframes pulso{0%,12%,100%{transform:scale(1);background:var(--navy-suave)}5%{transform:scale(1.12);background:color-mix(in srgb,var(--mod) 30%,var(--navy-suave))}}
+  .ciclo li:nth-child(1){top:10%;left:50%}
+  .ciclo li:nth-child(2){top:30%;left:84.6%;}
+  .ciclo li:nth-child(3){top:70%;left:84.6%}
+  .ciclo li:nth-child(4){top:90%;left:50%}
+  .ciclo li:nth-child(5){top:70%;left:15.4%}
+  .ciclo li:nth-child(6){top:30%;left:15.4%}
+  .ciclo li:nth-child(2) .no{animation-delay:1.5s}
+  .ciclo li:nth-child(3) .no{animation-delay:3s}
+  .ciclo li:nth-child(4) .no{animation-delay:4.5s}
+  .ciclo li:nth-child(5) .no{animation-delay:6s}
+  .ciclo li:nth-child(6) .no{animation-delay:7.5s}
+  .m-exec{--mod:#FFFFFF}
+  .m-real{--mod:#5EEAD4}
+  .m-learn{--mod:var(--laranja-claro)}
+  .ciclo-txt .destaque{
+    margin-top:28px;border-left:3px solid var(--laranja);padding:4px 0 4px 18px;
+    font-size:1.05rem;color:rgba(255,255,255,.88);
+  }
+  .kpi-shot{margin-top:30px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.15)}
+  .kpi-shot + figcaption{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:8px}
+
+  /* ===== Segmentos ===== */
+  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
+  .seg{
+    border-radius:26px;padding:34px 32px;background:#fff;border:1px solid var(--linha);
+    display:flex;flex-direction:column;gap:18px;transition:all .25s;position:relative;overflow:hidden;min-width:0;
+  }
+  .seg::after{
+    content:'';position:absolute;right:-70px;top:-70px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(255,107,11,.12),transparent);pointer-events:none;
+  }
+  .seg:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:var(--laranja-claro)}
+  .seg-top{display:flex;align-items:center;gap:14px}
+  .seg-top .ic-box{width:52px;height:52px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none}
+  .seg-top .ic-box .ic{width:26px;height:26px}
+  .seg-top h3{font-size:.8rem;font-family:'Poppins',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja-escuro)}
+  .seg-top p{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;line-height:1.2;color:var(--navy);letter-spacing:-.01em}
+  .seg .flow{gap:6px}
+  .seg .flow .step{background:var(--indigo-suave);color:var(--indigo);font-size:.8rem;padding:7px 11px;scroll-snap-align:start}
+  .seg .flow .step:last-of-type{background:var(--navy);color:#fff}
+  .seg .flow .arrow{width:14px;height:14px;color:var(--indigo)}
+  .check-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+  .check-list li{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;color:var(--texto);line-height:1.4}
+  .check-list .ic{width:17px;height:17px;color:var(--laranja);stroke-width:2.6;margin-top:2px}
+  .seg .link-seta{margin-top:auto;padding-top:6px;align-self:flex-start}
+
+  /* ===== Da demanda à decisão ===== */
+  .jornada{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:56px;position:relative}
+  .jornada::before{
+    content:'';position:absolute;left:7%;right:7%;top:27px;height:4px;
+    background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
+    background-size:12px 4px;background-repeat:repeat-x;
+  }
+  .etapa{text-align:center;position:relative}
+  .etapa .num{
+    width:58px;height:58px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
+    background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);position:relative;z-index:1;
+  }
+  .etapa.m-demand .num,.etapa.m-fin .num,.etapa.m-supply .num{border-color:var(--mod);background:var(--navy);color:var(--mod)}
+  .etapa:last-child .num{background:var(--grad);border-color:transparent;color:#fff}
+  .etapa h3{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:4px}
+  .etapa p{font-size:.84rem;color:var(--texto-suave);line-height:1.4}
+  .impacto{margin-top:64px;background:var(--navy);border-radius:28px;padding:36px;color:#fff}
+  .impacto-head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;margin-bottom:26px}
+  .impacto h3{font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:750;max-width:30ch;line-height:1.2}
+  .impacto-head small{font-size:.78rem;color:rgba(255,255,255,.5);max-width:26rem}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px}
+  .kpi b{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-family:'Poppins',sans-serif}
+  .kpi strong{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:750;line-height:1.1;margin:6px 0 4px}
+  .kpi span{font-size:.84rem;color:rgba(255,255,255,.7)}
+  .kpi:first-child strong{color:var(--indigo-claro)}
+  .kpi:nth-child(2) strong{color:var(--dourado)}
+  .kpi:nth-child(3) strong{color:var(--laranja-claro)}
+
+  /* ===== Diferenciais (cards da marca) ===== */
   .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
   .card{
     background:var(--creme);border-radius:var(--raio);padding:32px 26px;
@@ -134,48 +426,27 @@
   }
   .card:hover{transform:translateY(-6px);border-color:var(--laranja-claro);box-shadow:var(--sombra)}
   .card .icon{
-    width:52px;height:52px;border-radius:14px;background:var(--grad);
+    width:52px;height:52px;border-radius:14px;background:var(--grad);color:#fff;
     display:grid;place-items:center;margin-bottom:20px;
   }
+  .card .icon .ic{width:26px;height:26px}
   .card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:10px}
   .card p{font-size:.92rem;color:var(--texto-suave)}
 
-  /* Como funciona — trilha de pontos (assinatura da marca) */
-  .como{background:linear-gradient(180deg,#F0650718,#FFFFFF)}
-  .como .container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .passos{display:flex;flex-direction:column;gap:28px;margin-top:8px}
-  .passo{display:flex;gap:20px;align-items:flex-start;position:relative}
-  .passo:not(:last-child)::before{
-    content:'';position:absolute;left:21px;top:54px;bottom:-24px;width:4px;
-    background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
-    background-size:4px 12px;background-repeat:repeat-y;
-  }
-  .passo .num{
-    flex:0 0 46px;width:46px;height:46px;border-radius:50%;
-    background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);
-    font-family:'Poppins',sans-serif;font-weight:700;display:grid;place-items:center;
-    position:relative;z-index:1;
-  }
-  .passo h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-  .passo p{font-size:.94rem;color:var(--texto-suave)}
-
-  /* Depoimento */
-  .depo{background:#fff}
-  .depo blockquote{
-    max-width:46rem;margin:40px auto 0;text-align:center;
-    font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.15rem,2.4vw,1.55rem);
-    font-weight:600;line-height:1.5;color:var(--navy);letter-spacing:-.01em;
-  }
-  .depo blockquote em{color:var(--laranja);font-style:normal}
-  .depo .autor{text-align:center;margin-top:24px;color:var(--texto-suave);font-size:.95rem}
-  .depo .autor strong{color:var(--navy)}
-  .depo .center{text-align:center}
+  /* ===== Sobre ===== */
+  .sobre-txt{max-width:46rem}
+  .sobre-txt p:not(.kicker){color:var(--texto-suave);margin-top:16px;font-size:1.02rem}
+  .sobre-txt p strong{color:var(--navy)}
 
   /* CTA band */
-  .cta-band{background:var(--navy);color:#fff;border-radius:32px;padding:72px 8%;position:relative;overflow:hidden}
-  .cta-wrap{padding:0 0 88px}
-  .cta-band h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;line-height:1.15;max-width:24ch}
-  .cta-band p{color:rgba(255,255,255,.72);margin:16px 0 32px;max-width:36rem}
+  .cta-band{background:var(--fundo-escuro);color:#fff;border-radius:32px;padding:80px 8%;position:relative;overflow:hidden}
+  .cta-wrap{padding:0 0 96px}
+  .cta-band h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:750;letter-spacing:-.02em;line-height:1.08}
+  .cta-band h2 span{display:block}
+  .cta-band p{color:rgba(255,255,255,.75);margin:20px 0 32px;max-width:36rem;font-size:1.05rem}
+  .cta-band .acoes{display:flex;gap:14px;flex-wrap:wrap}
+  .cta-band .diag{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:.95rem;color:rgba(255,255,255,.85)}
+  .cta-band .diag .ic{color:var(--laranja-claro);width:20px;height:20px}
   .cta-band .dots-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.22;pointer-events:none}
   @media(max-width:700px){.cta-band .dots-deco{display:none}}
 
@@ -199,155 +470,533 @@
   .foot-base{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem}
 
   /* ===== Responsivo ===== */
+  @media(max-width:1080px){
+    .jornada{grid-template-columns:1fr;gap:26px;max-width:520px;margin-inline:auto}
+    .jornada::before{display:none}
+    .etapa{display:flex;gap:18px;text-align:left;align-items:flex-start}
+    .etapa .num{margin:0;flex:0 0 52px;width:52px;height:52px}
+    .etapa:not(:last-child)::before{
+      content:'';position:absolute;left:24px;top:60px;bottom:-22px;width:4px;
+      background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
+      background-size:4px 12px;background-repeat:repeat-y;
+    }
+    .etapa h3{margin-top:4px}
+    .mods{grid-template-columns:1fr;max-width:620px;margin-inline:auto}
+  }
   @media(max-width:960px){
-    .como .container{grid-template-columns:1fr}
+    .hero{padding:56px 0 72px}
+    .hero-grid,.prob-grid,.ciclo-grid{grid-template-columns:1fr}
+    .hero-shot{margin-right:0}
+    .ciclo-txt{order:-1}
+    .hero-kpi{left:2%;bottom:6%}
     .cards{grid-template-columns:repeat(2,1fr)}
+    .segs{grid-template-columns:1fr}
+    .kpis{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr}
     .menu-btn{display:block}
     .nav .cta-header{display:none}
-    .nav nav{position:absolute;top:100%;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1);display:none}
-    header.nav-open .nav nav{display:block}
-    .nav ul{flex-direction:column;gap:0;padding:8px 4%}
-    .nav ul a{display:block;padding:14px 0;font-size:1.05rem}
+    .nav > nav{position:absolute;top:100%;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1);display:none;max-height:calc(100vh - 80px);overflow-y:auto}
+    header.nav-open .nav > nav{display:block}
+    .nav > nav > ul{flex-direction:column;gap:0;padding:8px 4% 16px}
+    .nav ul a{display:flex;padding:13px 0;font-size:1.05rem}
+    .nav .has-sub > a .ic{display:none}
+    .nav .sub{position:static;opacity:1;visibility:visible;transform:none;background:none;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0}
+    .nav .sub::before{display:none}
+    .nav .sub a{padding:8px 0;font-size:.95rem;color:rgba(255,255,255,.6)}
+    .nav .sub a:hover{background:none}
+  }
+  @media(max-width:720px){
+    /* ciclo vira lista vertical */
+    .ciclo{aspect-ratio:auto;width:100%}
+    .ciclo .anel,.ciclo-centro{display:none}
+    .ciclo ol{position:static;display:flex;flex-direction:column;gap:0}
+    .ciclo li{position:relative;inset:auto;width:auto;margin:0;flex-direction:row;text-align:left;gap:14px;padding-bottom:22px;top:auto!important;left:auto!important}
+    .ciclo li:not(:last-child)::after{content:'';position:absolute;left:28px;top:62px;bottom:4px;width:2px;background:rgba(255,255,255,.18)}
+    .ciclo li .txt{align-items:flex-start;background:none;padding:0}
+    .ciclo li:last-child{padding-bottom:0}
+    .ciclo-volta{display:flex!important}
   }
   @media(max-width:560px){
+    section{padding:68px 0}
     .cards{grid-template-columns:1fr}
-    section{padding:64px 0}
+    .dores{grid-template-columns:1fr}
+    .check-list{grid-template-columns:1fr}
+    .fontes{grid-template-columns:repeat(2,1fr)}
+    .seg{padding:28px 22px}
+    /* fluxos dos segmentos: scroll horizontal controlado no mobile */
+    .seg .flow{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-right:-22px;padding-right:22px;scrollbar-width:thin}
+    .impacto{padding:28px 22px}
+    .kpis{grid-template-columns:1fr 1fr;gap:10px}
+    .kpi{padding:16px}
+    .kpi strong{font-size:1.35rem}
+    .hero .flow{flex-direction:column;align-items:flex-start;gap:6px}
+    .hero .flow .arrow{transform:rotate(90deg);margin-left:14px}
+    .hero-kpi{display:none}
+    .hero-actions .btn,.cta-band .acoes .btn{width:100%;justify-content:center}
+    .foot-grid{grid-template-columns:1fr}
+    .cta-band{padding:56px 7%}
+    .logica{flex-direction:column}
+    .logica .ic{transform:rotate(90deg)}
   }
+  .ciclo-volta{display:none;align-items:center;gap:8px;margin-top:18px;font-size:.88rem;color:var(--laranja-claro);font-weight:600}
+  .ciclo-volta .ic{width:18px;height:18px}
 
   /* movimento reduzido */
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
+    .js [data-reveal]{opacity:1;transform:none}
   }
 </style>
 </head>
 <body>
 
+<!-- Ícones (sprite reutilizável) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9.2c-.5-.9-1.6-1.4-3-1.4-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.4M12 6v1.8M12 16.2V18"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 4h14v12H1zM15 8h4l4 4v4h-8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 21h20M4 21V10l6 4v-4l6 4V4h4v17"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.6-5h14.8L21 9M4 9v12h16V9M3 9h18M9 21v-6h6v6"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M20.4 3.5L16 2a4 4 0 0 1-8 0L3.6 3.5a2 2 0 0 0-1.3 2.2l.6 3.5a1 1 0 0 0 1 .8H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.2a1 1 0 0 0 1-.8l.6-3.5a2 2 0 0 0-1.4-2.2z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l4 2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+</svg>
+
 <!-- ===== Header ===== -->
 <header id="topo">
   <div class="container nav">
-    <a href="#" class="logo" aria-label="Be Retail — início">
-      <img src="assets/logo-transparente.png" alt="Be Retail">
+    <a href="#inicio" class="logo" aria-label="Be Retail — início">
+      <img src="assets/logo-transparente.png" alt="Be Retail" width="147" height="48">
     </a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav aria-label="principal">
       <ul id="menu-principal">
+        <li><a href="#inicio">Início</a></li>
+        <li class="has-sub">
+          <a href="#plataforma">Plataforma <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></a>
+          <ul class="sub">
+            <li><a href="#demand-planning"><span class="dot m-demand" style="background:var(--mod)"></span>Demand Planning</a></li>
+            <li><a href="#financial-planning"><span class="dot m-fin" style="background:var(--mod)"></span>Financial Planning</a></li>
+            <li><a href="#supply-planning"><span class="dot m-supply" style="background:var(--mod)"></span>Supply Planning</a></li>
+          </ul>
+        </li>
         <li><a href="#solucoes">Soluções</a></li>
-        <li><a href="#como">Como funciona</a></li>
-        <li><a href="#clientes">Clientes</a></li>
+        <li class="has-sub">
+          <a href="#segmentos">Segmentos <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></a>
+          <ul class="sub">
+            <li><a href="#industria">Indústria</a></li>
+            <li><a href="#varejo">Varejo</a></li>
+            <li><a href="#textil-moda">Têxtil &amp; Moda</a></li>
+            <li><a href="#bens-de-consumo">Bens de Consumo</a></li>
+          </ul>
+        </li>
+        <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary cta-header" href="#contato">Fale com a gente</a>
+    <a class="btn btn-primary cta-header" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração</a>
   </div>
 </header>
 
+<main>
+
 <!-- ===== Hero ===== -->
-<section class="hero">
-  <img class="bg" src="uploads/iStock-1430639883.jpg" alt="Duas empreendedoras sorridentes usando um notebook em sua loja">
-  <div class="overlay"></div>
-  <div class="container">
-    <span class="badge"><span class="dot"></span> Soluções de varejo para PMEs</span>
-    <h1>Seu varejo pronto para <em>ser grande</em>.</h1>
-    <p class="lead">A Be Retail reúne soluções web, estoque, loja online e inteligência de dados com IA em uma plataforma simples — feita sob medida para pequenas e médias empresas que querem vender mais.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener">Começar agora</a>
-      <a class="btn btn-ghost" href="#solucoes">Conhecer as soluções</a>
-    </div>
-    <div class="hero-stats">
-      <div><strong>Em dias</strong><span>implantação completa, não meses</span></div>
-      <div><strong>Zero</strong><span>contrato de fidelidade</span></div>
-      <div><strong>100% humano</strong><span>suporte direto de Curitiba</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Soluções ===== -->
-<section class="solucoes" id="solucoes">
-  <div class="container">
-    <p class="kicker">Nossas soluções</p>
-    <h2 class="section-title">Tudo o que o seu varejo precisa, em um só lugar</h2>
-    <p class="section-sub">Da vitrine digital à inteligência de dados, a Be Retail conecta cada parte da sua operação para você focar no que importa: o cliente.</p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
-        </div>
-        <h3>Web &amp; IA</h3>
-        <p>Criamos aplicações web inteligentes para acelerar o crescimento do seu negócio.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
-        </div>
-        <h3>Estoque inteligente</h3>
-        <p>Controle em tempo real, alertas de reposição e curva ABC para nunca perder uma venda por falta de produto.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3.5 3 16.5 0 20-3-3.5-3-16.5 0-20z"/></svg>
-        </div>
-        <h3>Loja online</h3>
-        <p>Sua vitrine digital integrada ao estoque físico, com checkout simples e presença nos marketplaces.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
-        </div>
-        <h3>Dados &amp; CRM</h3>
-        <p>Relatórios claros e cadastro de clientes para vender de novo — campanhas, fidelidade e recompra.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Como funciona ===== -->
-<section class="como" id="como">
-  <div class="container">
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
     <div>
-      <p class="kicker">Como funciona</p>
-      <h2 class="section-title">Simples de começar, fácil de crescer</h2>
-      <p class="section-sub">Sem burocracia e sem contrato de fidelidade. Em poucos dias sua operação está rodando.</p>
+      <span class="badge"><span class="dot"></span> PrevieWeb · Planejamento integrado</span>
+      <h1>Planejamento inteligente para empresas que <em>querem crescer</em>.</h1>
+      <p class="lead">Conecte demanda, finanças e supply em uma única plataforma e transforme dados em decisões de negócio.</p>
+      <div class="flow flow-dark" aria-label="Demand Planning, depois Financial Planning, depois Supply Planning">
+        <span class="step m-demand"><span class="dot-mod"></span>Demand Planning</span>
+        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+        <span class="step m-fin"><span class="dot-mod"></span>Financial Planning</span>
+        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+        <span class="step m-supply"><span class="dot-mod"></span>Supply Planning</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#plataforma">Conheça o PrevieWeb <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração</a>
+      </div>
+      <div class="hero-segs">
+        <p class="segs-label">Tecnologia de planejamento avançado para</p>
+        <div class="seg-chips">
+          <a href="#industria"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg>Indústria</a>
+          <a href="#varejo"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg>Varejo</a>
+          <a href="#textil-moda"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg>Têxtil &amp; Moda</a>
+          <a href="#bens-de-consumo"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>Bens de Consumo</a>
+        </div>
+      </div>
     </div>
-    <div class="passos">
-      <div class="passo">
-        <div class="num">1</div>
-        <div><h3>Diagnóstico gratuito</h3><p>Entendemos o momento do seu negócio e desenhamos a solução certa para o seu tamanho.</p></div>
+    <figure class="hero-shot">
+      <img src="assets/previeweb/painel-executivo-1600.webp"
+           srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
+           sizes="(max-width:960px) 92vw, 640px" width="1600" height="1227"
+           alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
+      <div class="hero-kpi" aria-hidden="true">
+        <svg class="ic"><use href="#i-target"/></svg>
+        <div><strong>91,4%</strong><span>acurácia da previsão</span></div>
       </div>
-      <div class="passo">
-        <div class="num">2</div>
-        <div><h3>Implantação guiada</h3><p>Migramos seus produtos e clientes, e treinamos a sua equipe — tudo acompanhado de perto.</p></div>
-      </div>
-      <div class="passo">
-        <div class="num">3</div>
-        <div><h3>Loja rodando</h3><p>Você vende no balcão e na internet com estoque unificado e visão completa do caixa.</p></div>
-      </div>
-      <div class="passo">
-        <div class="num">4</div>
-        <div><h3>Crescimento contínuo</h3><p>Nosso time de sucesso acompanha seus números e sugere ações para vender mais todo mês.</p></div>
-      </div>
-    </div>
+      <figcaption>Tela real do PrevieWeb · dados de demonstração</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ===== Depoimento ===== -->
-<section class="depo" id="clientes">
+<!-- ===== Problema ===== -->
+<section class="bg-creme" id="problema">
   <div class="container">
-    <div class="center">
-      <p class="kicker">Quem usa, recomenda</p>
+    <div class="center" data-reveal>
+      <p class="kicker">O problema que resolvemos</p>
+      <h2 class="section-title">Sua empresa ainda planeja usando informações desconectadas?</h2>
     </div>
-    <blockquote>“Com a Be Retail unifiquei a loja física e a online em duas semanas. Hoje sei exatamente <em>o que vender, para quem e quando</em> — e meu faturamento cresceu 40% em seis meses.”</blockquote>
-    <p class="autor"><strong>Mariana Costa</strong> · Fundadora da Flor de Sal Moda Feminina, Campinas/SP</p>
+    <div class="prob-grid">
+      <div class="frag" data-reveal>
+        <span class="tag">Planejamento fragmentado</span>
+        <ul class="fontes">
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg>ERP</li>
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-sheet"/></svg>Excel</li>
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg>Estoque</li>
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg>Histórico de vendas</li>
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Comercial</li>
+          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg>Financeiro</li>
+        </ul>
+        <svg class="ic down" aria-hidden="true"><use href="#i-down"/></svg>
+        <div class="manual"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Decisões manuais</div>
+      </div>
+      <ul class="dores" data-reveal>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Rupturas e excesso de estoque</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Previsões de demanda pouco confiáveis</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Planejamento manual em Excel</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Orçamento desconectado da demanda</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Compras e produção reativas</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Áreas trabalhando com números diferentes</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Decisões lentas</li>
+        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Planejamento que não vira execução</li>
+      </ul>
+    </div>
+    <div class="virada" data-reveal>
+      <p>Existe uma forma <span class="grad-text">melhor de planejar</span>.</p>
+      <a class="link-seta" href="#plataforma">Veja como o PrevieWeb conecta tudo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
+<!-- ===== Plataforma ===== -->
+<section id="plataforma">
+  <div class="container">
+    <div class="center" data-reveal>
+      <p class="kicker">A plataforma PrevieWeb</p>
+      <h2 class="section-title">Um único ambiente para planejar demanda, finanças e supply.</h2>
+      <p class="section-sub">Três módulos conectados sobre a mesma base de dados — da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro.</p>
+    </div>
+
+    <div class="mods">
+      <article class="mod m-demand" id="demand-planning" data-reveal>
+        <div class="mod-bar"></div>
+        <div class="mod-head">
+          <span class="mod-tag"><span class="dot-mod"></span>Demand Planning</span>
+          <h3>O que vamos vender?</h3>
+          <p>Previsão de demanda estatística, revisada pelo planejador e medida contra o realizado.</p>
+        </div>
+        <div class="mod-shot"><img src="assets/previeweb/bancada-planejador-900.webp" srcset="assets/previeweb/bancada-planejador-900.webp 900w, assets/previeweb/bancada-planejador-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="638" loading="lazy" alt="Bancada do Planejador do PrevieWeb: séries SKU por local com histórico, forecast estatístico, final, WMAPE, viés e risco"></div>
+        <ul class="chips" aria-label="Recursos de Demand Planning">
+          <li>Forecast estatístico</li><li>SKU, local e canal</li><li>Sazonalidade</li><li>NPI / novos produtos</li><li>ABC/XYZ</li><li>Desagregação</li><li>Revisão do planejador</li><li>Workflow de aprovação</li><li>Forecast x Realizado</li><li>MAPE</li><li>VMAPE</li><li>BIAS</li><li>Acuracidade</li>
+        </ul>
+      </article>
+
+      <article class="mod m-fin" id="financial-planning" data-reveal>
+        <div class="mod-bar"></div>
+        <div class="mod-head">
+          <span class="mod-tag"><span class="dot-mod"></span>Financial Planning</span>
+          <h3>Quanto isso representa financeiramente?</h3>
+          <p>O forecast de demanda vira receita, custo, margem e caixa — com cenários.</p>
+        </div>
+        <div class="mod-shot"><img src="assets/previeweb/painel-financeiro-900.webp" srcset="assets/previeweb/painel-financeiro-900.webp 900w, assets/previeweb/painel-financeiro-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="588" loading="lazy" alt="Painel Financeiro do PrevieWeb com previsão de receita, receita versus orçamento e receita realizada versus plano"></div>
+        <ul class="chips" aria-label="Recursos de Financial Planning">
+          <li>Receita projetada</li><li>Preço</li><li>Custos</li><li>Despesas</li><li>Margem</li><li>Orçamento</li><li>DRE</li><li>Fluxo de caixa</li><li>Cenários</li><li>Planejado x Realizado</li><li>Previsão contínua</li>
+        </ul>
+      </article>
+
+      <article class="mod m-supply" id="supply-planning" data-reveal>
+        <div class="mod-bar"></div>
+        <div class="mod-head">
+          <span class="mod-tag"><span class="dot-mod"></span>Supply Planning <span class="novo">Novo</span></span>
+          <h3>Como vamos atender a demanda?</h3>
+          <p>Para cada SKU e local: quanto, quando e onde comprar, produzir ou repor.</p>
+        </div>
+        <div class="mod-shot"><img src="assets/previeweb/supply-visao-temporal-900.webp" srcset="assets/previeweb/supply-visao-temporal-900.webp 900w, assets/previeweb/supply-visao-temporal-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="376" loading="lazy" alt="Visão temporal estilo MRP do PrevieWeb com forecast, estoque de segurança, necessidade, supply e data da ordem por mês"></div>
+        <ul class="chips" aria-label="Recursos de Supply Planning">
+          <li>Estoque disponível</li><li>Estoque de segurança</li><li>Lead time</li><li>Pedidos em aberto</li><li>Necessidade líquida</li><li>Lote mínimo</li><li>MOQ</li><li>Plano de compras</li><li>Plano de produção</li><li>Reposição</li><li>Ordens planejadas</li><li>Visão temporal estilo MRP</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="logica" data-reveal>
+      <span class="step">Mesma base de dados</span>
+      <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>
+      <span class="step">Decisão integrada</span>
+      <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>
+      <span class="step">Melhor execução</span>
+    </div>
+    <div class="cta-inline">
+      <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Planejamento integrado (ciclo) ===== -->
+<section class="dark" id="solucoes">
+  <span id="como" class="sr-only"></span>
+  <div class="container ciclo-grid">
+    <div class="ciclo" data-reveal>
+      <svg class="anel" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><linearGradient id="gradAnel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B8CF8"/><stop offset="1" stop-color="#FF6B0B"/></linearGradient></defs>
+        <circle class="trilha" cx="100" cy="100" r="100"/>
+        <circle class="fluxo" cx="100" cy="100" r="100"/>
+      </svg>
+      <div class="ciclo-centro" aria-hidden="true">
+        <div><svg class="ic"><use href="#i-refresh"/></svg><strong>Ciclo contínuo</strong><span>de planejamento</span></div>
+      </div>
+      <ol aria-label="Ciclo de planejamento integrado">
+        <li class="m-demand"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><span class="txt"><b>DEMAND</b><span>Prever</span></span></li>
+        <li class="m-fin"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg></span><span class="txt"><b>FINANCIAL</b><span>Projetar</span></span></li>
+        <li class="m-supply"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><span class="txt"><b>SUPPLY</b><span>Atender</span></span></li>
+        <li class="m-exec"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><span class="txt"><b>EXECUTE</b><span>Executar</span></span></li>
+        <li class="m-real"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><span class="txt"><b>REALIZED</b><span>Medir</span></span></li>
+        <li class="m-learn"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span><span class="txt"><b>LEARNING</b><span>Aprender</span></span></li>
+      </ol>
+      <p class="ciclo-volta"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>O aprendizado volta para o próximo forecast</p>
+    </div>
+    <div class="ciclo-txt" data-reveal>
+      <p class="kicker">Planejamento integrado</p>
+      <h2 class="section-title">Cada ciclo de planejamento aprende com o anterior.</h2>
+      <p class="section-sub">Prever, projetar, atender, executar, medir e aprender — no mesmo ambiente, com os mesmos números para comercial, financeiro e operações. É o S&amp;OP / IBP na prática, sem a complexidade dos grandes projetos.</p>
+      <p class="destaque">O realizado volta como aprendizado para melhorar o próximo forecast.</p>
+      <figure>
+        <div class="kpi-shot"><img src="assets/previeweb/forecast-x-realizado-1600.webp" srcset="assets/previeweb/forecast-x-realizado-900.webp 900w, assets/previeweb/forecast-x-realizado-1600.webp 1600w" sizes="(max-width:960px) 92vw, 520px" width="1600" height="334" loading="lazy" alt="Indicadores de Forecast x Realizado no PrevieWeb: forecast, realizado, erro absoluto, acuracidade de 88,8%, WMAPE, MAPE, BIAS e BIAS volume"></div>
+        <figcaption>Forecast x Realizado: MAPE, VMAPE, BIAS e acuracidade medem cada ciclo · dados de demonstração</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Segmentos ===== -->
+<section class="bg-creme" id="segmentos">
+  <span id="clientes" class="sr-only"></span>
+  <div class="container">
+    <div class="center" data-reveal>
+      <p class="kicker">Soluções por segmento</p>
+      <h2 class="section-title">Tecnologia de planejamento para diferentes negócios.</h2>
+      <p class="section-sub">A mesma plataforma, configurada para a realidade de cada operação.</p>
+    </div>
+    <div class="segs">
+      <article class="seg" id="industria" data-reveal>
+        <div class="seg-top">
+          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg></span>
+          <div><h3>Indústria</h3><p>Da previsão de demanda ao plano de produção.</p></div>
+        </div>
+        <div class="flow" aria-label="Fluxo para indústria">
+          <span class="step">Demand Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Estoque</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Insumos</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Compras</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Produção</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Supply Plan</span>
+        </div>
+        <ul class="check-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de demanda</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de materiais</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Estoque de segurança</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Compras de insumos</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de produção</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos rupturas</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos excesso de estoque</li>
+        </ul>
+        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Ind%C3%BAstria." target="_blank" rel="noopener">Conheça a solução para Indústria <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="seg" id="varejo" data-reveal>
+        <div class="seg-top">
+          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span>
+          <div><h3>Varejo</h3><p>O produto certo, no lugar certo, no momento certo.</p></div>
+        </div>
+        <div class="flow" aria-label="Fluxo para varejo">
+          <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Loja/CD</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Estoque</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Reposição</span>
+        </div>
+        <ul class="check-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por loja/CD</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por canal</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Gestão de estoque</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Reposição</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
+        </ul>
+        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Varejo." target="_blank" rel="noopener">Conheça a solução para Varejo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="seg" id="textil-moda" data-reveal>
+        <div class="seg-top">
+          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg></span>
+          <div><h3>Têxtil &amp; Moda</h3><p>Planejamento preparado para coleções, sazonalidade e novos produtos.</p></div>
+        </div>
+        <div class="flow" aria-label="Fluxo para têxtil e moda">
+          <span class="step">Coleção</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">NPI / Produto espelho</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Matéria-prima</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Produção</span>
+        </div>
+        <ul class="check-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Coleções</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Novos produtos / NPI</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Produto espelho</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade e forecast</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Família e categoria</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Compras e matéria-prima</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Produção e estoque</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
+        </ul>
+        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20T%C3%AAxtil%20%26%20Moda." target="_blank" rel="noopener">Conheça a solução para Têxtil <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="seg" id="bens-de-consumo" data-reveal>
+        <div class="seg-top">
+          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>
+          <div><h3>Bens de Consumo</h3><p>Conecte demanda, canais, estoque e resultado financeiro.</p></div>
+        </div>
+        <div class="flow" aria-label="Fluxo para bens de consumo">
+          <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Abastecimento</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span class="step">Receita &amp; margem</span>
+        </div>
+        <ul class="check-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por canal</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Mix de produtos</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Estoque e abastecimento</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Receita, custos e margem</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Cenários</li>
+        </ul>
+        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Bens%20de%20Consumo." target="_blank" rel="noopener">Conheça a solução para Bens de Consumo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Da demanda à decisão ===== -->
+<section class="bg-suave" id="demanda-decisao">
+  <div class="container">
+    <div class="center" data-reveal>
+      <p class="kicker">Da demanda à decisão</p>
+      <h2 class="section-title">Muito além de uma ferramenta de forecast.</h2>
+      <p class="section-sub">O PrevieWeb conecta o forecast de vendas ao plano financeiro, ao planejamento de estoque e de produção — e fecha o ciclo com o realizado.</p>
+    </div>
+    <ol class="jornada" data-reveal>
+      <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg></span><div><h3>Histórico de vendas</h3><p>Importado com nota de qualidade</p></div></li>
+      <li class="etapa m-demand"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><div><h3>Forecast de demanda</h3><p>Modelo escolhido por série</p></div></li>
+      <li class="etapa m-fin"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg></span><div><h3>Plano financeiro</h3><p>Receita, custos e caixa</p></div></li>
+      <li class="etapa m-supply"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><div><h3>Plano de Supply</h3><p>Compras, produção e reposição</p></div></li>
+      <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><div><h3>Execução</h3><p>Ordens datadas e aprovadas</p></div></li>
+      <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><div><h3>Realizado</h3><p>Forecast x Realizado</p></div></li>
+      <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg></span><div><h3>Novo ciclo</h3><p>Planejamento mais preciso</p></div></li>
+    </ol>
+
+    <div class="impacto" data-reveal>
+      <div class="impacto-head">
+        <h3>Uma variação de demanda afeta receita, estoque e caixa ao mesmo tempo.</h3>
+        <small>Exemplo ilustrativo: 10.000 un/mês, preço R$ 50, custo R$ 30/un, estoque de segurança de meio mês.</small>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>Demanda</b><strong>+10%</strong><span>1.000 unidades a mais por mês</span></div>
+        <div class="kpi"><b>Receita</b><strong>+R$ 50 mil</strong><span>por mês, a R$ 50 de preço médio</span></div>
+        <div class="kpi"><b>Estoque</b><strong>+1.500 un</strong><span>1.000 para atender + 500 de segurança</span></div>
+        <div class="kpi"><b>Capital</b><strong>+R$ 45 mil</strong><span>em estoque antes de a receita entrar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Diferenciais ===== -->
+<section id="diferenciais">
+  <div class="container">
+    <div data-reveal>
+      <p class="kicker">Por que a Be Retail</p>
+      <h2 class="section-title">Tecnologia avançada. Sem a complexidade dos grandes projetos.</h2>
+    </div>
+    <div class="cards">
+      <div class="card" data-reveal>
+        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></div>
+        <h3>Planejamento</h3>
+        <p>Experiência em Demand Planning, S&amp;OP/IBP, Supply Planning e planejamento financeiro.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg></div>
+        <h3>Tecnologia</h3>
+        <p>Plataforma SaaS em nuvem, preparada para integração, segurança e rastreabilidade.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></div>
+        <h3>Simplicidade</h3>
+        <p>Experiência desenvolvida para usuários de negócio, não apenas especialistas técnicos.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-unlock"/></svg></div>
+        <h3>Acessibilidade</h3>
+        <p>Tecnologia e métodos de grandes organizações, adaptados para empresas em crescimento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sobre ===== -->
+<section class="bg-creme" id="sobre">
+  <div class="container">
+    <div class="sobre-txt" data-reveal>
+      <p class="kicker">Sobre a Be Retail</p>
+      <h2 class="section-title">Experiência de grandes projetos aplicada a empresas em crescimento.</h2>
+      <p>A Be Retail nasceu para tornar tecnologias avançadas de planejamento mais acessíveis às empresas brasileiras.</p>
+      <p>Nossa experiência combina tecnologia, supply chain, varejo, planejamento e transformação digital, trazendo práticas de grandes organizações para uma plataforma simples, prática e preparada para a realidade de empresas em crescimento.</p>
+      <p>O <strong>PrevieWeb</strong> materializa essa visão, conectando Demand Planning, Financial Planning e Supply Planning em um único ambiente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA final ===== -->
 <div class="cta-wrap container" id="contato">
-  <div class="cta-band">
+  <div class="cta-band" data-reveal>
     <svg class="dots-deco" width="360" height="360" viewBox="0 0 115 112" aria-hidden="true">
       <g fill="#F0761B">
         <circle cx="60" cy="8" r="4.6"/><circle cx="76" cy="11" r="5.4"/><circle cx="90" cy="20" r="6.2"/><circle cx="100" cy="33" r="6.8"/><circle cx="105" cy="49" r="7.2"/><circle cx="104" cy="66" r="6.8"/><circle cx="97" cy="81" r="6"/><circle cx="86" cy="93" r="5.2"/><circle cx="71" cy="100" r="4.4"/><circle cx="55" cy="102" r="3.7"/><circle cx="40" cy="98" r="3.2"/><circle cx="27" cy="89" r="2.8"/><circle cx="17" cy="77" r="2.6"/><circle cx="11" cy="62" r="2.5"/><circle cx="10" cy="47" r="2.5"/><circle cx="14" cy="32" r="2.7"/><circle cx="22" cy="20" r="3"/><circle cx="33" cy="11" r="3.4"/><circle cx="46" cy="7" r="3.9"/>
@@ -363,11 +1012,17 @@
         <circle cx="55" cy="66" r="2.6"/><circle cx="64" cy="66" r="2.6"/><circle cx="72" cy="66" r="2.6"/>
       </g>
     </svg>
-    <h2>Pronto para levar seu varejo mais longe?</h2>
-    <p>Chame a gente no WhatsApp e receba um diagnóstico gratuito da sua operação. Sem compromisso.</p>
-    <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar diagnóstico gratuito</a>
+    <h2><span>Planeje melhor.</span><span>Decida melhor.</span><span class="grad-text">Cresça melhor.</span></h2>
+    <p>Não queremos apenas digitalizar o Excel. Queremos transformar a forma como sua empresa planeja.</p>
+    <div class="acoes">
+      <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost" href="#plataforma">Conheça o PrevieWeb</a>
+    </div>
+    <p class="diag"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Diagnóstico do seu planejamento + demonstração utilizando seus dados.</p>
   </div>
 </div>
+
+</main>
 
 <!-- ===== Footer ===== -->
 <footer>
@@ -375,25 +1030,26 @@
     <div class="foot-grid">
       <div>
         <a href="#topo" class="logo" aria-label="Be Retail">
-          <img src="assets/logo-transparente.png" alt="Be Retail">
+          <img src="assets/logo-transparente.png" alt="Be Retail" width="135" height="44" loading="lazy">
         </a>
-        <p class="desc">Soluções de varejo para pequenas e médias empresas venderem mais, com menos esforço.</p>
+        <p class="desc">Tecnologia de planejamento integrado — demanda, finanças e supply — para indústria, varejo, têxtil e bens de consumo.</p>
       </div>
       <div>
-        <h4>Soluções</h4>
+        <h4>Plataforma</h4>
         <ul>
-          <li><a href="#solucoes">Web &amp; IA</a></li>
-          <li><a href="#solucoes">Estoque inteligente</a></li>
-          <li><a href="#solucoes">Loja online</a></li>
-          <li><a href="#solucoes">Dados &amp; CRM</a></li>
+          <li><a href="#demand-planning">Demand Planning</a></li>
+          <li><a href="#financial-planning">Financial Planning</a></li>
+          <li><a href="#supply-planning">Supply Planning</a></li>
+          <li><a href="#solucoes">Planejamento integrado</a></li>
         </ul>
       </div>
       <div>
-        <h4>Empresa</h4>
+        <h4>Segmentos</h4>
         <ul>
-          <li><a href="#">Sobre nós</a></li>
-          <li><a href="#clientes">Clientes</a></li>
-          <li><a href="#">Carreiras</a></li>
+          <li><a href="#industria">Indústria</a></li>
+          <li><a href="#varejo">Varejo</a></li>
+          <li><a href="#textil-moda">Têxtil &amp; Moda</a></li>
+          <li><a href="#bens-de-consumo">Bens de Consumo</a></li>
         </ul>
       </div>
       <div>
@@ -402,18 +1058,19 @@
           <li><a href="mailto:contato@beretail.com.br">contato@beretail.com.br</a></li>
           <li><a href="https://wa.me/5541991013904" target="_blank" rel="noopener">(41) 99101-3904 · WhatsApp</a></li>
           <li>Curitiba - PR</li>
+          <li><a href="#sobre">Sobre nós</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-base">
       <span>© 2026 Be Retail. Todos os direitos reservados.</span>
-      <span>Feito com carinho para o pequeno e médio varejo brasileiro.</span>
+      <span>PrevieWeb é uma plataforma da Be Retail.</span>
     </div>
   </div>
 </footer>
 
 <!-- WhatsApp flutuante -->
-<a class="whats-float" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Be%20Retail." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+<a class="whats-float" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20PrevieWeb%20e%20as%20solu%C3%A7%C3%B5es%20da%20Be%20Retail." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -429,8 +1086,20 @@
     a.addEventListener('click', () => {
       header.classList.remove('nav-open');
       menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Abrir menu');
     })
   );
+
+  // revela as seções ao rolar
+  const alvos = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entradas => entradas.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    alvos.forEach(el => io.observe(el));
+  } else {
+    alvos.forEach(el => el.classList.add('is-in'));
+  }
 </script>
 
 </body>
