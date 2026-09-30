@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Be Retail | PrevieWeb — Planejamento de demanda, financeiro e supply</title>
 <meta name="description" content="PrevieWeb, da Be Retail: software de previsão de demanda e planejamento integrado — demand, financial e supply planning — para indústria, varejo, têxtil e bens de consumo.">
-<link rel="canonical" href="https://www.beretail.com.br/">
+<link rel="canonical" href="https://beretail.com.br/">
 <meta name="theme-color" content="#0B0E1E">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="Be Retail">
 <meta property="og:title" content="PrevieWeb — Planejamento integrado de demanda, finanças e supply">
 <meta property="og:description" content="Conecte previsão de demanda, planejamento financeiro e supply em uma única plataforma. Para indústria, varejo, têxtil e bens de consumo.">
-<meta property="og:url" content="https://www.beretail.com.br/">
-<meta property="og:image" content="https://www.beretail.com.br/assets/og-image.jpg">
+<meta property="og:url" content="https://beretail.com.br/">
+<meta property="og:image" content="https://beretail.com.br/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -30,15 +30,18 @@
   "@graph":[
     {
       "@type":"Organization",
-      "@id":"https://www.beretail.com.br/#org",
+      "@id":"https://beretail.com.br/#org",
       "name":"Be Retail",
-      "url":"https://www.beretail.com.br/",
-      "logo":"https://www.beretail.com.br/assets/logo-be-retail.png",
+      "url":"https://beretail.com.br/",
+      "logo":"https://beretail.com.br/assets/logo-be-retail.png",
       "email":"contato@beretail.com.br",
       "description":"Empresa de tecnologia especializada em planejamento integrado de demanda, finanças e supply para empresas em crescimento.",
       "address":{"@type":"PostalAddress","addressLocality":"Curitiba","addressRegion":"PR","addressCountry":"BR"},
       "founder":{"@type":"Person","name":"Alan Risso","jobTitle":"Fundador"},
-      "contactPoint":{"@type":"ContactPoint","telephone":"+55-41-99101-3904","contactType":"sales","availableLanguage":"Portuguese"}
+      "contactPoint":[
+        {"@type":"ContactPoint","telephone":"+55-41-99101-3904","contactType":"sales","areaServed":"BR","availableLanguage":"Portuguese","description":"Curitiba/PR"},
+        {"@type":"ContactPoint","telephone":"+55-48-99201-8882","contactType":"sales","areaServed":"BR","availableLanguage":"Portuguese","description":"Florianópolis/SC"}
+      ]
     },
     {
       "@type":"SoftwareApplication",
@@ -47,14 +50,14 @@
       "operatingSystem":"Web",
       "description":"Plataforma SaaS de planejamento integrado: previsão de demanda (demand planning), planejamento financeiro (financial planning) e planejamento de supply (supply planning).",
       "featureList":["Forecast estatístico por SKU, local e canal","Forecast x Realizado com MAPE, VMAPE, BIAS e acuracidade","Receita, custos, DRE, fluxo de caixa e cenários","Necessidade líquida, estoque de segurança e ordens planejadas","Visão temporal estilo MRP"],
-      "publisher":{"@id":"https://www.beretail.com.br/#org"}
+      "publisher":{"@id":"https://beretail.com.br/#org"}
     },
     {
       "@type":"WebSite",
       "name":"Be Retail",
-      "url":"https://www.beretail.com.br/",
+      "url":"https://beretail.com.br/",
       "inLanguage":"pt-BR",
-      "publisher":{"@id":"https://www.beretail.com.br/#org"}
+      "publisher":{"@id":"https://beretail.com.br/#org"}
     }
   ]
 }
@@ -1056,8 +1059,8 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="mailto:contato@beretail.com.br">contato@beretail.com.br</a></li>
-          <li><a href="https://wa.me/5541991013904" target="_blank" rel="noopener">(41) 99101-3904 · WhatsApp</a></li>
-          <li>Curitiba - PR</li>
+          <li><a href="https://wa.me/5541991013904" target="_blank" rel="noopener" aria-label="WhatsApp Curitiba: (41) 99101-3904">(41) 99101-3904 - Curitiba/PR</a></li>
+          <li><a href="https://wa.me/5548992018882" target="_blank" rel="noopener" aria-label="WhatsApp Florianópolis: (48) 99201-8882">(48) 99201-8882 - Florianópolis/SC</a></li>
           <li><a href="#sobre">Sobre nós</a></li>
         </ul>
       </div>
