@@ -12,8 +12,8 @@
 
   gtag('config', 'G-1HCFN1PPWR');
 </script>
-<title>Be Retail | PrevieWeb — Planejamento de demanda, financeiro e supply</title>
-<meta name="description" content="PrevieWeb, da Be Retail: software de previsão de demanda e planejamento integrado — demand, financial e supply planning — para indústria, varejo, têxtil e bens de consumo.">
+<title>Be Retail | PrevieWeb — Planejamento de demanda, financeiro, estoque e supply</title>
+<meta name="description" content="PrevieWeb, da Be Retail: software de previsão de demanda e planejamento integrado — demand planning, financial planning, inventory optimization e supply planning — para indústria, varejo, têxtil e bens de consumo.">
 <link rel="canonical" href="https://beretail.com.br/">
 <meta name="theme-color" content="#0B0E1E">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Be Retail">
-<meta property="og:title" content="PrevieWeb — Planejamento integrado de demanda, finanças e supply">
-<meta property="og:description" content="Conecte previsão de demanda, planejamento financeiro e supply em uma única plataforma. Para indústria, varejo, têxtil e bens de consumo.">
+<meta property="og:title" content="PrevieWeb — Planejamento integrado de demanda, finanças, estoque e supply">
+<meta property="og:description" content="Conecte previsão de demanda, planejamento financeiro, otimização de estoque e supply em uma única plataforma. Para indústria, varejo, têxtil e bens de consumo.">
 <meta property="og:url" content="https://beretail.com.br/">
 <meta property="og:image" content="https://beretail.com.br/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -57,8 +57,8 @@
       "name":"PrevieWeb",
       "applicationCategory":"BusinessApplication",
       "operatingSystem":"Web",
-      "description":"Plataforma SaaS de planejamento integrado: previsão de demanda (demand planning), planejamento financeiro (financial planning) e planejamento de supply (supply planning).",
-      "featureList":["Forecast estatístico por SKU, local e canal","Forecast x Realizado com MAPE, VMAPE, BIAS e acuracidade","Receita, custos, DRE, fluxo de caixa e cenários","Necessidade líquida, estoque de segurança e ordens planejadas","Visão temporal estilo MRP"],
+      "description":"Plataforma SaaS de planejamento integrado: previsão de demanda (demand planning), planejamento financeiro (financial planning), otimização de estoque (inventory optimization) e planejamento de supply (supply planning).",
+      "featureList":["Forecast estatístico por SKU, local e canal","Forecast x Realizado com MAPE, VMAPE, BIAS e acuracidade","Receita, custos, DRE, fluxo de caixa e cenários","Estoque de segurança por nível de serviço, ponto de pedido e estoque máximo","Diagnóstico de excesso, ruptura e itens sem giro","Necessidade líquida, estoque de segurança e ordens planejadas","Visão temporal estilo MRP"],
       "publisher":{"@id":"https://beretail.com.br/#org"}
     },
     {
@@ -228,6 +228,7 @@
   .m-demand{--mod:var(--indigo-claro)}
   .m-fin{--mod:var(--dourado)}
   .m-supply{--mod:var(--laranja)}
+  .m-inv{--mod:#14B8A6}
   .dot-mod{background:var(--mod)}
 
   .hero-shot{position:relative;margin-right:-9%}
@@ -311,7 +312,7 @@
   .virada p{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:750;color:var(--navy);letter-spacing:-.015em;margin-bottom:14px}
 
   /* ===== Plataforma ===== */
-  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
   .mod{
     border:1px solid var(--linha);border-radius:24px;background:#fff;overflow:hidden;
     display:flex;flex-direction:column;transition:all .25s;
@@ -337,6 +338,29 @@
     border:1px solid color-mix(in srgb,var(--mod) 28%,#fff);
   }
   .mod-bar{height:5px;background:var(--mod)}
+  /* mock ilustrativo do Inventory Optimization */
+  .inv-mock{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:16px 18px;background:#fff;font-family:var(--f-ui)}
+  .inv-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .inv-kpis div{border:1px solid var(--linha);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+  .inv-kpis b{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-suave);font-weight:700}
+  .inv-kpis strong{font-family:var(--f-display);font-size:1.05rem;color:var(--navy);line-height:1.1}
+  .inv-kpis small{font-size:.66rem;font-weight:600;color:#0F8A7E}
+  .inv-tab{width:100%;border-collapse:collapse;font-size:.7rem;color:var(--navy);font-variant-numeric:tabular-nums}
+  .inv-tab th{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--texto-suave);font-weight:700;text-align:right;padding:0 6px 5px;border-bottom:1px solid var(--linha)}
+  .inv-tab th:first-child,.inv-tab td:first-child{text-align:left}
+  .inv-tab td{padding:6px;text-align:right;border-bottom:1px solid var(--linha);white-space:nowrap}
+  .inv-tab tr:last-child td{border-bottom:0}
+  .inv-st{display:inline-block;padding:2px 7px;border-radius:999px;font-size:.62rem;font-weight:700}
+  .st-ok{background:#E6F7F4;color:#0F766E}
+  .st-exc{background:#FFF1E6;color:#C2410C}
+  .st-rup{background:#FDECEC;color:#B42318}
+  @media(max-width:560px){
+    .inv-mock{aspect-ratio:auto;padding:14px 12px}
+    .inv-kpis{gap:6px}
+    .inv-kpis div{padding:7px 8px}
+    .inv-kpis strong{font-size:.95rem}
+    .inv-tab th:nth-child(2),.inv-tab td:nth-child(2),.inv-tab th:nth-child(4),.inv-tab td:nth-child(4){display:none}
+  }
   .logica{
     margin:52px auto 0;display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;
     width:fit-content;max-width:100%;padding:6px;border-radius:999px;background:var(--navy);
@@ -424,7 +448,7 @@
   .seg .link-seta{margin-top:auto;padding-top:6px;align-self:flex-start}
 
   /* ===== Da demanda à decisão ===== */
-  .jornada{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:56px;position:relative}
+  .jornada{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:56px;position:relative}
   .jornada::before{
     content:'';position:absolute;left:7%;right:7%;top:27px;height:4px;
     background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
@@ -435,7 +459,7 @@
     width:58px;height:58px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
     background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);position:relative;z-index:1;
   }
-  .etapa.m-demand .num,.etapa.m-fin .num,.etapa.m-supply .num{border-color:var(--mod);background:var(--navy);color:var(--mod)}
+  .etapa.m-demand .num,.etapa.m-fin .num,.etapa.m-inv .num,.etapa.m-supply .num{border-color:var(--mod);background:var(--navy);color:var(--mod)}
   .etapa:last-child .num{background:var(--grad);border-color:transparent;color:#fff}
   .etapa h3{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:4px}
   .etapa p{font-size:.84rem;color:var(--texto-suave);line-height:1.4}
@@ -659,6 +683,7 @@
   <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></symbol>
   <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
   <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
   <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
@@ -683,6 +708,7 @@
           <ul class="sub">
             <li><a href="#demand-planning"><span class="dot m-demand" style="background:var(--mod)"></span>Demand Planning</a></li>
             <li><a href="#financial-planning"><span class="dot m-fin" style="background:var(--mod)"></span>Financial Planning</a></li>
+            <li><a href="#inventory-optimization"><span class="dot m-inv" style="background:var(--mod)"></span>Inventory Optimization</a></li>
             <li><a href="#supply-planning"><span class="dot m-supply" style="background:var(--mod)"></span>Supply Planning</a></li>
           </ul>
         </li>
@@ -712,11 +738,13 @@
     <div>
       <span class="badge"><span class="dot"></span> PrevieWeb · Planejamento integrado</span>
       <h1>Planejamento inteligente para empresas que <em>querem crescer</em>.</h1>
-      <p class="lead">Conecte demanda, finanças e supply em uma única plataforma e transforme dados em decisões de negócio.</p>
-      <div class="flow flow-dark" aria-label="Demand Planning, depois Financial Planning, depois Supply Planning">
+      <p class="lead">Conecte demanda, finanças, estoque e supply em uma única plataforma e transforme dados em decisões de negócio.</p>
+      <div class="flow flow-dark" aria-label="Demand Planning, depois Financial Planning, depois Inventory Optimization, depois Supply Planning">
         <span class="step m-demand"><span class="dot-mod"></span>Demand Planning</span>
         <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
         <span class="step m-fin"><span class="dot-mod"></span>Financial Planning</span>
+        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+        <span class="step m-inv"><span class="dot-mod"></span>Inventory Optimization</span>
         <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
         <span class="step m-supply"><span class="dot-mod"></span>Supply Planning</span>
       </div>
@@ -792,8 +820,8 @@
   <div class="container">
     <div class="center" data-reveal>
       <p class="kicker">A plataforma PrevieWeb</p>
-      <h2 class="section-title">Um único ambiente para planejar demanda, finanças e supply.</h2>
-      <p class="section-sub">Três módulos conectados sobre a mesma base de dados — da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro.</p>
+      <h2 class="section-title">Um único ambiente para planejar demanda, finanças, estoque e supply.</h2>
+      <p class="section-sub">Quatro módulos conectados sobre a mesma base de dados — da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
     </div>
 
     <div class="mods">
@@ -804,7 +832,7 @@
           <h3>O que vamos vender?</h3>
           <p>Previsão de demanda estatística, revisada pelo planejador e medida contra o realizado.</p>
         </div>
-        <div class="mod-shot"><img src="assets/previeweb/bancada-planejador-900.webp" srcset="assets/previeweb/bancada-planejador-900.webp 900w, assets/previeweb/bancada-planejador-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="638" loading="lazy" alt="Bancada do Planejador do PrevieWeb: séries SKU por local com histórico, forecast estatístico, final, WMAPE, viés e risco"></div>
+        <div class="mod-shot"><img src="assets/previeweb/bancada-planejador-900.webp" srcset="assets/previeweb/bancada-planejador-900.webp 900w, assets/previeweb/bancada-planejador-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 560px" width="900" height="638" loading="lazy" alt="Bancada do Planejador do PrevieWeb: séries SKU por local com histórico, forecast estatístico, final, WMAPE, viés e risco"></div>
         <ul class="chips" aria-label="Recursos de Demand Planning">
           <li>Forecast estatístico</li><li>SKU, local e canal</li><li>Sazonalidade</li><li>NPI / novos produtos</li><li>ABC/XYZ</li><li>Desagregação</li><li>Revisão do planejador</li><li>Workflow de aprovação</li><li>Forecast x Realizado</li><li>MAPE</li><li>VMAPE</li><li>BIAS</li><li>Acuracidade</li>
         </ul>
@@ -817,20 +845,48 @@
           <h3>Quanto isso representa financeiramente?</h3>
           <p>O forecast de demanda vira receita, custo, margem e caixa — com cenários.</p>
         </div>
-        <div class="mod-shot"><img src="assets/previeweb/painel-financeiro-900.webp" srcset="assets/previeweb/painel-financeiro-900.webp 900w, assets/previeweb/painel-financeiro-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="588" loading="lazy" alt="Painel Financeiro do PrevieWeb com previsão de receita, receita versus orçamento e receita realizada versus plano"></div>
+        <div class="mod-shot"><img src="assets/previeweb/painel-financeiro-900.webp" srcset="assets/previeweb/painel-financeiro-900.webp 900w, assets/previeweb/painel-financeiro-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 560px" width="900" height="588" loading="lazy" alt="Painel Financeiro do PrevieWeb com previsão de receita, receita versus orçamento e receita realizada versus plano"></div>
         <ul class="chips" aria-label="Recursos de Financial Planning">
           <li>Receita projetada</li><li>Preço</li><li>Custos</li><li>Despesas</li><li>Margem</li><li>Orçamento</li><li>DRE</li><li>Fluxo de caixa</li><li>Cenários</li><li>Planejado x Realizado</li><li>Previsão contínua</li>
+        </ul>
+      </article>
+
+      <article class="mod m-inv" id="inventory-optimization" data-reveal>
+        <div class="mod-bar"></div>
+        <div class="mod-head">
+          <span class="mod-tag"><span class="dot-mod"></span>Inventory Optimization <span class="novo">Novo</span></span>
+          <h3>Quanto estoque devemos ter?</h3>
+          <p>O nível de estoque ideal para cada SKU e local: menos ruptura, menos excesso e menos capital parado.</p>
+        </div>
+        <div class="mod-shot inv-mock" role="img" aria-label="Exemplo ilustrativo de Inventory Optimization: nível de serviço de 97,5%, redução de 18% no estoque e 6% dos SKUs em excesso; tabela por SKU com classe, nível de serviço, estoque de segurança, ponto de pedido, cobertura e status">
+          <div class="inv-kpis" aria-hidden="true">
+            <div><b>Nível de serviço</b><strong>97,5%</strong><small>meta 97%</small></div>
+            <div><b>Estoque</b><strong>−18%</strong><small>vs. política atual</small></div>
+            <div><b>Em excesso</b><strong>6%</strong><small>dos SKUs</small></div>
+          </div>
+          <table class="inv-tab" aria-hidden="true">
+            <thead><tr><th>SKU</th><th>Classe</th><th>NS</th><th>Est. seg.</th><th>Ponto ped.</th><th>Cob.</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>SKU-1042</td><td>AX</td><td>99%</td><td>420</td><td>1.180</td><td>24d</td><td><span class="inv-st st-ok">OK</span></td></tr>
+              <tr><td>SKU-2210</td><td>BY</td><td>95%</td><td>180</td><td>540</td><td>61d</td><td><span class="inv-st st-exc">Excesso</span></td></tr>
+              <tr><td>SKU-3307</td><td>AZ</td><td>97%</td><td>310</td><td>860</td><td>6d</td><td><span class="inv-st st-rup">Risco</span></td></tr>
+              <tr><td>SKU-4518</td><td>CX</td><td>90%</td><td>60</td><td>210</td><td>33d</td><td><span class="inv-st st-ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="chips" aria-label="Recursos de Inventory Optimization">
+          <li>Nível de serviço por SKU</li><li>Estoque de segurança</li><li>Variabilidade da demanda</li><li>Variabilidade do lead time</li><li>Ponto de pedido</li><li>Estoque mínimo e máximo</li><li>Cobertura em dias</li><li>Políticas por ABC/XYZ</li><li>Excesso e obsolescência</li><li>Risco de ruptura</li><li>Capital em estoque</li><li>Simulação de cenários</li>
         </ul>
       </article>
 
       <article class="mod m-supply" id="supply-planning" data-reveal>
         <div class="mod-bar"></div>
         <div class="mod-head">
-          <span class="mod-tag"><span class="dot-mod"></span>Supply Planning <span class="novo">Novo</span></span>
+          <span class="mod-tag"><span class="dot-mod"></span>Supply Planning</span>
           <h3>Como vamos atender a demanda?</h3>
           <p>Para cada SKU e local: quanto, quando e onde comprar, produzir ou repor.</p>
         </div>
-        <div class="mod-shot"><img src="assets/previeweb/supply-visao-temporal-900.webp" srcset="assets/previeweb/supply-visao-temporal-900.webp 900w, assets/previeweb/supply-visao-temporal-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 340px" width="900" height="376" loading="lazy" alt="Visão temporal estilo MRP do PrevieWeb com forecast, estoque de segurança, necessidade, supply e data da ordem por mês"></div>
+        <div class="mod-shot"><img src="assets/previeweb/supply-visao-temporal-900.webp" srcset="assets/previeweb/supply-visao-temporal-900.webp 900w, assets/previeweb/supply-visao-temporal-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 560px" width="900" height="376" loading="lazy" alt="Visão temporal estilo MRP do PrevieWeb com forecast, estoque de segurança, necessidade, supply e data da ordem por mês"></div>
         <ul class="chips" aria-label="Recursos de Supply Planning">
           <li>Estoque disponível</li><li>Estoque de segurança</li><li>Lead time</li><li>Pedidos em aberto</li><li>Necessidade líquida</li><li>Lote mínimo</li><li>MOQ</li><li>Plano de compras</li><li>Plano de produção</li><li>Reposição</li><li>Ordens planejadas</li><li>Visão temporal estilo MRP</li>
         </ul>
@@ -1005,12 +1061,13 @@
     <div class="center" data-reveal>
       <p class="kicker">Da demanda à decisão</p>
       <h2 class="section-title">Muito além de uma ferramenta de forecast.</h2>
-      <p class="section-sub">O PrevieWeb conecta o forecast de vendas ao plano financeiro, ao planejamento de estoque e de produção — e fecha o ciclo com o realizado.</p>
+      <p class="section-sub">O PrevieWeb conecta o forecast de vendas ao plano financeiro, à otimização de estoque e ao planejamento de compras e produção — e fecha o ciclo com o realizado.</p>
     </div>
     <ol class="jornada" data-reveal>
       <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg></span><div><h3>Histórico de vendas</h3><p>Importado com nota de qualidade</p></div></li>
       <li class="etapa m-demand"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><div><h3>Forecast de demanda</h3><p>Modelo escolhido por série</p></div></li>
       <li class="etapa m-fin"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg></span><div><h3>Plano financeiro</h3><p>Receita, custos e caixa</p></div></li>
+      <li class="etapa m-inv"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h3>Política de estoque</h3><p>Nível de serviço e estoque ideal</p></div></li>
       <li class="etapa m-supply"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><div><h3>Plano de Supply</h3><p>Compras, produção e reposição</p></div></li>
       <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><div><h3>Execução</h3><p>Ordens datadas e aprovadas</p></div></li>
       <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><div><h3>Realizado</h3><p>Forecast x Realizado</p></div></li>
@@ -1046,7 +1103,7 @@
       <div class="card" data-reveal>
         <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></div>
         <h3>Planejamento</h3>
-        <p>Experiência em Demand Planning, S&amp;OP/IBP, Supply Planning e planejamento financeiro.</p>
+        <p>Experiência em Demand Planning, S&amp;OP/IBP, Inventory Optimization, Supply Planning e planejamento financeiro.</p>
       </div>
       <div class="card" data-reveal>
         <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg></div>
@@ -1075,7 +1132,7 @@
       <h2 class="section-title">Experiência de grandes projetos aplicada a empresas em crescimento.</h2>
       <p>A Be Retail nasceu para tornar tecnologias avançadas de planejamento mais acessíveis às empresas brasileiras.</p>
       <p>Nossa experiência combina tecnologia, supply chain, varejo, planejamento e transformação digital, trazendo práticas de grandes organizações para uma plataforma simples, prática e preparada para a realidade de empresas em crescimento.</p>
-      <p>O <strong>PrevieWeb</strong> materializa essa visão, conectando Demand Planning, Financial Planning e Supply Planning em um único ambiente.</p>
+      <p>O <strong>PrevieWeb</strong> materializa essa visão, conectando Demand Planning, Financial Planning, Inventory Optimization e Supply Planning em um único ambiente.</p>
     </div>
     <aside class="sobre-card" data-reveal aria-label="PrevieWeb em resumo">
       <span class="tag">Uma plataforma Be Retail</span>
@@ -1083,6 +1140,7 @@
       <ul class="sobre-mods">
         <li class="m-demand"><span class="dot-mod"></span>Demand Planning<small>O que vender</small></li>
         <li class="m-fin"><span class="dot-mod"></span>Financial Planning<small>Quanto representa</small></li>
+        <li class="m-inv"><span class="dot-mod"></span>Inventory Optimization<small>Quanto estocar</small></li>
         <li class="m-supply"><span class="dot-mod"></span>Supply Planning<small>Como atender</small></li>
       </ul>
       <div class="sobre-locais">
@@ -1139,6 +1197,7 @@
         <ul>
           <li><a href="#demand-planning">Demand Planning</a></li>
           <li><a href="#financial-planning">Financial Planning</a></li>
+          <li><a href="#inventory-optimization">Inventory Optimization</a></li>
           <li><a href="#supply-planning">Supply Planning</a></li>
           <li><a href="#solucoes">Planejamento integrado</a></li>
         </ul>
