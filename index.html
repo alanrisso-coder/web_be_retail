@@ -241,34 +241,55 @@
     .js [data-reveal].is-in{opacity:1;transform:none}
   }
 
-  /* ===== Problema ===== */
-  .prob-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;margin-top:52px;align-items:stretch}
-  .frag{
-    background:var(--navy);border-radius:28px;padding:36px 32px;color:#fff;position:relative;overflow:hidden;
-    display:flex;flex-direction:column;align-items:center;
+  /* ===== Problema (layout de referência) ===== */
+  /* taste-skill-ignore: rótulo em pílula, palavra em destaque, ícones e sombras seguem a referência pedida */
+  .desafio{background:#F7F8FA}
+  .pill{
+    display:inline-block;padding:8px 20px;border-radius:999px;background:#FFE4D3;color:#B33A0A;
+    font-family:var(--f-ui);font-weight:700;font-size:var(--t-small);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;
   }
-  .frag .tag{font-size:var(--t-ui);color:#fff;font-weight:600;margin-bottom:22px;align-self:flex-start}
-  .fontes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+  .desafio-title{max-width:none}
+  .desafio-title span{display:block;color:#E8590C}
+  .desafio .section-sub{color:#4B5563;max-width:48rem}
+  .prob-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;margin-top:56px;align-items:center}
+  .frag{position:relative;aspect-ratio:6/7;border-radius:24px;overflow:hidden;container-type:inline-size;background:#E9ECF1}
+  .frag-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+  .frag::before{
+    content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(247,248,250,.94) 0%,rgba(247,248,250,.82) 30%,rgba(247,248,250,0) 54%); /* taste-skill-ignore: véu claro sob os cartões */
+  }
+  .frag .tag{position:absolute;z-index:3;left:6%;top:5%;font-size:clamp(.875rem,3.1cqi,1.125rem);font-weight:600;color:var(--navy)}
+  .frag-setas{position:absolute;inset:0;z-index:2;width:100%;height:100%}
+  .frag-setas path{fill:none;stroke:#374151;stroke-width:1.6;stroke-dasharray:3 5;vector-effect:non-scaling-stroke;opacity:.75}
+  .fontes{position:absolute;inset:0;z-index:3}
   .fonte{
-    background:rgba(255,255,255,.07);border-radius:14px;padding:14px 10px;text-align:center;
-    font-size:var(--t-small);font-weight:500;color:rgba(255,255,255,.88);display:flex;flex-direction:column;align-items:center;gap:8px;
+    position:absolute;display:flex;align-items:center;gap:2.2cqi;
+    padding:2.2cqi 3cqi;border-radius:2cqi;background:#fff;
+    box-shadow:0 6px 20px rgba(15,23,42,.10); /* taste-skill-ignore */
+    font-family:var(--f-ui);font-weight:600;font-size:clamp(.8125rem,2.7cqi,1rem);line-height:1.2;color:var(--navy);
   }
-  .fonte .ic{color:var(--indigo-claro)}
-  .fonte:nth-child(2){transform:translateY(8px) rotate(1.5deg)}
-  .fonte:nth-child(4){transform:rotate(-2deg)}
-  .fonte:nth-child(6){transform:translateY(-6px) rotate(2deg)}
-  .frag .down{width:30px;height:30px;color:var(--laranja-claro);margin:22px 0 14px}
+  .fonte-ic .ic{width:clamp(18px,5cqi,30px);height:clamp(18px,5cqi,30px);stroke-width:2}
+  .f-erp{left:12%;top:13%}       .f-erp .ic{color:#2563EB}
+  .f-excel{left:41%;top:11%}     .f-excel .ic{color:#16A34A}
+  .f-estoque{left:68%;top:13%}   .f-estoque .ic{color:#7C3AED} /* taste-skill-ignore: roxo do ícone de estoque da referência */
+  .f-historico{left:6%;top:28%}  .f-historico .ic{color:#F59E0B}
+  .f-comercial{left:40%;top:25%} .f-comercial .ic{color:#2563EB}
+  .f-financeiro{left:66%;top:27%} .f-financeiro .ic{color:#16A34A}
   .manual{
-    background:rgba(255,107,11,.2);border-radius:16px;
-    padding:14px 22px;display:flex;align-items:center;gap:10px;font-family:var(--f-ui);font-weight:600;
+    position:absolute;z-index:3;left:50%;bottom:6%;transform:translateX(-50%);white-space:nowrap;
+    background:rgba(58,34,22,.92);color:#fff;border-radius:2.6cqi;padding:3cqi 5cqi;
+    display:flex;align-items:center;gap:2.4cqi;font-family:var(--f-ui);font-weight:600;font-size:clamp(.95rem,3.6cqi,1.3rem);
   }
-  .manual .ic{color:var(--laranja-claro)}
-  .dores{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
+  .manual .ic{color:#FB923C;width:clamp(20px,5.2cqi,30px);height:clamp(20px,5.2cqi,30px)}
+  .dores{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .dor{
-    background:#fff;border-radius:16px;padding:18px;
-    display:flex;gap:12px;align-items:flex-start;font-size:var(--t-ui);font-weight:500;color:var(--navy);line-height:1.4;
+    background:#fff;border-radius:18px;padding:20px 18px;display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;
+    box-shadow:0 1px 2px rgba(15,23,42,.04),0 10px 30px rgba(15,23,42,.06); /* taste-skill-ignore */
   }
-  .dor .ic{width:20px;height:20px;margin-top:2px;color:var(--laranja-escuro);stroke-width:2.6}
+  .dor-ic{width:46px;height:46px;border-radius:50%;background:#FFEDE2;display:grid;place-items:center;color:var(--laranja)}
+  .dor-ic .ic{width:22px;height:22px}
+  .dor h3{font-family:var(--f-ui);font-size:var(--t-ui);font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px}
+  .dor p{font-size:var(--t-small);color:#4B5563;line-height:1.5}
   .virada{margin-top:104px;text-align:center}
   .virada p{font-family:var(--f-display);font-size:var(--t-stat);font-weight:750;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
 
@@ -554,8 +575,16 @@
     .sobre-card{padding:28px 22px}
     .sobre-mods li small{display:none}
     .dores{grid-template-columns:1fr}
+    .desafio-title{font-size:1.375rem}
+    .frag{aspect-ratio:3/4}
+    .frag::before{background:linear-gradient(to bottom,rgba(247,248,250,.95) 0%,rgba(247,248,250,.86) 40%,rgba(247,248,250,0) 60%)} /* taste-skill-ignore: véu claro sob os cartões */
+    .frag-foto{object-position:50% 85%}
+    .frag-setas{display:none}
+    .f-erp{left:6%;top:12%}  .f-excel{left:52%;top:12%}
+    .f-estoque{left:6%;top:23%} .f-historico{left:52%;top:22%}
+    .f-comercial{left:6%;top:35%} .f-financeiro{left:52%;top:35%}
+    .desafio-title span{display:inline}
     .check-list{grid-template-columns:1fr}
-    .fontes{grid-template-columns:repeat(2,1fr)}
     .impacto{padding:28px 22px}
     .kpis{grid-template-columns:1fr 1fr;gap:10px}
     .kpi{padding:16px}
@@ -614,6 +643,11 @@
   <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 21h18M6 21v-6M10 21v-9M14 21v-5M18 21V8"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
 </svg>
 
@@ -680,34 +714,47 @@
 </section>
 
 <!-- ===== Problema ===== -->
-<section class="bg-creme" id="problema">
+<section class="desafio" id="problema">
   <div class="container">
     <div class="center" data-reveal>
-      <h2 class="section-title">Planilhas soltas, decisões manuais.</h2>
+      <p class="pill">O desafio</p> <!-- taste-skill-ignore: rótulo pedido no layout de referência -->
+      <h2 class="section-title desafio-title">Planilhas soltas, decisões manuais <span>e muito retrabalho.</span></h2>
+      <p class="section-sub">Quando os dados estão em sistemas diferentes e o planejamento é feito manualmente, o resultado são decisões mais lentas e menos precisas.</p>
     </div>
     <div class="prob-grid">
       <div class="frag" data-reveal>
-        <p class="tag">Hoje, o planejamento vem de seis lugares:</p>
-        <ul class="fontes">
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg>ERP</li>
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-sheet"/></svg>Excel</li>
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg>Estoque</li>
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg>Histórico de vendas</li>
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Comercial</li>
-          <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg>Financeiro</li>
+        <img class="frag-foto" src="assets/fotos/planejamento-planilhas-1400.webp"
+             srcset="assets/fotos/planejamento-planilhas-800.webp 800w, assets/fotos/planejamento-planilhas-1400.webp 1400w"
+             sizes="(max-width:960px) calc(100vw - 40px), 560px" width="1400" height="1400" loading="lazy"
+             alt="Analista de costas, com a mão na cabeça, diante de dois monitores com planilhas e pilhas de papel na mesa">
+        <p class="tag">Hoje, o planejamento vem de vários lugares:</p>
+        <svg class="frag-setas" viewBox="0 0 600 700" preserveAspectRatio="none" aria-hidden="true">
+          <defs><marker id="ponta" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M1 1l8 4-8 4" fill="none" stroke="#374151" stroke-width="1.6"/></marker></defs>
+          <path d="M148 168 Q185 250 238 318" marker-end="url(#ponta)"/>
+          <path d="M80 300 Q130 390 200 438" marker-end="url(#ponta)"/>
+          <path d="M268 208 L268 190" marker-end="url(#ponta)"/>
+          <path d="M470 160 Q430 230 452 330" marker-end="url(#ponta)"/>
+          <path d="M520 290 Q528 360 488 420" marker-end="url(#ponta)"/>
+        </svg>
+        <ul class="fontes" aria-label="Fontes de dados do planejamento">
+          <li class="fonte f-erp"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg></span>ERP</li>
+          <li class="fonte f-excel"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-sheet"/></svg></span>Excel</li>
+          <li class="fonte f-estoque"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span>Estoque</li>
+          <li class="fonte f-historico"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg></span>Histórico<br>de vendas</li>
+          <li class="fonte f-comercial"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>Comercial</li>
+          <li class="fonte f-financeiro"><span class="fonte-ic"><svg class="ic" aria-hidden="true"><use href="#i-dollar"/></svg></span>Financeiro</li>
         </ul>
-        <svg class="ic down" aria-hidden="true"><use href="#i-down"/></svg>
         <div class="manual"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Decisões manuais</div>
       </div>
-      <ul class="dores" data-reveal>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Rupturas e excesso de estoque</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Previsões de demanda pouco confiáveis</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Planejamento manual em Excel</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Orçamento desconectado da demanda</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Compras e produção reativas</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Áreas trabalhando com números diferentes</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Decisões lentas</li>
-        <li class="dor"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>Planejamento que não vira execução</li>
+      <ul class="dores">
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span><div><h3>Rupturas e excesso de estoque</h3><p>Dificuldade em equilibrar disponibilidade e capital.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><div><h3>Previsões de demanda pouco confiáveis</h3><p>Impacto direto no abastecimento e nas vendas.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg></span><div><h3>Planejamento manual em Excel</h3><p>Processos demorados, suscetíveis a erros.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-dollar"/></svg></span><div><h3>Orçamento desconectado da demanda</h3><p>Dificuldade em alinhar metas financeiras.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg></span><div><h3>Compras e produção reativas</h3><p>Foco em resolver problemas, em vez de antecipá-los.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span><div><h3>Áreas trabalhando com números diferentes</h3><p>Falta de uma única versão da verdade.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span><div><h3>Decisões lentas</h3><p>Falta de visibilidade e consolidação de dados.</p></div></li>
+        <li class="dor"><span class="dor-ic"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><div><h3>Planejamento que não vira execução</h3><p>Estratégia que não chega na operação.</p></div></li>
       </ul>
     </div>
     <div class="virada" data-reveal>
