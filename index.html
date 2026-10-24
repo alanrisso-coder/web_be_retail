@@ -74,29 +74,27 @@
 <style>
   :root{
     --laranja:#FF6B0B;
-    --laranja-escuro:#D65A09;
+    --laranja-escuro:#B34A06;
     --laranja-claro:#FF9A59;
     --dourado:#F4AB34;
-    --grad:linear-gradient(101deg,#F4AB34,#FF6B0B);
     --navy:#0B0E1E;             /* navy exato da logo */
     --navy-suave:#191E36;
-    --indigo:#4F46E5;           /* azul/roxo do PrevieWeb */
     --indigo-claro:#8B8CF8;
-    --indigo-suave:#EEF0FF;
-    --creme:#FBF4EC;
+    --creme:#F0F0EE;            /* pedra neutra */
+    --pedra-2:#E4E4E1;
     --linha:#E4E7EE;
     --texto:#2E2A26;
-    --texto-suave:#6E655C;
+    --texto-suave:#5A524A;
     --whatsapp:#25D366;
     --f-display:'Bricolage Grotesque',system-ui,sans-serif;
     --f-ui:'Inter',system-ui,sans-serif;
     --ease:cubic-bezier(.2,.7,.3,1);
     --raio:20px;
-    --sombra:0 18px 45px rgba(12,16,35,.10);
-    --fundo-escuro:
-      radial-gradient(55% 65% at 88% 0%,rgba(79,70,229,.38),transparent 62%),
-      radial-gradient(40% 55% at 0% 100%,rgba(255,107,11,.16),transparent 60%),
-      var(--navy);
+    --fundo-escuro:var(--navy);
+    /* escala: 14 · 16 · 18 · 22 · 32 · h2 · display */
+    --t-small:.875rem;--t-ui:1rem;--t-lead:1.125rem;--t-h3:1.375rem;--t-stat:2rem;
+    --t-h2:clamp(1.75rem,3.6vw,3rem);
+    --t-display:clamp(2rem,6.2vw,5.6rem);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;scroll-padding-top:84px}
@@ -104,7 +102,7 @@
     font-family:'Inter',system-ui,sans-serif;
     color:var(--texto);
     background:#FFFFFF;
-    line-height:1.6;
+    line-height:1.6;font-size:1.0625rem;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
@@ -115,38 +113,34 @@
   a{text-decoration:none;color:inherit}
   ul,ol{list-style:none}
   a:focus-visible,button:focus-visible{outline:3px solid var(--laranja-claro);outline-offset:3px;border-radius:6px}
-  .container{width:min(1140px,92%);margin-inline:auto}
+  .container{width:min(1140px,calc(100% - 40px));margin-inline:auto}
   .ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
   /* ===== Header ===== */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(11,14,30,.82);
-    -webkit-backdrop-filter:saturate(160%) blur(14px);backdrop-filter:saturate(160%) blur(14px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    transition:background .3s,box-shadow .3s;
+    background:var(--navy);
   }
-  header.is-scrolled{background:rgba(11,14,30,.94);box-shadow:0 10px 30px rgba(0,0,0,.25)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;transition:padding .3s}
   header.is-scrolled .nav{padding:10px 0}
   .logo img{transition:height .3s}
   header.is-scrolled .logo img{height:40px}
   .nav > nav > ul{display:flex;gap:28px}
-  .nav ul a{font-weight:500;font-size:.95rem;color:rgba(255,255,255,.78);transition:color .2s;display:inline-flex;align-items:center;gap:4px}
+  .nav ul a{font-weight:500;font-size:var(--t-ui);color:rgba(255,255,255,.78);transition:color .2s;display:inline-flex;align-items:center;gap:4px}
   .nav ul a:hover{color:var(--laranja-claro)}
   .nav .has-sub{position:relative}
   .nav .has-sub > a .ic{width:15px;height:15px;transition:transform .2s}
   .nav .sub{
     position:absolute;top:calc(100% + 14px);left:-18px;min-width:230px;
-    background:var(--navy-suave);border:1px solid rgba(255,255,255,.12);border-radius:14px;
-    padding:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);
-    opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .2s;
+    background:var(--navy-suave);border-radius:14px;
+    padding:8px;box-shadow:0 20px 40px rgba(0,0,0,.35); /* taste-skill-ignore: menu suspenso */
+    display:none;
   }
   .nav .sub::before{content:'';position:absolute;left:0;right:0;top:-16px;height:16px}
-  .nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{opacity:1;visibility:visible;transform:none}
+  .nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{display:block}
   .nav .has-sub:hover > a .ic{transform:rotate(180deg)}
-  .nav .sub a{display:flex;padding:10px 12px;border-radius:9px;font-size:.92rem}
+  .nav .sub a{display:flex;padding:10px 12px;border-radius:9px;font-size:var(--t-ui)}
   .nav .sub a:hover{background:rgba(255,255,255,.06)}
   .nav .sub .dot{width:8px;height:8px;border-radius:50%;margin-right:8px}
   .menu-btn{
@@ -155,18 +149,19 @@
   }
   .btn{
     display:inline-flex;align-items:center;gap:8px;
-    font-family:var(--f-ui);font-weight:600;font-size:.95rem;
-    padding:13px 28px;border-radius:999px;transition:all .25s;cursor:pointer;border:0;
+    font-family:var(--f-ui);font-weight:600;font-size:var(--t-ui);
+    padding:14px 28px;border-radius:999px;transition:background-color .2s,color .2s,border-color .2s,transform .2s;cursor:pointer;border:0;
   }
   .btn .ic{width:18px;height:18px;transition:transform .25s}
   .btn:hover .ic{transform:translateX(3px)}
-  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgba(255,107,11,.35)}
-  .btn-primary:hover{filter:brightness(.94);transform:translateY(-2px)}
+  .btn-primary{background:var(--laranja);color:var(--navy)}
+  .btn-primary:hover{background:var(--laranja-claro)}
+  .btn:active{transform:translateY(1px)}
   .btn-ghost{border:2px solid rgba(255,255,255,.45);color:#fff}
   .btn-ghost:hover{border-color:var(--laranja);color:var(--laranja-claro)}
   .btn-outline{border:2px solid var(--navy);color:var(--navy)}
   .btn-outline:hover{border-color:var(--laranja);color:var(--laranja-escuro)}
-  .link-seta{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-weight:600;font-size:.92rem;color:var(--laranja-escuro)}
+  .link-seta{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-weight:600;font-size:var(--t-ui);color:var(--laranja-escuro)}
   .link-seta .ic{width:17px;height:17px;transition:transform .2s}
   .link-seta:hover .ic{transform:translateX(4px)}
 
@@ -176,54 +171,27 @@
   footer .logo img{height:44px}
 
   /* ===== Hero ===== */
-  .hero{position:relative;background:var(--fundo-escuro);color:#fff;overflow:hidden;padding:84px 0 96px;isolation:isolate}
-  .hero::before{
-    content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
-    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
-    background-size:56px 56px;
-    -webkit-mask-image:radial-gradient(70% 80% at 70% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(70% 80% at 70% 40%,#000 20%,transparent 75%);
-  }
-  .hero::after{
-    content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(255,154,89,.45),rgba(139,140,248,.45),transparent);
-  }
-  .hero-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:40px;align-items:center}
-  .badge{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
-    color:#FFD9B8;font-weight:600;font-size:.85rem;
-    padding:8px 16px;border-radius:999px;margin-bottom:22px;
-  }
-  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--laranja)}
+  .hero{background:var(--navy);color:#fff;padding:72px 0 88px}
   .hero h1{
-    font-size:clamp(2.3rem,4.4vw,3.55rem);font-weight:750;line-height:1.06;
-    letter-spacing:-.02em;margin-bottom:20px;max-width:17ch;
+    font-size:var(--t-display);font-weight:750;line-height:.98;
+    letter-spacing:-.035em;margin-bottom:40px;max-width:24ch;
   }
-  .hero h1 em,.grad-text{
-    font-style:normal;background:var(--grad);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.86);max-width:33rem;margin-bottom:26px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
-  .segs-label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:10px}
-  .seg-chips{display:flex;flex-wrap:wrap;gap:8px}
-  .seg-chips a{
-    display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;
-    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
-    font-size:.88rem;font-weight:500;color:rgba(255,255,255,.9);transition:all .2s;
-  }
-  .seg-chips a:hover{border-color:var(--laranja-claro);background:rgba(255,107,11,.12)}
-  .seg-chips .ic{width:16px;height:16px;color:var(--laranja-claro)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:start}
+  .hero p.lead{font-size:var(--t-lead);color:#fff;max-width:30rem}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:32px 0}
+  .hero-segs{font-size:var(--t-ui);color:rgba(255,255,255,.8);max-width:30rem}
+  .hero-segs a{color:#fff;text-decoration:underline;text-decoration-color:var(--laranja);text-underline-offset:4px;text-decoration-thickness:2px}
+  .hero-segs a:hover{color:var(--laranja-claro)}
+  .hero-shot img{width:100%;height:auto}
+  .hero-shot figcaption{font-size:var(--t-small);color:rgba(255,255,255,.7);margin-top:10px}
 
   /* fluxo Demand → Financial → Supply (componente reutilizável) */
   .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .flow .step{
     display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:12px;
-    font-family:var(--f-ui);font-weight:600;font-size:.84rem;white-space:nowrap;
+    font-family:var(--f-ui);font-weight:600;font-size:var(--t-small);white-space:nowrap;
   }
-  .hero .flow{gap:8px}
   .flow .arrow{width:18px;height:18px;opacity:.55}
-  .flow-dark .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff}
   .dot-mod{width:9px;height:9px;border-radius:50%;flex:none}
   .m-demand{--mod:var(--indigo-claro)}
   .m-fin{--mod:var(--dourado)}
@@ -231,54 +199,32 @@
   .m-inv{--mod:#14B8A6}
   .dot-mod{background:var(--mod)}
 
-  .hero-shot{position:relative;margin-right:-9%}
-  .hero-shot::before{
-    content:'';position:absolute;inset:12% 6% 6% 10%;border-radius:40px;
-    background:radial-gradient(closest-side,rgba(139,140,248,.45),transparent);filter:blur(30px);z-index:0;
+  /* entrada do hero (só com movimento permitido) */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:no-preference){
+    .hero h1,.hero .lead,.hero-actions,.hero-segs,.hero-shot{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    .hero .lead{animation-delay:.08s}
+    .hero-actions{animation-delay:.16s}
+    .hero-segs{animation-delay:.24s}
+    .hero-shot{animation-delay:.12s;animation-duration:.9s}
   }
-  .hero-shot img{position:relative;z-index:1;width:100%;height:auto}
-  .hero-shot figcaption{position:relative;z-index:1;font-size:.78rem;color:rgba(255,255,255,.5);text-align:center;margin-top:4px}
-  .hero-kpi{
-    position:absolute;z-index:2;left:-4%;bottom:14%;
-    background:#fff;color:var(--navy);border-radius:16px;padding:14px 18px;
-    box-shadow:0 20px 40px rgba(0,0,0,.35);display:flex;gap:12px;align-items:center;
-  }
-  .hero-kpi .ic{width:36px;height:36px;padding:8px;border-radius:10px;background:var(--indigo-suave);color:var(--indigo)}
-  .hero-kpi strong{font-family:var(--f-display);font-size:1.35rem;display:block;line-height:1.1}
-  .hero-kpi span{font-size:.78rem;color:var(--texto-suave)}
-
-  /* entrada orquestrada do hero */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .hero .badge,.hero h1,.hero .lead,.hero .flow,.hero-actions,.hero-segs,.hero-shot{
-    animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both;
-  }
-  .hero h1{animation-delay:.08s}
-  .hero .lead{animation-delay:.16s}
-  .hero .flow{animation-delay:.24s}
-  .hero-actions{animation-delay:.32s}
-  .hero-segs{animation-delay:.4s}
-  .hero-shot{animation-delay:.2s;animation-duration:.9s}
 
   /* ===== Seções ===== */
-  section{padding:96px 0}
-  .kicker{
-    font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--laranja-escuro);margin-bottom:12px;font-family:var(--f-ui);
-  }
-  .section-title{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;letter-spacing:-.015em;color:var(--navy);line-height:1.15;max-width:24ch}
-  .section-sub{color:var(--texto-suave);max-width:40rem;margin-top:14px;font-size:1.03rem}
+  section{padding:136px 0}
+  .section-title{font-size:var(--t-h2);font-weight:750;letter-spacing:-.025em;color:var(--navy);line-height:1.04;max-width:22ch}
+  .section-sub{color:var(--texto);max-width:40rem;margin-top:20px;font-size:var(--t-lead)}
   .center{text-align:center}
   .center .section-title,.center .section-sub{margin-inline:auto}
   .dark{background:var(--fundo-escuro);color:#fff}
   .dark .section-title{color:#fff}
-  .dark .section-sub{color:rgba(255,255,255,.72)}
-  .dark .kicker{color:var(--laranja-claro)}
+  .dark .section-sub{color:rgba(255,255,255,.88)}
   .bg-creme{background:var(--creme)}
-  .bg-suave{background:linear-gradient(180deg,#F0650714,#FFFFFF)}
 
   /* revelação ao rolar (só com JS) */
-  .js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
-  .js [data-reveal].is-in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:no-preference){
+    .js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+    .js [data-reveal].is-in{opacity:1;transform:none}
+  }
 
   /* ===== Problema ===== */
   .prob-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;margin-top:52px;align-items:stretch}
@@ -286,11 +232,11 @@
     background:var(--navy);border-radius:28px;padding:36px 32px;color:#fff;position:relative;overflow:hidden;
     display:flex;flex-direction:column;align-items:center;
   }
-  .frag .tag{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:22px;align-self:flex-start}
+  .frag .tag{font-size:var(--t-ui);color:#fff;font-weight:600;margin-bottom:22px;align-self:flex-start}
   .fontes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
   .fonte{
-    border:1.5px dashed rgba(255,255,255,.25);border-radius:14px;padding:14px 10px;text-align:center;
-    font-size:.86rem;font-weight:500;color:rgba(255,255,255,.88);display:flex;flex-direction:column;align-items:center;gap:8px;
+    background:rgba(255,255,255,.07);border-radius:14px;padding:14px 10px;text-align:center;
+    font-size:var(--t-small);font-weight:500;color:rgba(255,255,255,.88);display:flex;flex-direction:column;align-items:center;gap:8px;
   }
   .fonte .ic{color:var(--indigo-claro)}
   .fonte:nth-child(2){transform:translateY(8px) rotate(1.5deg)}
@@ -298,44 +244,43 @@
   .fonte:nth-child(6){transform:translateY(-6px) rotate(2deg)}
   .frag .down{width:30px;height:30px;color:var(--laranja-claro);margin:22px 0 14px}
   .manual{
-    background:rgba(255,107,11,.14);border:1.5px solid rgba(255,107,11,.55);border-radius:16px;
+    background:rgba(255,107,11,.2);border-radius:16px;
     padding:14px 22px;display:flex;align-items:center;gap:10px;font-family:var(--f-ui);font-weight:600;
   }
   .manual .ic{color:var(--laranja-claro)}
   .dores{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
   .dor{
-    background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;
-    display:flex;gap:12px;align-items:flex-start;font-size:.94rem;font-weight:500;color:var(--navy);line-height:1.4;
+    background:#fff;border-radius:16px;padding:18px;
+    display:flex;gap:12px;align-items:flex-start;font-size:var(--t-ui);font-weight:500;color:var(--navy);line-height:1.4;
   }
-  .dor .ic{width:30px;height:30px;padding:7px;border-radius:9px;background:#FFF0E5;color:var(--laranja-escuro);stroke-width:2.6}
-  .virada{margin-top:64px;text-align:center}
-  .virada p{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:750;color:var(--navy);letter-spacing:-.015em;margin-bottom:14px}
+  .dor .ic{width:20px;height:20px;margin-top:2px;color:var(--laranja-escuro);stroke-width:2.6}
+  .virada{margin-top:104px;text-align:center}
+  .virada p{font-family:var(--f-display);font-size:var(--t-stat);font-weight:750;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
 
   /* ===== Plataforma ===== */
   .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
   .mod{
-    border:1px solid var(--linha);border-radius:24px;background:#fff;overflow:hidden;
-    display:flex;flex-direction:column;transition:all .25s;
+    border-radius:24px;background:var(--creme);overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .25s,background-color .25s;
   }
-  .mod:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:color-mix(in srgb,var(--mod) 60%,#fff)}
+  .mod:hover{transform:translateY(-4px);background:var(--pedra-2)}
   .mod-head{padding:28px 26px 0}
   .mod-tag{
     display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ui);font-weight:700;
-    font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
+    font-size:var(--t-ui);color:var(--navy);
   }
-  .mod-tag .novo{background:var(--grad);color:#fff;letter-spacing:.04em;text-transform:none;font-size:.7rem;padding:2px 8px;border-radius:999px}
-  .mod h3{font-size:1.45rem;font-weight:750;color:var(--navy);margin:10px 0 6px;letter-spacing:-.01em}
-  .mod-head p{font-size:.93rem;color:var(--texto-suave)}
+  .mod-tag .novo{color:var(--laranja-escuro);font-weight:700}
+  .mod h3{font-size:var(--t-h3);font-weight:750;color:var(--navy);margin:10px 0 6px;letter-spacing:-.01em}
+  .mod-head p{font-size:var(--t-ui);color:var(--texto)}
   .mod-shot{
-    margin:22px 18px 0;border-radius:14px;overflow:hidden;background:#F5F6F8;border:1px solid var(--linha);
+    margin:22px 18px 0;border-radius:14px;overflow:hidden;background:#fff;
     aspect-ratio:16/10;
   }
   .mod-shot img{width:100%;height:100%;object-fit:cover;object-position:left top}
   .chips{display:flex;flex-wrap:wrap;gap:7px;padding:20px 26px 28px}
   .chips li{
-    font-size:.8rem;font-weight:500;padding:5px 11px;border-radius:999px;
-    background:color-mix(in srgb,var(--mod) 12%,#fff);color:var(--navy);
-    border:1px solid color-mix(in srgb,var(--mod) 28%,#fff);
+    font-size:var(--t-small);font-weight:500;padding:5px 11px;border-radius:999px;
+    background:color-mix(in srgb,var(--mod) 22%,#fff);color:var(--navy);
   }
   .mod-bar{height:5px;background:var(--mod)}
   /* mock ilustrativo do Inventory Optimization */
@@ -344,7 +289,7 @@
   .inv-kpis div{border:1px solid var(--linha);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
   .inv-kpis b{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-suave);font-weight:700}
   .inv-kpis strong{font-family:var(--f-display);font-size:1.05rem;color:var(--navy);line-height:1.1}
-  .inv-kpis small{font-size:.66rem;font-weight:600;color:#0F8A7E}
+  .inv-kpis small{font-size:.66rem;font-weight:600;color:#0F766E}
   .inv-tab{width:100%;border-collapse:collapse;font-size:.7rem;color:var(--navy);font-variant-numeric:tabular-nums}
   .inv-tab th{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--texto-suave);font-weight:700;text-align:right;padding:0 6px 5px;border-bottom:1px solid var(--linha)}
   .inv-tab th:first-child,.inv-tab td:first-child{text-align:left}
@@ -364,10 +309,9 @@
   .logica{
     margin:52px auto 0;display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;
     width:fit-content;max-width:100%;padding:6px;border-radius:999px;background:var(--navy);
-    box-shadow:0 14px 34px rgba(12,16,35,.18);
   }
-  .logica .step{color:rgba(255,255,255,.85);padding:10px 20px;border-radius:999px;font-family:var(--f-ui);font-weight:600;font-size:.92rem}
-  .logica .step:last-of-type{background:var(--grad);color:#fff}
+  .logica .step{color:#fff;padding:10px 20px;border-radius:999px;font-family:var(--f-ui);font-weight:600;font-size:var(--t-ui)}
+  .logica .step:last-of-type{background:var(--laranja);color:var(--navy)}
   .logica .ic{color:var(--laranja-claro);width:18px;height:18px}
   .cta-inline{margin-top:36px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 
@@ -377,15 +321,15 @@
   .ciclo .anel{position:absolute;inset:10%;width:80%;height:80%;overflow:visible}
   .ciclo .anel circle{fill:none}
   .anel .trilha{stroke:rgba(255,255,255,.12);stroke-width:2}
-  .anel .fluxo{stroke:url(#gradAnel);stroke-width:3;stroke-dasharray:6 14;stroke-linecap:round;animation:girar 30s linear infinite}
+  .anel .fluxo{stroke:var(--laranja-claro);stroke-width:3;stroke-dasharray:6 14;stroke-linecap:round;animation:girar 30s linear infinite}
   @keyframes girar{to{stroke-dashoffset:-400}}
   .ciclo-centro{
     position:absolute;inset:32%;border-radius:50%;display:grid;place-items:center;text-align:center;
-    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:10px;
+    background:rgba(255,255,255,.06);padding:10px;
   }
   .ciclo-centro .ic{width:30px;height:30px;color:var(--laranja-claro);margin:0 auto 6px}
-  .ciclo-centro strong{font-family:var(--f-display);font-size:1.05rem;display:block;line-height:1.2}
-  .ciclo-centro span{font-size:.78rem;color:rgba(255,255,255,.6)}
+  .ciclo-centro strong{font-family:var(--f-display);font-size:var(--t-lead);display:block;line-height:1.2}
+  .ciclo-centro span{font-size:var(--t-small);color:rgba(255,255,255,.8)}
   .ciclo ol{position:absolute;inset:0}
   .ciclo li{
     position:absolute;width:118px;margin:-46px 0 0 -59px;text-align:center;
@@ -394,12 +338,12 @@
   .ciclo li .no{
     width:58px;height:58px;border-radius:50%;display:grid;place-items:center;
     background:var(--navy-suave);border:2px solid var(--mod);color:var(--mod);
-    box-shadow:0 0 0 6px var(--navy);animation:pulso 9s ease-in-out infinite;
+    outline:6px solid var(--navy);animation:pulso 9s ease-in-out infinite;
   }
   .ciclo li .no .ic{width:24px;height:24px}
   .ciclo li .txt{display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--navy);padding:2px 8px;border-radius:8px}
-  .ciclo li b{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.6);font-weight:700}
-  .ciclo li span{font-family:var(--f-display);font-weight:700;font-size:1.05rem;line-height:1}
+  .ciclo li b{font-family:var(--f-ui);font-size:var(--t-small);color:rgba(255,255,255,.75);font-weight:600}
+  .ciclo li span{font-family:var(--f-display);font-weight:700;font-size:var(--t-lead);line-height:1}
   @keyframes pulso{0%,12%,100%{transform:scale(1);background:var(--navy-suave)}5%{transform:scale(1.12);background:color-mix(in srgb,var(--mod) 30%,var(--navy-suave))}}
   .ciclo li:nth-child(1){top:10%;left:50%}
   .ciclo li:nth-child(2){top:30%;left:84.6%;}
@@ -417,42 +361,32 @@
   .m-learn{--mod:var(--laranja-claro)}
   .ciclo-txt .destaque{
     margin-top:28px;border-left:3px solid var(--laranja);padding:4px 0 4px 18px;
-    font-size:1.05rem;color:rgba(255,255,255,.88);
+    font-size:var(--t-lead);color:#fff;
   }
-  .kpi-shot{margin-top:30px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.15)}
-  .kpi-shot + figcaption{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:8px}
+  .kpi-shot{margin-top:30px;border-radius:14px;overflow:hidden;background:#fff}
+  .kpi-shot + figcaption{font-size:var(--t-small);color:rgba(255,255,255,.7);margin-top:10px}
 
   /* ===== Segmentos ===== */
-  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
+  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:112px 64px;margin-top:72px}
   .seg{
-    border-radius:26px;padding:34px 32px;background:#fff;border:1px solid var(--linha);
-    display:flex;flex-direction:column;gap:18px;transition:all .25s;position:relative;overflow:hidden;min-width:0;
+    display:flex;flex-direction:column;gap:20px;min-width:0;
   }
-  .seg::after{
-    content:'';position:absolute;right:-70px;top:-70px;width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(closest-side,rgba(255,107,11,.12),transparent);pointer-events:none;
-  }
-  .seg:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:var(--laranja-claro)}
-  .seg-top{display:flex;align-items:center;gap:14px}
-  .seg-top .ic-box{width:52px;height:52px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none}
-  .seg-top .ic-box .ic{width:26px;height:26px}
-  .seg-top h3{font-size:.8rem;font-family:var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--laranja-escuro)}
-  .seg-top p{font-family:var(--f-display);font-weight:700;font-size:1.3rem;line-height:1.2;color:var(--navy);letter-spacing:-.01em}
+  .seg-top h3{font-size:var(--t-stat);font-weight:750;letter-spacing:-.02em;line-height:1.05;color:var(--navy)}
+  .seg-top p{font-size:var(--t-lead);line-height:1.4;color:var(--texto);margin-top:8px}
   .seg .flow{gap:6px}
-  .seg .flow .step{background:var(--indigo-suave);color:var(--indigo);font-size:.8rem;padding:7px 11px;scroll-snap-align:start}
+  .seg .flow .step{background:#fff;color:var(--navy);padding:7px 11px}
   .seg .flow .step:last-of-type{background:var(--navy);color:#fff}
-  .seg .flow .arrow{width:14px;height:14px;color:var(--indigo)}
+  .seg .flow .arrow{width:14px;height:14px;color:var(--navy)}
   .check-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
-  .check-list li{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;color:var(--texto);line-height:1.4}
+  .check-list li{display:flex;gap:8px;align-items:flex-start;font-size:var(--t-ui);color:var(--texto);line-height:1.4}
   .check-list .ic{width:17px;height:17px;color:var(--laranja);stroke-width:2.6;margin-top:2px}
-  .seg .link-seta{margin-top:auto;padding-top:6px;align-self:flex-start}
+  .seg .link-seta{margin-top:12px}
 
   /* ===== Da demanda à decisão ===== */
   .jornada{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:56px;position:relative}
   .jornada::before{
-    content:'';position:absolute;left:7%;right:7%;top:27px;height:4px;
-    background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
-    background-size:12px 4px;background-repeat:repeat-x;
+    content:'';position:absolute;left:7%;right:7%;top:27px;height:4px;border-radius:2px;
+    background:var(--pedra-2);
   }
   .etapa{text-align:center;position:relative}
   .etapa .num{
@@ -460,73 +394,57 @@
     background:#fff;border:2px solid var(--laranja);color:var(--laranja-escuro);position:relative;z-index:1;
   }
   .etapa.m-demand .num,.etapa.m-fin .num,.etapa.m-inv .num,.etapa.m-supply .num{border-color:var(--mod);background:var(--navy);color:var(--mod)}
-  .etapa:last-child .num{background:var(--grad);border-color:transparent;color:#fff}
-  .etapa h3{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:4px}
-  .etapa p{font-size:.84rem;color:var(--texto-suave);line-height:1.4}
+  .etapa:last-child .num{background:var(--laranja);border-color:transparent;color:var(--navy)}
+  .etapa h3{font-size:var(--t-ui);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:4px}
+  .etapa p{font-size:var(--t-small);color:var(--texto);line-height:1.4}
   .impacto{margin-top:64px;background:var(--navy);border-radius:28px;padding:36px;color:#fff}
   .impacto-head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;margin-bottom:26px}
-  .impacto h3{font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:750;max-width:30ch;line-height:1.2}
-  .impacto-head small{font-size:.78rem;color:rgba(255,255,255,.5);max-width:26rem}
+  .impacto h3{font-size:var(--t-stat);font-weight:750;max-width:24ch;line-height:1.1;letter-spacing:-.02em}
+  .impacto-head small{font-size:var(--t-small);color:rgba(255,255,255,.75);max-width:26rem}
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px}
-  .kpi b{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-family:var(--f-ui)}
-  .kpi strong{display:block;font-family:var(--f-display);font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:750;line-height:1.1;margin:6px 0 4px}
-  .kpi span{font-size:.84rem;color:rgba(255,255,255,.7)}
+  .kpi{background:rgba(255,255,255,.07);border-radius:18px;padding:20px}
+  .kpi b{font-size:var(--t-small);color:rgba(255,255,255,.8);font-family:var(--f-ui);font-weight:600}
+  .kpi strong{display:block;font-family:var(--f-display);font-size:var(--t-stat);font-weight:750;line-height:1.1;margin:6px 0 4px}
+  .kpi span{font-size:var(--t-small);color:rgba(255,255,255,.85)}
   .kpi:first-child strong{color:var(--indigo-claro)}
   .kpi:nth-child(2) strong{color:var(--dourado)}
   .kpi:nth-child(3) strong{color:var(--laranja-claro)}
 
-  /* ===== Diferenciais (cards da marca) ===== */
-  .dif-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);margin-top:52px;border-top:1px solid var(--linha);counter-reset:dif}
-  .card{
-    position:relative;padding:30px 28px 8px 0;counter-increment:dif;
-  }
-  .card + .card{padding-left:28px;border-left:1px solid var(--linha)}
-  .card::before{
-    content:'';position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--grad);
-    transition:width .5s var(--ease);
-  }
-  .card:hover::before{width:100%}
-  .card .icon{
-    display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;color:var(--laranja-escuro);
-  }
-  .card .icon::after{
-    content:'0' counter(dif);font-family:var(--f-display);font-weight:700;font-size:.9rem;
-    color:rgba(11,14,30,.28);font-variant-numeric:tabular-nums;
-  }
-  .card .icon .ic{width:30px;height:30px;stroke-width:1.75}
-  .card h3{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:-.01em}
-  .card p{font-size:.94rem;color:var(--texto-suave)}
+  /* ===== Diferenciais ===== */
+  .dif-grid{display:grid;grid-template-columns:4fr 7fr;gap:64px;align-items:start}
+  .dif-head .link-seta{margin-top:24px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:48px 40px}
+  .card h3{font-size:var(--t-stat);font-weight:750;color:var(--navy);margin-bottom:10px;letter-spacing:-.02em;line-height:1.05}
+  .card p{font-size:var(--t-ui);color:var(--texto)}
 
   /* ===== Sobre ===== */
   .sobre-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
-  .sobre-txt p:not(.kicker){color:var(--texto-suave);margin-top:16px;font-size:1.02rem}
+  .sobre-txt p{color:var(--texto);margin-top:16px}
   .sobre-txt p strong{color:var(--navy)}
   .sobre-card{
-    background:var(--fundo-escuro);color:#fff;border-radius:28px;padding:34px 32px;position:relative;overflow:hidden;
-    box-shadow:0 30px 60px rgba(12,16,35,.18);
+    background:var(--navy);color:#fff;border-radius:28px;padding:34px 32px;
   }
-  .sobre-card .tag{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700}
-  .sobre-card .marca{font-family:var(--f-display);font-weight:750;font-size:1.9rem;letter-spacing:-.02em;margin:6px 0 22px;line-height:1.1}
+  .sobre-card .tag{font-size:var(--t-small);color:rgba(255,255,255,.8);font-weight:600}
+  .sobre-card .marca{font-family:var(--f-display);font-weight:750;font-size:var(--t-stat);letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+  .sobre-card .tag{margin-bottom:22px}
   .sobre-mods{display:grid;gap:10px}
   .sobre-mods li{
     display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:14px;
-    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-weight:600;font-size:.95rem;
+    background:rgba(255,255,255,.07);font-weight:600;font-size:var(--t-ui);
   }
-  .sobre-mods li small{margin-left:auto;font-weight:500;font-size:.8rem;color:rgba(255,255,255,.55)}
-  .sobre-locais{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.88rem;color:rgba(255,255,255,.75)}
+  .sobre-mods li small{margin-left:auto;font-weight:500;font-size:var(--t-small);color:rgba(255,255,255,.8)}
+  .sobre-locais{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:var(--t-small);color:rgba(255,255,255,.85)}
   .sobre-locais span{display:inline-flex;align-items:center;gap:7px}
   .sobre-locais .ic{width:16px;height:16px;color:var(--laranja-claro)}
 
   /* CTA band */
-  .cta-band{background:var(--fundo-escuro);color:#fff;border-radius:32px;padding:80px 8%;position:relative;overflow:hidden}
-  .cta-wrap{padding:0 0 96px}
-  .cta-band h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:750;letter-spacing:-.02em;line-height:1.08}
+  .cta-band{background:var(--navy);color:#fff;border-radius:32px;padding:88px 8%;position:relative;overflow:hidden}
+  .cta-wrap{padding:0 0 136px}
+  .cta-band h2{font-size:var(--t-display);font-weight:750;letter-spacing:-.035em;line-height:.98}
   .cta-band h2 span{display:block}
-  .cta-band p{color:rgba(255,255,255,.75);margin:20px 0 32px;max-width:36rem;font-size:1.05rem}
+  .cta-band p{color:#fff;margin:32px 0;max-width:36rem;font-size:var(--t-lead)}
   .cta-band .acoes{display:flex;gap:14px;flex-wrap:wrap}
-  .cta-band .diag{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:.95rem;color:rgba(255,255,255,.85)}
+  .cta-band .diag{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:var(--t-ui);color:#fff}
   .cta-band .diag .ic{color:var(--laranja-claro);width:20px;height:20px}
   .cta-band .dots-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.22;pointer-events:none}
   @media(max-width:700px){.cta-band .dots-deco{display:none}}
@@ -536,22 +454,22 @@
     position:fixed;right:22px;bottom:22px;z-index:60;
     width:58px;height:58px;border-radius:50%;
     background:var(--whatsapp);display:grid;place-items:center;
-    box-shadow:0 10px 28px rgba(37,211,102,.45);
+    box-shadow:0 10px 28px rgba(37,211,102,.45); /* taste-skill-ignore: botão fixo flutuante */
     transition:transform .2s;
   }
   .whats-float:hover{transform:scale(1.08)}
 
   /* Footer */
-  footer{background:var(--navy);color:rgba(255,255,255,.7);padding:60px 0 32px}
+  footer{background:var(--navy);color:rgba(255,255,255,.82);padding:72px 0 32px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-  footer h4{color:#fff;font-family:var(--f-ui);font-size:.95rem;margin-bottom:16px}
-  footer li{list-style:none;margin-bottom:10px;font-size:.9rem}
+  footer h4{color:#fff;font-family:var(--f-ui);font-size:var(--t-ui);margin-bottom:16px}
+  footer li{list-style:none;margin-bottom:10px;font-size:var(--t-ui)}
   footer li a{transition:color .2s}
   footer li a:hover{color:var(--laranja-claro)}
-  footer li .local{display:block;font-size:.78rem;color:rgba(255,255,255,.45);margin-top:1px}
+  footer li .local{display:block;font-size:var(--t-small);color:rgba(255,255,255,.7);margin-top:1px}
   footer li a:has(.local){font-variant-numeric:tabular-nums;color:rgba(255,255,255,.88)}
-  footer .desc{font-size:.9rem;margin-top:16px;max-width:26rem}
-  .foot-base{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem}
+  footer .desc{font-size:var(--t-ui);margin-top:16px;max-width:26rem}
+  .foot-base{padding-top:8px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:var(--t-small)}
 
   /* ===== Responsivo ===== */
   .nav ul a,.cta-header{white-space:nowrap}
@@ -568,22 +486,18 @@
     .etapa .num{margin:0;flex:0 0 52px;width:52px;height:52px}
     .etapa:not(:last-child)::before{
       content:'';position:absolute;left:24px;top:60px;bottom:-22px;width:4px;
-      background-image:radial-gradient(circle,var(--laranja-claro) 2px,transparent 2.5px);
-      background-size:4px 12px;background-repeat:repeat-y;
+      border-radius:2px;background:var(--pedra-2);
     }
     .etapa h3{margin-top:4px}
     .mods{grid-template-columns:1fr;max-width:620px;margin-inline:auto}
   }
   @media(max-width:960px){
+    section{padding:104px 0}
     .hero{padding:56px 0 72px}
-    .hero-grid,.prob-grid,.ciclo-grid{grid-template-columns:1fr}
-    .hero-shot{margin-right:0}
+    .hero-grid,.prob-grid,.ciclo-grid,.dif-grid{grid-template-columns:1fr}
+    .hero-grid{gap:48px}
     .ciclo-txt{order:-1}
-    .hero-kpi{left:2%;bottom:6%}
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .card:nth-child(3){padding-left:0;border-left:0}
-    .card:nth-child(n+3){border-top:1px solid var(--linha);padding-top:30px;margin-top:22px}
-    .card:nth-child(n+3)::before{top:-1px}
+    .dif-grid{gap:88px}
     .sobre-grid{grid-template-columns:1fr;gap:40px}
     .sobre-card{max-width:520px}
     .segs{grid-template-columns:1fr}
@@ -591,14 +505,14 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     .menu-btn{display:block}
     .nav .cta-header{display:none}
-    .nav > nav{position:absolute;top:100%;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1);display:none;max-height:calc(100vh - 80px);overflow-y:auto}
+    .nav > nav{position:absolute;top:100%;left:0;right:0;background:var(--navy);display:none;max-height:calc(100vh - 80px);overflow-y:auto}
     header.nav-open .nav > nav{display:block}
     .nav > nav > ul{flex-direction:column;gap:0;padding:8px 4% 16px}
     .nav ul a{display:flex;padding:13px 0;font-size:1.05rem}
     .nav .has-sub > a .ic{display:none}
-    .nav .sub{position:static;opacity:1;visibility:visible;transform:none;background:none;border:0;box-shadow:none;padding:0 0 6px 14px;min-width:0}
+    .nav .sub{position:static;display:block;background:none;box-shadow:none;padding:0 0 6px 14px;min-width:0}
     .nav .sub::before{display:none}
-    .nav .sub a{padding:8px 0;font-size:.95rem;color:rgba(255,255,255,.6)}
+    .nav .sub a{padding:8px 0;font-size:var(--t-ui);color:rgba(255,255,255,.75)}
     .nav .sub a:hover{background:none}
   }
   @media(max-width:720px){
@@ -607,44 +521,34 @@
     .ciclo .anel,.ciclo-centro{display:none}
     .ciclo ol{position:static;display:flex;flex-direction:column;gap:0}
     .ciclo li{position:relative;inset:auto;width:auto;margin:0;flex-direction:row;text-align:left;gap:14px;padding-bottom:22px;top:auto!important;left:auto!important}
-    .ciclo li:not(:last-child)::after{content:'';position:absolute;left:28px;top:62px;bottom:4px;width:2px;background:rgba(255,255,255,.18)}
+    .ciclo li:not(:last-child)::after{content:'';position:absolute;left:27px;top:62px;bottom:4px;width:4px;border-radius:2px;background:rgba(255,255,255,.18)}
     .ciclo li .txt{align-items:flex-start;background:none;padding:0}
     .ciclo li:last-child{padding-bottom:0}
     .ciclo-volta{display:flex!important}
   }
   @media(max-width:560px){
-    section{padding:68px 0}
-    .cards{grid-template-columns:1fr}
-    .card,.card + .card{padding:22px 0 22px 0;border-left:0;margin-top:0;display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:start}
-    .card + .card{border-top:1px solid var(--linha)}
-    .card .icon{grid-row:span 2;margin:2px 0 0;flex-direction:column;align-items:flex-start;gap:6px}
-    .card .icon::after{font-size:.78rem}
-    .card h3{margin-bottom:4px}
-    .dif-head{grid-template-columns:1fr}
+    section{padding:88px 0}
+    .cards{grid-template-columns:1fr;gap:32px}
     .sobre-card{padding:28px 22px}
     .sobre-mods li small{display:none}
     .dores{grid-template-columns:1fr}
     .check-list{grid-template-columns:1fr}
     .fontes{grid-template-columns:repeat(2,1fr)}
-    .seg{padding:28px 22px}
-    /* fluxos dos segmentos: scroll horizontal controlado no mobile */
-    .seg .flow{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-right:-22px;padding-right:22px;scrollbar-width:thin}
     .impacto{padding:28px 22px}
     .kpis{grid-template-columns:1fr 1fr;gap:10px}
     .kpi{padding:16px}
-    .kpi strong{font-size:1.35rem}
-    .hero .flow{flex-direction:column;align-items:flex-start;gap:6px}
-    .hero .flow .arrow{transform:rotate(90deg);margin-left:14px}
-    .hero-kpi{display:none}
+    .kpi strong{font-size:var(--t-h3)}
+    .impacto h3{font-size:var(--t-h3)}
     .hero-actions .btn,.cta-band .acoes .btn{width:100%;justify-content:center}
     .foot-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
     .foot-grid > div:first-child,.foot-grid > div:last-child{grid-column:1/-1}
-    .cta-band{padding:56px 7%}
+    .cta-band{padding:56px 22px}
+    .cta-wrap{padding-bottom:88px}
     .logica{flex-direction:column;border-radius:24px;width:100%}
     .logica .step{width:100%;text-align:center}
     .logica .ic{transform:rotate(90deg)}
   }
-  .ciclo-volta{display:none;align-items:center;gap:8px;margin-top:18px;font-size:.88rem;color:var(--laranja-claro);font-weight:600}
+  .ciclo-volta{display:none;align-items:center;gap:8px;margin-top:18px;font-size:var(--t-ui);color:var(--laranja-claro);font-weight:600}
   .ciclo-volta .ic{width:18px;height:18px}
 
   /* movimento reduzido */
@@ -734,45 +638,25 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="inicio">
-  <div class="container hero-grid">
-    <div>
-      <span class="badge"><span class="dot"></span> PrevieWeb · Planejamento integrado</span>
-      <h1>Planejamento inteligente para empresas que <em>querem crescer</em>.</h1>
-      <p class="lead">Conecte demanda, finanças, estoque e supply em uma única plataforma e transforme dados em decisões de negócio.</p>
-      <div class="flow flow-dark" aria-label="Demand Planning, depois Financial Planning, depois Inventory Optimization, depois Supply Planning">
-        <span class="step m-demand"><span class="dot-mod"></span>Demand Planning</span>
-        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-        <span class="step m-fin"><span class="dot-mod"></span>Financial Planning</span>
-        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-        <span class="step m-inv"><span class="dot-mod"></span>Inventory Optimization</span>
-        <svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-        <span class="step m-supply"><span class="dot-mod"></span>Supply Planning</span>
-      </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#plataforma">Conheça o PrevieWeb <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração</a>
-      </div>
-      <div class="hero-segs">
-        <p class="segs-label">Tecnologia de planejamento avançado para</p>
-        <div class="seg-chips">
-          <a href="#industria"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg>Indústria</a>
-          <a href="#varejo"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg>Varejo</a>
-          <a href="#textil-moda"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg>Têxtil &amp; Moda</a>
-          <a href="#bens-de-consumo"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>Bens de Consumo</a>
+  <div class="container">
+    <h1>Demanda, finanças e estoque num só plano.</h1>
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <p class="lead">O PrevieWeb, da Be Retail, conecta Demand Planning, Financial Planning, Inventory Optimization e Supply Planning numa única plataforma, com os mesmos números para comercial, financeiro e operações.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#plataforma">Conheça o PrevieWeb</a>
         </div>
+        <p class="hero-segs">Para <a href="#industria">indústria</a>, <a href="#varejo">varejo</a>, <a href="#textil-moda">têxtil &amp; moda</a> e <a href="#bens-de-consumo">bens de consumo</a>.</p>
       </div>
+      <figure class="hero-shot">
+        <img src="assets/previeweb/painel-executivo-1600.webp"
+             srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
+             sizes="(max-width:960px) 92vw, 680px" width="1600" height="1227" fetchpriority="high"
+             alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
+        <figcaption>Painel Executivo do PrevieWeb, com dados de demonstração.</figcaption>
+      </figure>
     </div>
-    <figure class="hero-shot">
-      <img src="assets/previeweb/painel-executivo-1600.webp"
-           srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
-           sizes="(max-width:960px) 92vw, 640px" width="1600" height="1227"
-           alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
-      <div class="hero-kpi" aria-hidden="true">
-        <svg class="ic"><use href="#i-target"/></svg>
-        <div><strong>91,4%</strong><span>acurácia da previsão</span></div>
-      </div>
-      <figcaption>Tela real do PrevieWeb · dados de demonstração</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -780,12 +664,11 @@
 <section class="bg-creme" id="problema">
   <div class="container">
     <div class="center" data-reveal>
-      <p class="kicker">O problema que resolvemos</p>
-      <h2 class="section-title">Sua empresa ainda planeja usando informações desconectadas?</h2>
+      <h2 class="section-title">Planilhas soltas, decisões manuais.</h2>
     </div>
     <div class="prob-grid">
       <div class="frag" data-reveal>
-        <span class="tag">Planejamento fragmentado</span>
+        <p class="tag">Hoje, o planejamento vem de seis lugares:</p>
         <ul class="fontes">
           <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg>ERP</li>
           <li class="fonte"><svg class="ic" aria-hidden="true"><use href="#i-sheet"/></svg>Excel</li>
@@ -809,7 +692,7 @@
       </ul>
     </div>
     <div class="virada" data-reveal>
-      <p>Existe uma forma <span class="grad-text">melhor de planejar</span>.</p>
+      <p>Existe uma forma melhor de planejar.</p>
       <a class="link-seta" href="#plataforma">Veja como o PrevieWeb conecta tudo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
@@ -819,9 +702,8 @@
 <section id="plataforma">
   <div class="container">
     <div class="center" data-reveal>
-      <p class="kicker">A plataforma PrevieWeb</p>
-      <h2 class="section-title">Um único ambiente para planejar demanda, finanças, estoque e supply.</h2>
-      <p class="section-sub">Quatro módulos conectados sobre a mesma base de dados — da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
+      <h2 class="section-title">Quatro módulos, uma só base de dados.</h2>
+      <p class="section-sub">Quatro módulos conectados sobre a mesma base de dados: da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
     </div>
 
     <div class="mods">
@@ -843,7 +725,7 @@
         <div class="mod-head">
           <span class="mod-tag"><span class="dot-mod"></span>Financial Planning</span>
           <h3>Quanto isso representa financeiramente?</h3>
-          <p>O forecast de demanda vira receita, custo, margem e caixa — com cenários.</p>
+          <p>O forecast de demanda vira receita, custo, margem e caixa, com cenários.</p>
         </div>
         <div class="mod-shot"><img src="assets/previeweb/painel-financeiro-900.webp" srcset="assets/previeweb/painel-financeiro-900.webp 900w, assets/previeweb/painel-financeiro-1600.webp 1600w" sizes="(max-width:1080px) 92vw, 560px" width="900" height="588" loading="lazy" alt="Painel Financeiro do PrevieWeb com previsão de receita, receita versus orçamento e receita realizada versus plano"></div>
         <ul class="chips" aria-label="Recursos de Financial Planning">
@@ -854,11 +736,11 @@
       <article class="mod m-inv" id="inventory-optimization" data-reveal>
         <div class="mod-bar"></div>
         <div class="mod-head">
-          <span class="mod-tag"><span class="dot-mod"></span>Inventory Optimization <span class="novo">Novo</span></span>
+          <span class="mod-tag"><span class="dot-mod"></span>Inventory Optimization <span class="novo">novo</span></span>
           <h3>Quanto estoque devemos ter?</h3>
           <p>O nível de estoque ideal para cada SKU e local: menos ruptura, menos excesso e menos capital parado.</p>
         </div>
-        <div class="mod-shot inv-mock" role="img" aria-label="Exemplo ilustrativo de Inventory Optimization: nível de serviço de 97,5%, redução de 18% no estoque e 6% dos SKUs em excesso; tabela por SKU com classe, nível de serviço, estoque de segurança, ponto de pedido, cobertura e status">
+        <div class="mod-shot inv-mock" data-ui role="img" aria-label="Exemplo ilustrativo de Inventory Optimization: nível de serviço de 97,5%, redução de 18% no estoque e 6% dos SKUs em excesso; tabela por SKU com classe, nível de serviço, estoque de segurança, ponto de pedido, cobertura e status">
           <div class="inv-kpis" aria-hidden="true">
             <div><b>Nível de serviço</b><strong>97,5%</strong><small>meta 97%</small></div>
             <div><b>Estoque</b><strong>−18%</strong><small>vs. política atual</small></div>
@@ -912,27 +794,25 @@
   <div class="container ciclo-grid">
     <div class="ciclo" data-reveal>
       <svg class="anel" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><linearGradient id="gradAnel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B8CF8"/><stop offset="1" stop-color="#FF6B0B"/></linearGradient></defs>
-        <circle class="trilha" cx="100" cy="100" r="100"/>
+                <circle class="trilha" cx="100" cy="100" r="100"/>
         <circle class="fluxo" cx="100" cy="100" r="100"/>
       </svg>
       <div class="ciclo-centro" aria-hidden="true">
         <div><svg class="ic"><use href="#i-refresh"/></svg><strong>Ciclo contínuo</strong><span>de planejamento</span></div>
       </div>
       <ol aria-label="Ciclo de planejamento integrado">
-        <li class="m-demand"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><span class="txt"><b>DEMAND</b><span>Prever</span></span></li>
-        <li class="m-fin"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg></span><span class="txt"><b>FINANCIAL</b><span>Projetar</span></span></li>
-        <li class="m-supply"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><span class="txt"><b>SUPPLY</b><span>Atender</span></span></li>
-        <li class="m-exec"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><span class="txt"><b>EXECUTE</b><span>Executar</span></span></li>
-        <li class="m-real"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><span class="txt"><b>REALIZED</b><span>Medir</span></span></li>
-        <li class="m-learn"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span><span class="txt"><b>LEARNING</b><span>Aprender</span></span></li>
+        <li class="m-demand"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span><span class="txt"><b>Demand</b><span>Prever</span></span></li>
+        <li class="m-fin"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-coin"/></svg></span><span class="txt"><b>Financial</b><span>Projetar</span></span></li>
+        <li class="m-supply"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><span class="txt"><b>Supply</b><span>Atender</span></span></li>
+        <li class="m-exec"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><span class="txt"><b>Execute</b><span>Executar</span></span></li>
+        <li class="m-real"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></span><span class="txt"><b>Realized</b><span>Medir</span></span></li>
+        <li class="m-learn"><span class="no"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span><span class="txt"><b>Learning</b><span>Aprender</span></span></li>
       </ol>
       <p class="ciclo-volta"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>O aprendizado volta para o próximo forecast</p>
     </div>
     <div class="ciclo-txt" data-reveal>
-      <p class="kicker">Planejamento integrado</p>
-      <h2 class="section-title">Cada ciclo de planejamento aprende com o anterior.</h2>
-      <p class="section-sub">Prever, projetar, atender, executar, medir e aprender — no mesmo ambiente, com os mesmos números para comercial, financeiro e operações. É o S&amp;OP / IBP na prática, sem a complexidade dos grandes projetos.</p>
+      <h2 class="section-title">Cada ciclo aprende com o anterior.</h2>
+      <p class="section-sub">Prever, projetar, atender, executar, medir e aprender, no mesmo ambiente, com os mesmos números para comercial, financeiro e operações. É o S&amp;OP / IBP na prática, sem a complexidade dos grandes projetos.</p>
       <p class="destaque">O realizado volta como aprendizado para melhorar o próximo forecast.</p>
       <figure>
         <div class="kpi-shot"><img src="assets/previeweb/forecast-x-realizado-1600.webp" srcset="assets/previeweb/forecast-x-realizado-900.webp 900w, assets/previeweb/forecast-x-realizado-1600.webp 1600w" sizes="(max-width:960px) 92vw, 520px" width="1600" height="334" loading="lazy" alt="Indicadores de Forecast x Realizado no PrevieWeb: forecast, realizado, erro absoluto, acuracidade de 88,8%, WMAPE, MAPE, BIAS e BIAS volume"></div>
@@ -947,16 +827,12 @@
   <span id="clientes" class="sr-only"></span>
   <div class="container">
     <div class="center" data-reveal>
-      <p class="kicker">Soluções por segmento</p>
-      <h2 class="section-title">Tecnologia de planejamento para diferentes negócios.</h2>
-      <p class="section-sub">A mesma plataforma, configurada para a realidade de cada operação.</p>
+      <h2 class="section-title">Configurado para o seu segmento.</h2>
+      <p class="section-sub">A mesma plataforma de planejamento, ajustada à realidade de cada operação.</p>
     </div>
     <div class="segs">
       <article class="seg" id="industria" data-reveal>
-        <div class="seg-top">
-          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg></span>
-          <div><h3>Indústria</h3><p>Da previsão de demanda ao plano de produção.</p></div>
-        </div>
+        <div class="seg-top"><h3>Indústria</h3><p>Da previsão de demanda ao plano de produção.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Ind%C3%BAstria." target="_blank" rel="noopener">Conheça a solução para Indústria <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
         <div class="flow" aria-label="Fluxo para indústria">
           <span class="step">Demand Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           <span class="step">Estoque</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -974,14 +850,10 @@
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos rupturas</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos excesso de estoque</li>
         </ul>
-        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Ind%C3%BAstria." target="_blank" rel="noopener">Conheça a solução para Indústria <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="seg" id="varejo" data-reveal>
-        <div class="seg-top">
-          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span>
-          <div><h3>Varejo</h3><p>O produto certo, no lugar certo, no momento certo.</p></div>
-        </div>
+        <div class="seg-top"><h3>Varejo</h3><p>O produto certo, no lugar certo, no momento certo.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Varejo." target="_blank" rel="noopener">Conheça a solução para Varejo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
         <div class="flow" aria-label="Fluxo para varejo">
           <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -1000,14 +872,10 @@
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
         </ul>
-        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Varejo." target="_blank" rel="noopener">Conheça a solução para Varejo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="seg" id="textil-moda" data-reveal>
-        <div class="seg-top">
-          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg></span>
-          <div><h3>Têxtil &amp; Moda</h3><p>Planejamento preparado para coleções, sazonalidade e novos produtos.</p></div>
-        </div>
+        <div class="seg-top"><h3>Têxtil &amp; Moda</h3><p>Planejamento preparado para coleções, sazonalidade e novos produtos.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20T%C3%AAxtil%20%26%20Moda." target="_blank" rel="noopener">Conheça a solução para Têxtil <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
         <div class="flow" aria-label="Fluxo para têxtil e moda">
           <span class="step">Coleção</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           <span class="step">NPI / Produto espelho</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -1025,14 +893,10 @@
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Produção e estoque</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
         </ul>
-        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20T%C3%AAxtil%20%26%20Moda." target="_blank" rel="noopener">Conheça a solução para Têxtil <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="seg" id="bens-de-consumo" data-reveal>
-        <div class="seg-top">
-          <span class="ic-box"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>
-          <div><h3>Bens de Consumo</h3><p>Conecte demanda, canais, estoque e resultado financeiro.</p></div>
-        </div>
+        <div class="seg-top"><h3>Bens de Consumo</h3><p>Conecte demanda, canais, estoque e resultado financeiro.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Bens%20de%20Consumo." target="_blank" rel="noopener">Conheça a solução para Bens de Consumo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
         <div class="flow" aria-label="Fluxo para bens de consumo">
           <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -1049,19 +913,17 @@
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Receita, custos e margem</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Cenários</li>
         </ul>
-        <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Bens%20de%20Consumo." target="_blank" rel="noopener">Conheça a solução para Bens de Consumo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ===== Da demanda à decisão ===== -->
-<section class="bg-suave" id="demanda-decisao">
+<section id="demanda-decisao">
   <div class="container">
     <div class="center" data-reveal>
-      <p class="kicker">Da demanda à decisão</p>
-      <h2 class="section-title">Muito além de uma ferramenta de forecast.</h2>
-      <p class="section-sub">O PrevieWeb conecta o forecast de vendas ao plano financeiro, à otimização de estoque e ao planejamento de compras e produção — e fecha o ciclo com o realizado.</p>
+      <h2 class="section-title">Muito além do forecast.</h2>
+      <p class="section-sub">O PrevieWeb conecta o forecast de vendas ao plano financeiro, à otimização de estoque e ao planejamento de compras e produção, e fecha o ciclo com o realizado.</p>
     </div>
     <ol class="jornada" data-reveal>
       <li class="etapa"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg></span><div><h3>Histórico de vendas</h3><p>Importado com nota de qualidade</p></div></li>
@@ -1076,47 +938,43 @@
 
     <div class="impacto" data-reveal>
       <div class="impacto-head">
-        <h3>Uma variação de demanda afeta receita, estoque e caixa ao mesmo tempo.</h3>
+        <h3>+10% de demanda muda receita, estoque e caixa.</h3>
         <small>Exemplo ilustrativo: 10.000 un/mês, preço R$ 50, custo R$ 30/un, estoque de segurança de meio mês.</small>
       </div>
       <div class="kpis">
-        <div class="kpi"><b>Demanda</b><strong>+10%</strong><span>1.000 unidades a mais por mês</span></div>
-        <div class="kpi"><b>Receita</b><strong>+R$ 50 mil</strong><span>por mês, a R$ 50 de preço médio</span></div>
-        <div class="kpi"><b>Estoque</b><strong>+1.500 un</strong><span>1.000 para atender + 500 de segurança</span></div>
-        <div class="kpi"><b>Capital</b><strong>+R$ 45 mil</strong><span>em estoque antes de a receita entrar</span></div>
+        <div class="kpi"><strong>+10%</strong><span>de demanda: 1.000 unidades a mais por mês</span></div>
+        <div class="kpi"><strong>+R$ 50 mil</strong><span>de receita por mês, a R$ 50 de preço médio</span></div>
+        <div class="kpi"><strong>+1.500 un</strong><span>em estoque: 1.000 para atender e 500 de segurança</span></div>
+        <div class="kpi"><strong>+R$ 45 mil</strong><span>de capital em estoque antes de a receita entrar</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Diferenciais ===== -->
-<section id="diferenciais">
-  <div class="container">
+<section class="bg-creme" id="diferenciais">
+  <div class="container dif-grid">
     <div class="dif-head" data-reveal>
       <div>
-        <p class="kicker">Por que a Be Retail</p>
-        <h2 class="section-title">Tecnologia avançada. Sem a complexidade dos grandes projetos.</h2>
+        <h2 class="section-title">Avançado, sem ser complicado.</h2>
+        <p class="section-sub">Os métodos de planejamento das grandes empresas, numa plataforma feita para quem planeja no dia a dia.</p>
       </div>
       <a class="link-seta" href="#sobre">Conheça a Be Retail <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="cards">
       <div class="card" data-reveal>
-        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></div>
         <h3>Planejamento</h3>
         <p>Experiência em Demand Planning, S&amp;OP/IBP, Inventory Optimization, Supply Planning e planejamento financeiro.</p>
       </div>
       <div class="card" data-reveal>
-        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg></div>
         <h3>Tecnologia</h3>
         <p>Plataforma SaaS em nuvem, preparada para integração, segurança e rastreabilidade.</p>
       </div>
       <div class="card" data-reveal>
-        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></div>
         <h3>Simplicidade</h3>
         <p>Experiência desenvolvida para usuários de negócio, não apenas especialistas técnicos.</p>
       </div>
       <div class="card" data-reveal>
-        <div class="icon"><svg class="ic" aria-hidden="true"><use href="#i-unlock"/></svg></div>
         <h3>Acessibilidade</h3>
         <p>Tecnologia e métodos de grandes organizações, adaptados para empresas em crescimento.</p>
       </div>
@@ -1125,18 +983,17 @@
 </section>
 
 <!-- ===== Sobre ===== -->
-<section class="bg-creme" id="sobre">
+<section id="sobre">
   <div class="container sobre-grid">
     <div class="sobre-txt" data-reveal>
-      <p class="kicker">Sobre a Be Retail</p>
-      <h2 class="section-title">Experiência de grandes projetos aplicada a empresas em crescimento.</h2>
-      <p>A Be Retail nasceu para tornar tecnologias avançadas de planejamento mais acessíveis às empresas brasileiras.</p>
+      <h2 class="section-title">Experiência de grandes projetos.</h2>
+      <p>Aplicada a empresas em crescimento: a Be Retail nasceu para tornar tecnologias avançadas de planejamento mais acessíveis às empresas brasileiras.</p>
       <p>Nossa experiência combina tecnologia, supply chain, varejo, planejamento e transformação digital, trazendo práticas de grandes organizações para uma plataforma simples, prática e preparada para a realidade de empresas em crescimento.</p>
       <p>O <strong>PrevieWeb</strong> materializa essa visão, conectando Demand Planning, Financial Planning, Inventory Optimization e Supply Planning em um único ambiente.</p>
     </div>
     <aside class="sobre-card" data-reveal aria-label="PrevieWeb em resumo">
-      <span class="tag">Uma plataforma Be Retail</span>
       <p class="marca">PrevieWeb</p>
+      <p class="tag">Uma plataforma Be Retail, em quatro módulos:</p>
       <ul class="sobre-mods">
         <li class="m-demand"><span class="dot-mod"></span>Demand Planning<small>O que vender</small></li>
         <li class="m-fin"><span class="dot-mod"></span>Financial Planning<small>Quanto representa</small></li>
@@ -1170,8 +1027,8 @@
         <circle cx="55" cy="66" r="2.6"/><circle cx="64" cy="66" r="2.6"/><circle cx="72" cy="66" r="2.6"/>
       </g>
     </svg>
-    <h2><span>Planeje melhor.</span><span>Decida melhor.</span><span class="grad-text">Cresça melhor.</span></h2>
-    <p>Não queremos apenas digitalizar o Excel. Queremos transformar a forma como sua empresa planeja.</p>
+    <h2><span>Planeje melhor.</span><span>Cresça melhor.</span></h2>
+    <p>Decida com os mesmos números em todas as áreas. Não queremos apenas digitalizar o Excel. Queremos transformar a forma como sua empresa planeja.</p>
     <div class="acoes">
       <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-ghost" href="#plataforma">Conheça o PrevieWeb</a>
@@ -1190,7 +1047,7 @@
         <a href="#topo" class="logo" aria-label="Be Retail">
           <img src="assets/logo-transparente.png" alt="Be Retail" width="135" height="44" loading="lazy">
         </a>
-        <p class="desc">Tecnologia de planejamento integrado — demanda, finanças e supply — para indústria, varejo, têxtil e bens de consumo.</p>
+        <p class="desc">Tecnologia de planejamento integrado de demanda, finanças e supply para indústria, varejo, têxtil e bens de consumo.</p>
       </div>
       <div>
         <h4>Plataforma</h4>
