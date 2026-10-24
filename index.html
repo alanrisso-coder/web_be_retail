@@ -120,8 +120,9 @@
   /* ===== Header ===== */
   header{
     position:sticky;top:0;z-index:50;
-    background:var(--navy);
+    background:transparent;transition:background-color .3s;
   }
+  header.is-scrolled,header.nav-open{background:var(--navy)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;transition:padding .3s}
   header.is-scrolled .nav{padding:10px 0}
   .logo img{transition:height .3s}
@@ -171,19 +172,34 @@
   footer .logo img{height:44px}
 
   /* ===== Hero ===== */
-  .hero{background:var(--navy);color:#fff;padding:72px 0 88px}
+  /* capa em tela cheia: a foto ocupa a primeira tela, o cabeçalho fica por cima */
+  .hero{
+    position:relative;isolation:isolate;overflow:hidden;background:var(--navy);color:#fff;
+    margin-top:-96px;padding:212px 0 72px;min-height:calc(100svh + 10px);display:flex;align-items:flex-end;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+  .hero::after{
+    content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:
+      linear-gradient(to top,rgba(6,8,16,.94) 0%,rgba(6,8,16,.82) 34%,rgba(6,8,16,.2) 64%,rgba(6,8,16,0) 78%), /* taste-skill-ignore: scrim neutro sobre a foto */
+      linear-gradient(to bottom,rgba(6,8,16,.62) 0,rgba(6,8,16,0) 20%); /* scrim neutro sobre a foto */ /* taste-skill-ignore: scrim neutro sobre a foto */
+  }
+  .hero-content{width:min(1140px,calc(100% - 40px))}
   .hero h1{
     font-size:var(--t-display);font-weight:750;line-height:.98;
-    letter-spacing:-.035em;margin-bottom:40px;max-width:24ch;
+    letter-spacing:-.035em;margin-bottom:36px;max-width:24ch;
   }
-  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:start}
-  .hero p.lead{font-size:var(--t-lead);color:#fff;max-width:30rem}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:32px 0}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .hero p.lead{font-size:var(--t-lead);color:#fff;max-width:34rem}
+  .hero-side{display:flex;flex-direction:column;gap:22px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
   .hero-segs{font-size:var(--t-ui);color:rgba(255,255,255,.8);max-width:30rem}
   .hero-segs a{color:#fff;text-decoration:underline;text-decoration-color:var(--laranja);text-underline-offset:4px;text-decoration-thickness:2px}
   .hero-segs a:hover{color:var(--laranja-claro)}
-  .hero-shot img{width:100%;height:auto}
-  .hero-shot figcaption{font-size:var(--t-small);color:rgba(255,255,255,.7);margin-top:10px}
+  @media(prefers-reduced-motion:no-preference){
+    .hero-bg{animation:assentar 1.6s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes assentar{from{transform:scale(1.06)}to{transform:none}}
+  }
 
   /* fluxo Demand → Financial → Supply (componente reutilizável) */
   .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -202,11 +218,10 @@
   /* entrada do hero (só com movimento permitido) */
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:no-preference){
-    .hero h1,.hero .lead,.hero-actions,.hero-segs,.hero-shot{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+    .hero h1,.hero .lead,.hero-actions,.hero-segs{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
     .hero .lead{animation-delay:.08s}
     .hero-actions{animation-delay:.16s}
     .hero-segs{animation-delay:.24s}
-    .hero-shot{animation-delay:.12s;animation-duration:.9s}
   }
 
   /* ===== Seções ===== */
@@ -258,6 +273,8 @@
   .virada p{font-family:var(--f-display);font-size:var(--t-stat);font-weight:750;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
 
   /* ===== Plataforma ===== */
+  .plat-shot{max-width:920px;margin:56px auto 0}
+  .plat-shot figcaption{font-size:var(--t-small);color:var(--texto-suave);text-align:center;margin-top:8px}
   .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
   .mod{
     border-radius:24px;background:var(--creme);overflow:hidden;
@@ -418,9 +435,6 @@
   .card p{font-size:var(--t-ui);color:var(--texto)}
 
   /* ===== Sobre ===== */
-  .sobre-foto{margin-bottom:96px}
-  .sobre-foto img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;border-radius:28px}
-  @media(max-width:560px){.sobre-foto{margin-bottom:64px}.sobre-foto img{aspect-ratio:4/3;object-position:42% 40%;border-radius:20px}}
   .sobre-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
   .sobre-txt p{color:var(--texto);margin-top:16px}
   .sobre-txt p strong{color:var(--navy)}
@@ -496,9 +510,9 @@
   }
   @media(max-width:960px){
     section{padding:104px 0}
-    .hero{padding:56px 0 72px}
+    .hero{padding:160px 0 56px}
     .hero-grid,.prob-grid,.ciclo-grid,.dif-grid{grid-template-columns:1fr}
-    .hero-grid{gap:48px}
+    .hero-grid{gap:28px}
     .ciclo-txt{order:-1}
     .dif-grid{gap:88px}
     .sobre-grid{grid-template-columns:1fr;gap:40px}
@@ -531,6 +545,11 @@
   }
   @media(max-width:560px){
     section{padding:88px 0}
+    .hero{padding:140px 0 40px}
+    .hero-bg{object-position:40% 12%}
+    .hero::after{background:
+      linear-gradient(to top,rgba(6,8,16,.96) 0%,rgba(6,8,16,.88) 46%,rgba(6,8,16,.25) 70%,rgba(6,8,16,0) 82%), /* taste-skill-ignore: scrim neutro sobre a foto */
+      linear-gradient(to bottom,rgba(6,8,16,.62) 0,rgba(6,8,16,0) 16%)} /* taste-skill-ignore: scrim neutro sobre a foto */
     .cards{grid-template-columns:1fr;gap:32px}
     .sobre-card{padding:28px 22px}
     .sobre-mods li small{display:none}
@@ -641,24 +660,21 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="inicio">
-  <div class="container">
+  <img class="hero-bg" src="assets/fotos/planejamento-loja-1600.webp"
+       srcset="assets/fotos/planejamento-loja-900.webp 900w, assets/fotos/planejamento-loja-1600.webp 1600w"
+       sizes="100vw" width="1600" height="1072" fetchpriority="high"
+       alt="Duas empreendedoras revisam o planejamento no notebook, no balcão de uma loja de cerâmica">
+  <div class="container hero-content">
     <h1>Demanda, finanças e estoque num só plano.</h1>
     <div class="hero-grid">
-      <div class="hero-txt">
-        <p class="lead">A Be Retail conecta Demand Planning, Financial Planning, Inventory Optimization e Supply Planning numa única plataforma, com os mesmos números para comercial, financeiro e operações.</p>
+      <p class="lead">A Be Retail conecta Demand Planning, Financial Planning, Inventory Optimization e Supply Planning numa única plataforma, com os mesmos números para comercial, financeiro e operações.</p>
+      <div class="hero-side">
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20PrevieWeb." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-ghost" href="#plataforma">Explore as soluções</a>
         </div>
         <p class="hero-segs">Para <a href="#industria">indústria</a>, <a href="#varejo">varejo</a>, <a href="#textil-moda">têxtil &amp; moda</a> e <a href="#bens-de-consumo">bens de consumo</a>.</p>
       </div>
-      <figure class="hero-shot">
-        <img src="assets/previeweb/painel-executivo-1600.webp"
-             srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
-             sizes="(max-width:960px) 92vw, 680px" width="1600" height="1227" fetchpriority="high"
-             alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
-        <figcaption>Painel Executivo do PrevieWeb, com dados de demonstração.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -708,6 +724,13 @@
       <h2 class="section-title">Quatro módulos, uma só base de dados.</h2>
       <p class="section-sub">Quatro módulos conectados sobre a mesma base de dados: da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
     </div>
+    <figure class="plat-shot" data-reveal>
+      <img src="assets/previeweb/painel-executivo-1600.webp"
+           srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
+           sizes="(max-width:960px) calc(100vw - 40px), 900px" width="1600" height="1227" loading="lazy"
+           alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
+      <figcaption>Painel Executivo do PrevieWeb: os quatro módulos num só lugar, com dados de demonstração.</figcaption>
+    </figure>
 
     <div class="mods">
       <article class="mod m-demand" id="demand-planning" data-reveal>
@@ -987,12 +1010,6 @@
 
 <!-- ===== Sobre ===== -->
 <section id="sobre">
-  <figure class="container sobre-foto" data-reveal>
-    <img src="assets/fotos/planejamento-loja-1600.webp"
-         srcset="assets/fotos/planejamento-loja-900.webp 900w, assets/fotos/planejamento-loja-1600.webp 1600w"
-         sizes="(max-width:1180px) calc(100vw - 40px), 1140px" width="1600" height="1072" loading="lazy"
-         alt="Duas empreendedoras revisam o planejamento no notebook, no balcão de uma loja de cerâmica">
-  </figure>
   <div class="container sobre-grid">
     <div class="sobre-txt" data-reveal>
       <h2 class="section-title">Experiência de grandes projetos.</h2>
