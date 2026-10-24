@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/previeweb/painel-executivo-1600.webp" imagesrcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w" imagesizes="(max-width:960px) 92vw, 640px">
+<link rel="preload" as="image" href="assets/fotos/planejamento-loja-1600.webp" imagesrcset="assets/fotos/planejamento-loja-900.webp 900w, assets/fotos/planejamento-loja-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
@@ -294,8 +294,6 @@
   .virada p{font-family:var(--f-display);font-size:var(--t-stat);font-weight:750;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
 
   /* ===== Plataforma ===== */
-  .plat-shot{max-width:920px;margin:56px auto 0}
-  .plat-shot figcaption{font-size:var(--t-small);color:var(--texto-suave);text-align:center;margin-top:8px}
   .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px}
   .mod{
     border-radius:24px;background:var(--creme);overflow:hidden;
@@ -405,20 +403,35 @@
   .kpi-shot + figcaption{font-size:var(--t-small);color:rgba(255,255,255,.7);margin-top:10px}
 
   /* ===== Segmentos ===== */
-  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:112px 64px;margin-top:72px}
+  .segmentos{background:#F7F8FA}
+  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:64px}
   .seg{
-    display:flex;flex-direction:column;gap:20px;min-width:0;
+    --seg:#2563EB;--seg-bg:#EEF4FF;--seg-ic:#DCE7FD;
+    display:grid;grid-template-columns:1fr 34%;gap:24px;min-width:0;
+    background:var(--seg-bg);border-radius:24px;padding:28px;transition:transform .25s;
   }
-  .seg-top h3{font-size:var(--t-stat);font-weight:750;letter-spacing:-.02em;line-height:1.05;color:var(--navy)}
-  .seg-top p{font-size:var(--t-lead);line-height:1.4;color:var(--texto);margin-top:8px}
-  .seg .flow{gap:6px}
-  .seg .flow .step{background:#fff;color:var(--navy);padding:7px 11px}
-  .seg .flow .step:last-of-type{background:var(--navy);color:#fff}
-  .seg .flow .arrow{width:14px;height:14px;color:var(--navy)}
-  .check-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+  .seg:hover{transform:translateY(-4px)}
+  .s-var{--seg:#B45309;--seg-bg:#FCF1EA;--seg-ic:#F9DFCC}
+  .s-tex{--seg:#A23B72;--seg-bg:#FBF0F6;--seg-ic:#F6DCEA}
+  .s-bens{--seg:#15803D;--seg-bg:#EDF8F1;--seg-ic:#D3EFDD}
+  .seg-body{display:flex;flex-direction:column;gap:20px;min-width:0}
+  .seg-head{display:flex;gap:16px;align-items:flex-start}
+  .seg-ic{flex:none;width:56px;height:56px;border-radius:50%;background:var(--seg-ic);color:var(--seg);display:grid;place-items:center}
+  .seg-ic .ic{width:26px;height:26px}
+  .seg-head h3{font-size:var(--t-h3);font-weight:750;letter-spacing:-.02em;line-height:1.1;color:var(--navy)}
+  .seg-head p{font-size:var(--t-ui);line-height:1.45;color:var(--texto);margin-top:6px}
+  .seg-flow{display:flex;flex-wrap:wrap;gap:8px 6px;align-items:center}
+  .seg-flow li{display:flex;align-items:center;gap:6px}
+  .seg-flow li span{background:#fff;color:var(--navy);font-family:var(--f-ui);font-weight:600;font-size:var(--t-small);padding:6px 12px;border-radius:999px}
+  .seg-flow li:not(:last-child)::after{content:'→';color:var(--seg);font-size:var(--t-small)}
+  .seg-flow li:last-child span{background:var(--seg);color:#fff}
+  .check-list{display:grid;grid-template-columns:1fr;gap:8px}
   .check-list li{display:flex;gap:8px;align-items:flex-start;font-size:var(--t-ui);color:var(--texto);line-height:1.4}
-  .check-list .ic{width:17px;height:17px;color:var(--laranja);stroke-width:2.6;margin-top:2px}
-  .seg .link-seta{margin-top:12px}
+  .check-list .ic{width:17px;height:17px;color:var(--seg);stroke-width:2.6;margin-top:3px}
+  .seg .link-seta{margin-top:auto;display:block}
+  .seg .link-seta .ic{display:inline-block;vertical-align:-3px;margin-left:4px}
+  .seg-foto{display:block;min-height:100%}
+  .seg-foto img{width:100%;height:100%;min-height:260px;object-fit:cover;border-radius:18px}
 
   /* ===== Da demanda à decisão ===== */
   .jornada{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:56px;position:relative}
@@ -538,7 +551,7 @@
     .dif-grid{gap:88px}
     .sobre-grid{grid-template-columns:1fr;gap:40px}
     .sobre-card{max-width:520px}
-    .segs{grid-template-columns:1fr}
+    .segs{grid-template-columns:1fr;max-width:760px;margin-inline:auto}
     .kpis{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr}
     .menu-btn{display:block}
@@ -584,7 +597,9 @@
     .f-estoque{left:6%;top:23%} .f-historico{left:52%;top:22%}
     .f-comercial{left:6%;top:35%} .f-financeiro{left:52%;top:35%}
     .desafio-title span{display:inline}
-    .check-list{grid-template-columns:1fr}
+    .seg{grid-template-columns:1fr;padding:22px}
+    .seg-foto{order:-1}
+    .seg-foto img{aspect-ratio:16/9;min-height:0;height:auto}
     .impacto{padding:28px 22px}
     .kpis{grid-template-columns:1fr 1fr;gap:10px}
     .kpi{padding:16px}
@@ -771,13 +786,6 @@
       <h2 class="section-title">Quatro módulos, uma só base de dados.</h2>
       <p class="section-sub">Quatro módulos conectados sobre a mesma base de dados: da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
     </div>
-    <figure class="plat-shot" data-reveal>
-      <img src="assets/previeweb/painel-executivo-1600.webp"
-           srcset="assets/previeweb/painel-executivo-900.webp 900w, assets/previeweb/painel-executivo-1600.webp 1600w"
-           sizes="(max-width:960px) calc(100vw - 40px), 900px" width="1600" height="1227" loading="lazy"
-           alt="Painel Executivo do PrevieWeb com acurácia da previsão, viés, risco por série e gráfico de real versus previsão para 12 meses">
-      <figcaption>Painel Executivo do PrevieWeb: os quatro módulos num só lugar, com dados de demonstração.</figcaption>
-    </figure>
 
     <div class="mods">
       <article class="mod m-demand" id="demand-planning" data-reveal>
@@ -896,7 +904,7 @@
 </section>
 
 <!-- ===== Segmentos ===== -->
-<section class="bg-creme" id="segmentos">
+<section class="segmentos" id="segmentos">
   <span id="clientes" class="sr-only"></span>
   <div class="container">
     <div class="center" data-reveal>
@@ -904,88 +912,89 @@
       <p class="section-sub">A mesma plataforma de planejamento, ajustada à realidade de cada operação.</p>
     </div>
     <div class="segs">
-      <article class="seg" id="industria" data-reveal>
-        <div class="seg-top"><h3>Indústria</h3><p>Da previsão de demanda ao plano de produção.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Ind%C3%BAstria." target="_blank" rel="noopener">Conheça a solução para Indústria <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-        <div class="flow" aria-label="Fluxo para indústria">
-          <span class="step">Demand Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Estoque</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Insumos</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Compras</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Produção</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Supply Plan</span>
+      <article class="seg s-ind" id="industria" data-reveal>
+        <div class="seg-body">
+          <div class="seg-head">
+            <span class="seg-ic"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg></span>
+            <div><h3>Indústria</h3><p>Da previsão de demanda ao plano de produção.</p></div>
+          </div>
+          <ol class="seg-flow" aria-label="Fluxo para indústria"><li><span>Demanda</span></li><li><span>Estoque</span></li><li><span>Compras</span></li><li><span>Produção</span></li></ol>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU e local</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Estoque de segurança por nível de serviço</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Plano de compras e produção com ordens planejadas</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Visão temporal estilo MRP</li>
+          </ul>
+          <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Ind%C3%BAstria." target="_blank" rel="noopener">Conheça a solução para Indústria <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul class="check-list">
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de demanda</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de materiais</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Estoque de segurança</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Compras de insumos</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento de produção</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos rupturas</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Menos excesso de estoque</li>
-        </ul>
+        <picture class="seg-foto">
+          <source type="image/avif" srcset="assets/segmentos/industria-600.avif 600w, assets/segmentos/industria-1200.avif 1200w" sizes="(max-width:560px) calc(100vw - 40px), 640px">
+          <img src="assets/segmentos/industria-600.webp" srcset="assets/segmentos/industria-600.webp 600w, assets/segmentos/industria-1200.webp 1200w" sizes="(max-width:560px) calc(100vw - 40px), 640px"
+               width="600" height="399" loading="lazy" decoding="async" alt="Linha de envase com garrafas seguindo por esteiras numa fábrica">
+        </picture>
       </article>
-
-      <article class="seg" id="varejo" data-reveal>
-        <div class="seg-top"><h3>Varejo</h3><p>O produto certo, no lugar certo, no momento certo.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Varejo." target="_blank" rel="noopener">Conheça a solução para Varejo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-        <div class="flow" aria-label="Fluxo para varejo">
-          <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Loja/CD</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Estoque</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Reposição</span>
+      <article class="seg s-var" id="varejo" data-reveal>
+        <div class="seg-body">
+          <div class="seg-head">
+            <span class="seg-ic"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span>
+            <div><h3>Varejo</h3><p>O produto certo, no lugar certo, no momento certo.</p></div>
+          </div>
+          <ol class="seg-flow" aria-label="Fluxo para varejo"><li><span>SKU e loja</span></li><li><span>Forecast</span></li><li><span>Estoque</span></li><li><span>Reposição</span></li></ol>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU, loja/CD e canal</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade na previsão</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Reposição por ponto de pedido</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado com MAPE e BIAS</li>
+          </ul>
+          <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Varejo." target="_blank" rel="noopener">Conheça a solução para Varejo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul class="check-list">
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por loja/CD</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por canal</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Gestão de estoque</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Reposição</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
-        </ul>
+        <picture class="seg-foto">
+          <source type="image/avif" srcset="assets/segmentos/varejo-600.avif 600w, assets/segmentos/varejo-1024.avif 1024w" sizes="(max-width:560px) calc(100vw - 40px), 640px">
+          <img src="assets/segmentos/varejo-600.webp" srcset="assets/segmentos/varejo-600.webp 600w, assets/segmentos/varejo-1024.webp 1024w" sizes="(max-width:560px) calc(100vw - 40px), 640px"
+               width="600" height="449" loading="lazy" decoding="async" alt="Corredor de supermercado com gôndolas abastecidas dos dois lados">
+        </picture>
       </article>
-
-      <article class="seg" id="textil-moda" data-reveal>
-        <div class="seg-top"><h3>Têxtil &amp; Moda</h3><p>Planejamento preparado para coleções, sazonalidade e novos produtos.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20T%C3%AAxtil%20%26%20Moda." target="_blank" rel="noopener">Conheça a solução para Têxtil <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-        <div class="flow" aria-label="Fluxo para têxtil e moda">
-          <span class="step">Coleção</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">NPI / Produto espelho</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Matéria-prima</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Produção</span>
+      <article class="seg s-tex" id="textil-moda" data-reveal>
+        <div class="seg-body">
+          <div class="seg-head">
+            <span class="seg-ic"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg></span>
+            <div><h3>Têxtil &amp; Moda</h3><p>Planejamento para sazonalidade e lançamento de novos produtos.</p></div>
+          </div>
+          <ol class="seg-flow" aria-label="Fluxo para têxtil e moda"><li><span>Novos produtos</span></li><li><span>Forecast</span></li><li><span>Desagregação</span></li><li><span>Produção</span></li></ol>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Previsão para novos produtos (NPI)</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade na previsão</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Desagregação do forecast por SKU e local</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Plano de produção conectado à demanda</li>
+          </ul>
+          <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20T%C3%AAxtil%20%26%20Moda." target="_blank" rel="noopener">Conheça a solução para Têxtil <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul class="check-list">
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Coleções</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Novos produtos / NPI</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Produto espelho</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Sazonalidade e forecast</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Família e categoria</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Compras e matéria-prima</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Produção e estoque</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento financeiro</li>
-        </ul>
+        <picture class="seg-foto">
+          <source type="image/avif" srcset="assets/segmentos/textil-moda-600.avif 600w, assets/segmentos/textil-moda-1024.avif 1024w" sizes="(max-width:560px) calc(100vw - 40px), 640px">
+          <img src="assets/segmentos/textil-moda-600.webp" srcset="assets/segmentos/textil-moda-600.webp 600w, assets/segmentos/textil-moda-1024.webp 1024w" sizes="(max-width:560px) calc(100vw - 40px), 640px"
+               width="600" height="401" loading="lazy" decoding="async" alt="Close de cabides de madeira numa arara de roupas">
+        </picture>
       </article>
-
-      <article class="seg" id="bens-de-consumo" data-reveal>
-        <div class="seg-top"><h3>Bens de Consumo</h3><p>Conecte demanda, canais, estoque e resultado financeiro.</p><a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Bens%20de%20Consumo." target="_blank" rel="noopener">Conheça a solução para Bens de Consumo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-        <div class="flow" aria-label="Fluxo para bens de consumo">
-          <span class="step">SKU</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Canal</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Forecast</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Abastecimento</span><svg class="ic arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          <span class="step">Receita &amp; margem</span>
+      <article class="seg s-bens" id="bens-de-consumo" data-reveal>
+        <div class="seg-body">
+          <div class="seg-head">
+            <span class="seg-ic"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>
+            <div><h3>Bens de Consumo</h3><p>Conecte demanda, canais, estoque e resultado financeiro.</p></div>
+          </div>
+          <ol class="seg-flow" aria-label="Fluxo para bens de consumo"><li><span>Forecast por canal</span></li><li><span>Estoque</span></li><li><span>Abastecimento</span></li><li><span>Receita e margem</span></li></ol>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU e canal</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Receita, custos e margem a partir do forecast</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Cenários de demanda e resultado</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
+          </ul>
+          <a class="link-seta" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20do%20PrevieWeb%20para%20Bens%20de%20Consumo." target="_blank" rel="noopener">Conheça a solução para Bens de Consumo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul class="check-list">
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast por SKU</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planejamento por canal</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Mix de produtos</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Forecast x Realizado</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Estoque e abastecimento</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Receita, custos e margem</li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Cenários</li>
-        </ul>
+        <picture class="seg-foto">
+          <source type="image/avif" srcset="assets/segmentos/bens-de-consumo-600.avif 600w, assets/segmentos/bens-de-consumo-1200.avif 1200w" sizes="(max-width:560px) calc(100vw - 40px), 640px">
+          <img src="assets/segmentos/bens-de-consumo-600.webp" srcset="assets/segmentos/bens-de-consumo-600.webp 600w, assets/segmentos/bens-de-consumo-1200.webp 1200w" sizes="(max-width:560px) calc(100vw - 40px), 640px"
+               width="600" height="400" loading="lazy" decoding="async" alt="Gôndola refrigerada de supermercado com laticínios e bebidas embalados">
+        </picture>
       </article>
     </div>
   </div>
