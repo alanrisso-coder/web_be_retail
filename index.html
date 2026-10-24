@@ -418,6 +418,9 @@
   .card p{font-size:var(--t-ui);color:var(--texto)}
 
   /* ===== Sobre ===== */
+  .sobre-foto{margin-bottom:96px}
+  .sobre-foto img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;border-radius:28px}
+  @media(max-width:560px){.sobre-foto{margin-bottom:64px}.sobre-foto img{aspect-ratio:4/3;object-position:42% 40%;border-radius:20px}}
   .sobre-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
   .sobre-txt p{color:var(--texto);margin-top:16px}
   .sobre-txt p strong{color:var(--navy)}
@@ -984,6 +987,12 @@
 
 <!-- ===== Sobre ===== -->
 <section id="sobre">
+  <figure class="container sobre-foto" data-reveal>
+    <img src="assets/fotos/planejamento-loja-1600.webp"
+         srcset="assets/fotos/planejamento-loja-900.webp 900w, assets/fotos/planejamento-loja-1600.webp 1600w"
+         sizes="(max-width:1180px) calc(100vw - 40px), 1140px" width="1600" height="1072" loading="lazy"
+         alt="Duas empreendedoras revisam o planejamento no notebook, no balcão de uma loja de cerâmica">
+  </figure>
   <div class="container sobre-grid">
     <div class="sobre-txt" data-reveal>
       <h2 class="section-title">Experiência de grandes projetos.</h2>
