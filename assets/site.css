@@ -439,7 +439,8 @@ section{padding:136px 0}
 /* Footer */
 /* ===== Solução integrada (página inicial) ===== */
 /* taste-skill-ignore: rótulo com fios, fluxo em pílulas e cartões numerados seguem o layout de referência pedido */
-.solucao{background:linear-gradient(180deg,#fff 0%,#F7F7FB 100%);padding-bottom:112px}
+.desafio{padding-bottom:72px}
+.solucao{background:linear-gradient(180deg,#fff 0%,#F7F7FB 100%);padding-top:72px;padding-bottom:112px}
 .sol-wrap{width:min(1280px,calc(100% - 40px))}
 .sol-eyebrow{
   display:inline-flex;align-items:center;gap:14px;margin-bottom:18px;
@@ -512,6 +513,10 @@ section{padding:136px 0}
 .sol-cta{display:flex;justify-content:center;margin-top:40px}
 .sol-cta .btn{padding:16px 34px;font-size:1.0625rem}
 
+@media(max-width:1320px) and (min-width:1100px){
+  .sol-mod{letter-spacing:.06em;font-size:.6875rem;gap:8px}
+  .sol-head{padding-inline:18px}
+}
 /* tablet: dois por linha */
 @media(max-width:1099px){
   .sol-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(8,auto);gap:0 20px}
@@ -523,7 +528,8 @@ section{padding:136px 0}
 }
 /* celular: um por linha, na ordem dos módulos */
 @media(max-width:640px){
-  .solucao{padding-bottom:88px}
+  .desafio{padding-bottom:56px}
+  .solucao{padding-top:56px;padding-bottom:88px}
   .sol-grid{grid-template-columns:1fr;grid-template-rows:none;gap:18px}
   .sol{display:flex;flex-direction:column}
   .sol:nth-child(n+3){margin-top:0}
