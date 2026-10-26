@@ -222,7 +222,97 @@
     </div>
     <div class="virada" data-reveal>
       <p>Existe uma forma melhor de planejar.</p>
-      <a class="link-seta" href="#solucoes">Veja como a Be Retail conecta tudo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="link-seta" href="#plataforma-integrada">Veja como a Be Retail conecta tudo <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Solução integrada (quatro módulos) ===== -->
+<section class="solucao" id="plataforma-integrada">
+  <div class="container sol-wrap">
+    <div class="center" data-reveal>
+      <p class="sol-eyebrow">Solução completa</p>
+      <h2 class="section-title sol-title">Uma única plataforma <span>para prever a demanda, planejar resultados, otimizar estoques e executar o abastecimento.</span></h2>
+      <p class="section-sub">Quatro módulos sobre a mesma base de dados: da previsão de demanda ao plano de compras e produção, passando pelo resultado financeiro e pela política de estoque ideal.</p>
+    </div>
+
+    <ol class="sol-fluxo" aria-label="Como os módulos se conectam" data-reveal>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg>Mesma base de dados</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>Processos integrados</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Visão end-to-end</li>
+      <li class="fim"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg>Melhores decisões</li>
+    </ol>
+
+    <ol class="sol-grid">
+      <li class="sol m-demand" data-reveal>
+        <div class="sol-head">
+          <p class="sol-mod"><span class="sol-num">01</span>Demand Planning</p>
+          <h3>O que vamos vender?</h3>
+          <p>Previsão de demanda estatística, revisada pelo planejador e medida contra o realizado.</p>
+        </div>
+        <div class="sol-shot"><img src="assets/previeweb/bancada-planejador-recorte-560.webp" srcset="assets/previeweb/bancada-planejador-recorte-560.webp 560w, assets/previeweb/bancada-planejador-recorte-720.webp 720w" sizes="(max-width:640px) calc(100vw - 80px), (max-width:1099px) 44vw, 270px" width="560" height="420" loading="lazy" alt="Bancada do Planejador da Be Retail: séries por SKU e local com histórico, forecast estatístico, forecast final e crescimento"></div>
+        <ul class="chips sol-chips" aria-label="Principais recursos de Demand Planning">
+          <li>Forecast estatístico</li><li>SKU, local e canal</li><li>Sazonalidade</li><li>NPI / novos produtos</li><li>Revisão do planejador</li><li>Forecast x Realizado</li>
+        </ul>
+        <a class="link-seta sol-link" href="plataforma.html#demand-planning">Conheça todas as funcionalidades<span class="sr-only"> de Demand Planning</span> <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </li>
+
+      <li class="sol m-fin" data-reveal>
+        <div class="sol-head">
+          <p class="sol-mod"><span class="sol-num">02</span>Financial Planning</p>
+          <h3>Quanto isso representa financeiramente?</h3>
+          <p>O forecast de demanda vira receita, custo, margem e caixa, com cenários.</p>
+        </div>
+        <div class="sol-shot"><img src="assets/previeweb/painel-financeiro-recorte-560.webp" srcset="assets/previeweb/painel-financeiro-recorte-560.webp 560w, assets/previeweb/painel-financeiro-recorte-720.webp 720w" sizes="(max-width:640px) calc(100vw - 80px), (max-width:1099px) 44vw, 270px" width="560" height="420" loading="lazy" alt="Painel Financeiro da Be Retail: insights executivos, previsão de receita, receita versus orçamento, acurácia e gráfico de receita realizada versus plano"></div>
+        <ul class="chips sol-chips" aria-label="Principais recursos de Financial Planning">
+          <li>Receita projetada</li><li>Custos e margem</li><li>Orçamento</li><li>DRE</li><li>Fluxo de caixa</li><li>Cenários</li>
+        </ul>
+        <a class="link-seta sol-link" href="plataforma.html#financial-planning">Conheça todas as funcionalidades<span class="sr-only"> de Financial Planning</span> <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </li>
+
+      <li class="sol m-inv" data-reveal>
+        <div class="sol-head">
+          <p class="sol-mod"><span class="sol-num">03</span>Inventory Optimization <span class="novo">novo</span></p>
+          <h3>Quanto estoque devemos ter?</h3>
+          <p>O nível de estoque ideal para cada SKU e local: menos ruptura, menos excesso e menos capital parado.</p>
+        </div>
+        <div class="sol-shot inv-mock" role="img" aria-label="Exemplo ilustrativo de Inventory Optimization: nível de serviço de 97,5% e estoque 18% menor que a política atual; tabela por SKU com nível de serviço, cobertura e status">
+          <div class="inv-kpis" aria-hidden="true">
+            <div><b>Nível de serviço</b><strong>97,5%</strong><small>meta 97%</small></div>
+            <div><b>Estoque</b><strong>−18%</strong><small>vs. política atual</small></div>
+          </div>
+          <table class="inv-tab" aria-hidden="true">
+            <thead><tr><th>SKU</th><th>NS</th><th>Cob.</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>SKU-1042</td><td>99%</td><td>24d</td><td><span class="inv-st st-ok">OK</span></td></tr>
+              <tr><td>SKU-2210</td><td>95%</td><td>61d</td><td><span class="inv-st st-exc">Excesso</span></td></tr>
+              <tr><td>SKU-3307</td><td>97%</td><td>6d</td><td><span class="inv-st st-rup">Risco</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="chips sol-chips" aria-label="Principais recursos de Inventory Optimization">
+          <li>Nível de serviço por SKU</li><li>Estoque de segurança</li><li>Ponto de pedido</li><li>Mínimo e máximo</li><li>Políticas por ABC/XYZ</li><li>Risco de ruptura</li>
+        </ul>
+        <a class="link-seta sol-link" href="plataforma.html#inventory-optimization">Conheça todas as funcionalidades<span class="sr-only"> de Inventory Optimization</span> <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </li>
+
+      <li class="sol m-supply" data-reveal>
+        <div class="sol-head">
+          <p class="sol-mod"><span class="sol-num">04</span>Supply Planning</p>
+          <h3>Como vamos atender a demanda?</h3>
+          <p>Para cada SKU e local: quanto, quando e onde comprar, produzir ou repor.</p>
+        </div>
+        <div class="sol-shot"><img src="assets/previeweb/supply-visao-temporal-recorte-560.webp" srcset="assets/previeweb/supply-visao-temporal-recorte-560.webp 560w, assets/previeweb/supply-visao-temporal-recorte-720.webp 720w" sizes="(max-width:640px) calc(100vw - 80px), (max-width:1099px) 44vw, 270px" width="560" height="420" loading="lazy" alt="Visão temporal estilo MRP da Be Retail: forecast, estoque inicial, estoque de segurança, necessidade, supply e data da ordem por mês"></div>
+        <ul class="chips sol-chips" aria-label="Principais recursos de Supply Planning">
+          <li>Necessidade líquida</li><li>Lead time e MOQ</li><li>Plano de compras</li><li>Plano de produção</li><li>Ordens planejadas</li><li>Visão temporal estilo MRP</li>
+        </ul>
+        <a class="link-seta sol-link" href="plataforma.html#supply-planning">Conheça todas as funcionalidades<span class="sr-only"> de Supply Planning</span> <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </li>
+    </ol>
+    <p class="sol-nota">Telas da plataforma Be Retail com dados de demonstração · Inventory Optimization: exemplo ilustrativo</p>
+
+    <div class="sol-cta" data-reveal>
+      <a class="btn btn-primary" href="https://wa.me/5541991013904?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20da%20Be%20Retail." target="_blank" rel="noopener">Agende uma demonstração <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
